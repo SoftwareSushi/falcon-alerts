@@ -1,5 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { mockPreviousChecks } from '../data/mockData';
+import {
+	mockPreviousChecks,
+	mockWatchlistEntries,
+	mockAlerts,
+	mockSuspiciousEntities,
+} from '../data/mockData';
 
 interface DashboardProps {
 	onLogout: () => void;
@@ -275,6 +280,201 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 					</div>
 				</div>
 
+				{/* New Features Summary */}
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+					{/* Alerts Summary */}
+					<div className="card">
+						<div className="card-header">
+							<div className="flex items-center justify-between">
+								<h3
+									className="text-lg font-semibold"
+									style={{ color: 'var(--color-gray-900)' }}
+								>
+									Alerts
+								</h3>
+								<button
+									onClick={() => navigate('/alerts')}
+									className="btn btn-sm btn-ghost"
+								>
+									View All
+								</button>
+							</div>
+						</div>
+						<div className="card-body">
+							<div className="space-y-3">
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Unread
+									</span>
+									<span className="badge badge-error">
+										{mockAlerts.filter((alert) => !alert.isRead).length}
+									</span>
+								</div>
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Critical
+									</span>
+									<span className="badge badge-warning">
+										{
+											mockAlerts.filter((alert) => alert.severity === 'critical')
+												.length
+										}
+									</span>
+								</div>
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Action Required
+									</span>
+									<span className="badge badge-info">
+										{mockAlerts.filter((alert) => alert.requiresAction).length}
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{/* Watchlist Summary */}
+					<div className="card">
+						<div className="card-header">
+							<div className="flex items-center justify-between">
+								<h3
+									className="text-lg font-semibold"
+									style={{ color: 'var(--color-gray-900)' }}
+								>
+									Watchlist
+								</h3>
+								<button
+									onClick={() => navigate('/watchlist')}
+									className="btn btn-sm btn-ghost"
+								>
+									Manage
+								</button>
+							</div>
+						</div>
+						<div className="card-body">
+							<div className="space-y-3">
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Monitored Entities
+									</span>
+									<span className="badge badge-primary">
+										{mockWatchlistEntries.length}
+									</span>
+								</div>
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Real-time
+									</span>
+									<span className="badge badge-secondary">
+										{
+											mockWatchlistEntries.filter(
+												(entry) =>
+													entry.monitoringType === 'realtime' && entry.isActive
+											).length
+										}
+									</span>
+								</div>
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Weekly
+									</span>
+									<span className="badge badge-accent">
+										{
+											mockWatchlistEntries.filter(
+												(entry) =>
+													entry.monitoringType === 'weekly' && entry.isActive
+											).length
+										}
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{/* Registry Summary */}
+					<div className="card">
+						<div className="card-header">
+							<div className="flex items-center justify-between">
+								<h3
+									className="text-lg font-semibold"
+									style={{ color: 'var(--color-gray-900)' }}
+								>
+									Suspicious Registry
+								</h3>
+								<button
+									onClick={() => navigate('/registry')}
+									className="btn btn-sm btn-ghost"
+								>
+									Browse
+								</button>
+							</div>
+						</div>
+						<div className="card-body">
+							<div className="space-y-3">
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Total Entities
+									</span>
+									<span className="badge badge-info">
+										{mockSuspiciousEntities.length}
+									</span>
+								</div>
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Critical Risk
+									</span>
+									<span className="badge badge-error">
+										{
+											mockSuspiciousEntities.filter(
+												(entity) => entity.riskLevel === 'critical'
+											).length
+										}
+									</span>
+								</div>
+								<div className="flex items-center justify-between">
+									<span
+										className="text-sm"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Ports
+									</span>
+									<span className="badge badge-warning">
+										{
+											mockSuspiciousEntities.filter(
+												(entity) => entity.type === 'port'
+											).length
+										}
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				{/* Main Content Grid */}
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 					{/* Recent Checks Table */}
@@ -446,7 +646,10 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 										</svg>
 										View All Checks
 									</button>
-									<button className="w-full btn btn-secondary justify-start">
+									<button
+										onClick={() => navigate('/watchlist')}
+										className="w-full btn btn-secondary justify-start"
+									>
 										<svg
 											className="w-4 h-4 mr-3"
 											fill="none"
@@ -457,10 +660,73 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 												strokeLinecap="round"
 												strokeLinejoin="round"
 												strokeWidth={2}
-												d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+												d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+											/>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
 											/>
 										</svg>
-										Export Report
+										Manage Watchlist
+									</button>
+									<button
+										onClick={() => navigate('/alerts')}
+										className="w-full btn btn-secondary justify-start"
+									>
+										<svg
+											className="w-4 h-4 mr-3"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M15 17h5l-5 5v-5zM7 7h5V2L7 7zm8 8V9.5a3.5 3.5 0 10-7 0V15a3 3 0 106 0z"
+											/>
+										</svg>
+										View Alerts
+									</button>
+									<button
+										onClick={() => navigate('/registry')}
+										className="w-full btn btn-secondary justify-start"
+									>
+										<svg
+											className="w-4 h-4 mr-3"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+											/>
+										</svg>
+										Suspicious Registry
+									</button>
+									<button
+										onClick={() => navigate('/integrations')}
+										className="w-full btn btn-secondary justify-start"
+									>
+										<svg
+											className="w-4 h-4 mr-3"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+											/>
+										</svg>
+										ERP Integrations
 									</button>
 								</div>
 							</div>

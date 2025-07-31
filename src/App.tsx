@@ -11,6 +11,10 @@ import Dashboard from './components/Dashboard';
 import NewCheck from './components/NewCheck';
 import Processing from './components/Processing';
 import Results from './components/Results';
+import Watchlist from './components/Watchlist';
+import Alerts from './components/Alerts';
+import SuspiciousRegistry from './components/SuspiciousRegistry';
+import ERPIntegration from './components/ERPIntegration';
 
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -67,6 +71,42 @@ function App() {
 						element={
 							isAuthenticated ? (
 								<Results />
+							) : (
+								<Navigate to="/login" replace />
+							)
+						}
+					/>
+					<Route
+						path="/watchlist"
+						element={
+							isAuthenticated ? (
+								<Watchlist />
+							) : (
+								<Navigate to="/login" replace />
+							)
+						}
+					/>
+					<Route
+						path="/alerts"
+						element={
+							isAuthenticated ? <Alerts /> : <Navigate to="/login" replace />
+						}
+					/>
+					<Route
+						path="/registry"
+						element={
+							isAuthenticated ? (
+								<SuspiciousRegistry />
+							) : (
+								<Navigate to="/login" replace />
+							)
+						}
+					/>
+					<Route
+						path="/integrations"
+						element={
+							isAuthenticated ? (
+								<ERPIntegration />
 							) : (
 								<Navigate to="/login" replace />
 							)
