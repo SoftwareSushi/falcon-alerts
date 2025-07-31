@@ -16,7 +16,7 @@ function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 	return (
-		<Router>
+		<Router basename="/falcon-alerts">
 			<div className="min-h-screen bg-gray-50">
 				<Routes>
 					<Route
