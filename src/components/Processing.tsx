@@ -1,26 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+const dataSources = [
+	'Criminal Records Database',
+	'Public Court Records',
+	'Credit Bureau Reports',
+	'Business Registry',
+	'Social Media Profiles',
+	'Property Records',
+	'Employment History',
+	'Professional Licenses',
+	'Bankruptcy Records',
+	'Sanctions Lists',
+	'News & Media Sources',
+	'Corporate Filings',
+];
+
 export default function Processing() {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const [progress, setProgress] = useState(0);
 	const [currentSource, setCurrentSource] = useState(0);
-
-	const dataSources = [
-		'Criminal Records Database',
-		'Public Court Records',
-		'Credit Bureau Reports',
-		'Business Registry',
-		'Social Media Profiles',
-		'Property Records',
-		'Employment History',
-		'Professional Licenses',
-		'Bankruptcy Records',
-		'Sanctions Lists',
-		'News & Media Sources',
-		'Corporate Filings',
-	];
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -28,7 +28,7 @@ export default function Processing() {
 				if (prev >= 100) {
 					clearInterval(interval);
 					// Simulate different results - randomly decide if clean or flagged
-					const isClean = Math.random() > 0.3; // 70% chance of being clean
+					const isClean = Math.random() > 0.5; // 50% chance of being clean
 					setTimeout(() => {
 						navigate('/results', {
 							state: {
@@ -57,26 +57,38 @@ export default function Processing() {
 
 	return (
 		<div
-			className="min-h-screen flex items-center justify-center"
+			className="min-h-screen"
 			style={{ backgroundColor: 'var(--color-gray-50)' }}
 		>
-			<div className="max-w-lg w-full mx-6">
-				<div className="card text-center">
-					<div className="card-body" style={{ padding: '48px 32px' }}>
-						{/* Modern Loading Spinner */}
-						<div className="relative mx-auto mb-8">
+			{/* Modern Header */}
+			<header className="bg-white border-b border-gray-200">
+				<div className="max-w-7xl mx-auto px-6 py-4">
+					<div className="flex items-center space-x-4">
+						<button
+							onClick={() => navigate('/dashboard')}
+							className="btn btn-ghost"
+						>
+							<svg
+								className="h-5 w-5"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M15 19l-7-7 7-7"
+								/>
+							</svg>
+						</button>
+						<div className="flex items-center space-x-3">
 							<div
-								className="w-20 h-20 border-4 rounded-full"
-								style={{ borderColor: 'var(--color-gray-200)' }}
-							></div>
-							<div
-								className="absolute top-0 left-0 w-20 h-20 border-4 rounded-full animate-spin border-t-transparent"
-								style={{ borderColor: 'var(--color-blue-500)' }}
-							></div>
-							<div className="absolute inset-0 flex items-center justify-center">
+								className="w-8 h-8 rounded-lg flex items-center justify-center"
+								style={{ backgroundColor: 'var(--color-gray-900)' }}
+							>
 								<svg
-									className="w-8 h-8"
-									style={{ color: 'var(--color-blue-500)' }}
+									className="w-5 h-5 text-white"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -89,51 +101,95 @@ export default function Processing() {
 									/>
 								</svg>
 							</div>
+							<h1
+								className="text-xl font-semibold"
+								style={{ color: 'var(--color-gray-900)' }}
+							>
+								Processing Background Check
+							</h1>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			{/* Main Content */}
+			<main className="max-w-4xl mx-auto px-6 py-8">
+				<div className="card">
+					<div className="card-body text-center">
+						{/* Modern Loading Spinner */}
+						<div className="flex items-center justify-center mb-8">
+							<div className="relative">
+								<div
+									className="w-20 h-20 border-4 rounded-full"
+									style={{ borderColor: 'var(--color-gray-200)' }}
+								></div>
+								<div
+									className="absolute inset-0 w-20 h-20 border-4 rounded-full animate-spin"
+									style={{
+										borderColor:
+											'var(--color-gray-900) transparent transparent transparent',
+									}}
+								></div>
+								<div className="absolute inset-0 flex items-center justify-center">
+									<div
+										className="w-10 h-10 rounded-lg flex items-center justify-center"
+										style={{ backgroundColor: 'var(--color-gray-100)' }}
+									>
+										<svg
+											className="w-6 h-6"
+											style={{ color: 'var(--color-gray-900)' }}
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+											/>
+										</svg>
+									</div>
+								</div>
+							</div>
 						</div>
 
 						{/* Progress Text */}
-						<h2
-							className="text-2xl font-semibold mb-6"
-							style={{ color: 'var(--color-gray-900)' }}
+						<p
+							className="text-lg font-medium mb-6"
+							style={{ color: 'var(--color-gray-700)' }}
 						>
-							Processing Background Check
-						</h2>
+							Scanning {dataSources.length} data sources for comprehensive
+							results...
+						</p>
 
 						{/* Progress Bar */}
 						<div
-							className="w-full rounded-full h-3 mb-8"
+							className="w-full rounded-full h-2 mb-8"
 							style={{ backgroundColor: 'var(--color-gray-200)' }}
 						>
 							<div
-								className="h-3 rounded-full transition-all duration-300 ease-out"
+								className="h-2 rounded-full transition-all duration-300 ease-out"
 								style={{
 									width: `${progress}%`,
-									backgroundColor: 'var(--color-blue-500)',
+									backgroundColor: 'var(--color-gray-900)',
 								}}
 							></div>
 						</div>
 
-						{/* Current Progress */}
-						<p
-							className="text-lg mb-4"
-							style={{ color: 'var(--color-gray-700)' }}
-						>
-							Scanning {dataSources.length} data sources...
-						</p>
-
 						{/* Current Source */}
 						<div
 							className="rounded-lg p-4 mb-6"
-							style={{ backgroundColor: 'var(--color-gray-100)' }}
+							style={{ backgroundColor: 'var(--color-gray-50)' }}
 						>
 							<p
-								className="text-sm mb-1"
+								className="text-sm font-medium mb-1"
 								style={{ color: 'var(--color-gray-600)' }}
 							>
 								Currently scanning:
 							</p>
 							<p
-								className="font-medium"
+								className="font-semibold"
 								style={{ color: 'var(--color-gray-900)' }}
 							>
 								{dataSources[currentSource]}
@@ -141,16 +197,16 @@ export default function Processing() {
 						</div>
 
 						{/* Progress Stats */}
-						<div className="flex justify-between items-center mb-6">
+						<div className="grid grid-cols-3 gap-6 mb-8">
 							<div className="text-center">
 								<p
 									className="text-2xl font-semibold"
-									style={{ color: 'var(--color-blue-600)' }}
+									style={{ color: 'var(--color-gray-900)' }}
 								>
 									{Math.round(progress)}%
 								</p>
 								<p
-									className="text-sm"
+									className="text-sm font-medium"
 									style={{ color: 'var(--color-gray-500)' }}
 								>
 									Complete
@@ -164,13 +220,13 @@ export default function Processing() {
 									{Math.floor(progress / (100 / dataSources.length))}
 								</p>
 								<p
-									className="text-sm"
+									className="text-sm font-medium"
 									style={{ color: 'var(--color-gray-500)' }}
 								>
 									Sources Scanned
 								</p>
 							</div>
-							{progress < 100 && (
+							{progress < 100 ? (
 								<div className="text-center">
 									<p
 										className="text-2xl font-semibold"
@@ -179,25 +235,58 @@ export default function Processing() {
 										{Math.max(1, Math.ceil((100 - progress) / 20))}s
 									</p>
 									<p
-										className="text-sm"
+										className="text-sm font-medium"
 										style={{ color: 'var(--color-gray-500)' }}
 									>
 										Remaining
+									</p>
+								</div>
+							) : (
+								<div className="text-center">
+									<p
+										className="text-2xl font-semibold"
+										style={{ color: 'var(--color-green-600)' }}
+									>
+										✓
+									</p>
+									<p
+										className="text-sm font-medium"
+										style={{ color: 'var(--color-gray-500)' }}
+									>
+										Complete
 									</p>
 								</div>
 							)}
 						</div>
 
 						{/* Cancel Option */}
-						<button
-							onClick={() => navigate('/dashboard')}
-							className="btn btn-ghost mt-4"
+						<div
+							className="mt-6 pt-6 border-t"
+							style={{ borderColor: 'var(--color-gray-200)' }}
 						>
-							Cancel and return to dashboard
-						</button>
+							<button
+								onClick={() => navigate('/dashboard')}
+								className="btn btn-ghost"
+							>
+								<svg
+									className="w-4 h-4 mr-2"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										d="M6 18L18 6M6 6l12 12"
+									/>
+								</svg>
+								Cancel and return to dashboard
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</main>
 		</div>
 	);
 }
