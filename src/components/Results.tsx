@@ -7,8 +7,7 @@ export default function Results() {
 	const location = useLocation();
 	const [showFullReport, setShowFullReport] = useState(false);
 
-	const { status, isNewCheck, entityType, data } =
-		location.state || {};
+	const { status, entityType, data } = location.state || {};
 	const isClean = status === 'Clean';
 	const isFlagged = status === 'Flagged';
 
