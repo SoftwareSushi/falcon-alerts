@@ -8,7 +8,7 @@ import {
 
 export default function SuspiciousRegistry() {
 	const navigate = useNavigate();
-	const [entities, setEntities] = useState<SuspiciousEntity[]>(
+	const [entities] = useState<SuspiciousEntity[]>(
 		mockSuspiciousEntities
 	);
 	const [searchTerm, setSearchTerm] = useState('');

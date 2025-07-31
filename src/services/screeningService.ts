@@ -1,7 +1,6 @@
 import {
 	type FlaggedRecord,
 	type SuspiciousEntity,
-	type PreviousCheck,
 	mockFlaggedRecords,
 	mockSuspiciousEntities,
 	mockPreviousChecks,
@@ -413,10 +412,9 @@ export class ScreeningService {
 		];
 		const highRiskRegions = ['Sinaloa', 'Valle del Cauca', 'Kandahar'];
 
-		return (
-			highRiskCountries.includes(address.country) ||
-			(address.region && highRiskRegions.includes(address.region))
-		);
+		return (highRiskCountries.includes(address.country) ||
+			(address.region &&
+				highRiskRegions.includes(address.region))) as boolean;
 	}
 
 	private hasRiskyBusinessActivity(activities: string[]): boolean {

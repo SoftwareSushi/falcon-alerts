@@ -1,5 +1,5 @@
-export { WatchlistService } from './watchlistService';
-export { ScreeningService } from './screeningService';
+import { WatchlistService } from './watchlistService';
+import { ScreeningService } from './screeningService';
 
 // Service instances for easy access
 export const watchlistService = WatchlistService.getInstance();

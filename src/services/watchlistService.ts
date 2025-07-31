@@ -1,11 +1,8 @@
 import {
 	type WatchlistEntry,
 	type Alert,
-	type SuspiciousEntity,
-	type PreviousCheck,
 	mockWatchlistEntries,
 	mockAlerts,
-	mockSuspiciousEntities,
 	mockPreviousChecks,
 } from '../data/mockData';
 
