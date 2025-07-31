@@ -37,7 +37,7 @@ interface BusinessForm {
 
 export default function NewCheck() {
 	const navigate = useNavigate();
-	const [entityType, setEntityType] = useState<EntityType>('person');
+	const [entityType, setEntityType] = useState<EntityType>('business');
 	const [personForm, setPersonForm] = useState<PersonForm>({
 		firstName: '',
 		lastName: '',
