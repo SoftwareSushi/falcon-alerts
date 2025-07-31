@@ -16,10 +16,9 @@ interface PersonForm {
 		state: string;
 		zip: string;
 	};
-	socialAccounts: {
-		twitter: string;
-		linkedin: string;
-	};
+	countryOfOperation: string;
+	typeOfGoodsServices: string;
+	natureOfRelationship: string;
 }
 
 interface BusinessForm {
@@ -31,6 +30,9 @@ interface BusinessForm {
 		state: string;
 		zip: string;
 	};
+	countryOfOperation: string;
+	typeOfGoodsServices: string;
+	natureOfRelationship: string;
 }
 
 export default function NewCheck() {
@@ -44,12 +46,17 @@ export default function NewCheck() {
 		ssn: '',
 		phoneNumbers: [''],
 		address: { street: '', city: '', state: '', zip: '' },
-		socialAccounts: { twitter: '', linkedin: '' },
+		countryOfOperation: '',
+		typeOfGoodsServices: '',
+		natureOfRelationship: '',
 	});
 	const [businessForm, setBusinessForm] = useState<BusinessForm>({
 		businessName: '',
 		phoneNumbers: [''],
 		address: { street: '', city: '', state: '', zip: '' },
+		countryOfOperation: '',
+		typeOfGoodsServices: '',
+		natureOfRelationship: '',
 	});
 
 	const addPhoneNumber = () => {
@@ -188,38 +195,6 @@ export default function NewCheck() {
 							<div className="grid grid-cols-2 gap-4">
 								<label
 									className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-										entityType === 'person'
-											? 'border-blue-500 bg-blue-50'
-											: 'border-gray-200 hover:border-gray-300'
-									}`}
-								>
-									<input
-										type="radio"
-										name="entityType"
-										value="person"
-										checked={entityType === 'person'}
-										onChange={(e) =>
-											setEntityType(e.target.value as EntityType)
-										}
-										className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-									/>
-									<div className="ml-3">
-										<div
-											className="text-sm font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
-										>
-											Person
-										</div>
-										<div
-											className="text-xs"
-											style={{ color: 'var(--color-gray-500)' }}
-										>
-											Individual background check
-										</div>
-									</div>
-								</label>
-								<label
-									className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
 										entityType === 'business'
 											? 'border-blue-500 bg-blue-50'
 											: 'border-gray-200 hover:border-gray-300'
@@ -247,6 +222,38 @@ export default function NewCheck() {
 											style={{ color: 'var(--color-gray-500)' }}
 										>
 											Company background check
+										</div>
+									</div>
+								</label>
+								<label
+									className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
+										entityType === 'person'
+											? 'border-blue-500 bg-blue-50'
+											: 'border-gray-200 hover:border-gray-300'
+									}`}
+								>
+									<input
+										type="radio"
+										name="entityType"
+										value="person"
+										checked={entityType === 'person'}
+										onChange={(e) =>
+											setEntityType(e.target.value as EntityType)
+										}
+										className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+									/>
+									<div className="ml-3">
+										<div
+											className="text-sm font-medium"
+											style={{ color: 'var(--color-gray-900)' }}
+										>
+											Person
+										</div>
+										<div
+											className="text-xs"
+											style={{ color: 'var(--color-gray-500)' }}
+										>
+											Individual background check
 										</div>
 									</div>
 								</label>
@@ -349,6 +356,68 @@ export default function NewCheck() {
 									/>
 								</div>
 
+								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+									<div>
+										<label className="form-label">Country of Operation</label>
+										<input
+											type="text"
+											required
+											value={personForm.countryOfOperation}
+											onChange={(e) =>
+												setPersonForm((prev) => ({
+													...prev,
+													countryOfOperation: e.target.value,
+												}))
+											}
+											className="form-input"
+											placeholder="Enter country of operation"
+										/>
+									</div>
+									<div>
+										<label className="form-label">
+											Type of Goods/Services Involved
+										</label>
+										<input
+											type="text"
+											required
+											value={personForm.typeOfGoodsServices}
+											onChange={(e) =>
+												setPersonForm((prev) => ({
+													...prev,
+													typeOfGoodsServices: e.target.value,
+												}))
+											}
+											className="form-input"
+											placeholder="Enter type of goods or services"
+										/>
+									</div>
+								</div>
+
+								<div>
+									<label className="form-label">Nature of Relationship</label>
+									<select
+										required
+										value={personForm.natureOfRelationship}
+										onChange={(e) =>
+											setPersonForm((prev) => ({
+												...prev,
+												natureOfRelationship: e.target.value,
+											}))
+										}
+										className="form-input"
+									>
+										<option value="">Select nature of relationship</option>
+										<option value="Supplier">Supplier</option>
+										<option value="Vendor">Vendor</option>
+										<option value="JV Partner">JV Partner</option>
+										<option value="Customer">Customer</option>
+										<option value="Contractor">Contractor</option>
+										<option value="Employee">Employee</option>
+										<option value="Consultant">Consultant</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+
 								{/* Phone Numbers */}
 								<div>
 									<label className="form-label">Phone Numbers</label>
@@ -441,45 +510,6 @@ export default function NewCheck() {
 										</div>
 									</div>
 								</div>
-
-								{/* Social Accounts */}
-								<div>
-									<label className="form-label">
-										Social Accounts (Optional)
-									</label>
-									<div className="space-y-4">
-										<input
-											type="text"
-											placeholder="Twitter Username"
-											value={personForm.socialAccounts.twitter}
-											onChange={(e) =>
-												setPersonForm((prev) => ({
-													...prev,
-													socialAccounts: {
-														...prev.socialAccounts,
-														twitter: e.target.value,
-													},
-												}))
-											}
-											className="form-input"
-										/>
-										<input
-											type="text"
-											placeholder="LinkedIn Profile URL"
-											value={personForm.socialAccounts.linkedin}
-											onChange={(e) =>
-												setPersonForm((prev) => ({
-													...prev,
-													socialAccounts: {
-														...prev.socialAccounts,
-														linkedin: e.target.value,
-													},
-												}))
-											}
-											className="form-input"
-										/>
-									</div>
-								</div>
 							</div>
 						</div>
 					) : (
@@ -508,6 +538,68 @@ export default function NewCheck() {
 										className="form-input"
 										placeholder="Enter business name"
 									/>
+								</div>
+
+								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+									<div>
+										<label className="form-label">Country of Operation</label>
+										<input
+											type="text"
+											required
+											value={businessForm.countryOfOperation}
+											onChange={(e) =>
+												setBusinessForm((prev) => ({
+													...prev,
+													countryOfOperation: e.target.value,
+												}))
+											}
+											className="form-input"
+											placeholder="Enter country of operation"
+										/>
+									</div>
+									<div>
+										<label className="form-label">
+											Type of Goods/Services Involved
+										</label>
+										<input
+											type="text"
+											required
+											value={businessForm.typeOfGoodsServices}
+											onChange={(e) =>
+												setBusinessForm((prev) => ({
+													...prev,
+													typeOfGoodsServices: e.target.value,
+												}))
+											}
+											className="form-input"
+											placeholder="Enter type of goods or services"
+										/>
+									</div>
+								</div>
+
+								<div>
+									<label className="form-label">Nature of Relationship</label>
+									<select
+										required
+										value={businessForm.natureOfRelationship}
+										onChange={(e) =>
+											setBusinessForm((prev) => ({
+												...prev,
+												natureOfRelationship: e.target.value,
+											}))
+										}
+										className="form-input"
+									>
+										<option value="">Select nature of relationship</option>
+										<option value="Supplier">Supplier</option>
+										<option value="Vendor">Vendor</option>
+										<option value="JV Partner">JV Partner</option>
+										<option value="Customer">Customer</option>
+										<option value="Contractor">Contractor</option>
+										<option value="Employee">Employee</option>
+										<option value="Consultant">Consultant</option>
+										<option value="Other">Other</option>
+									</select>
 								</div>
 
 								{/* Phone Numbers */}
