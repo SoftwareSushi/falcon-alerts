@@ -17,7 +17,10 @@ function App() {
 
 	return (
 		<Router basename="/falcon-alerts">
-			<div className="min-h-screen bg-gray-50">
+			<div
+				className="min-h-screen"
+				style={{ backgroundColor: 'var(--color-gray-50)' }}
+			>
 				<Routes>
 					<Route
 						path="/login"

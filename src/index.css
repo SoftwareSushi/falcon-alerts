@@ -1,23 +1,85 @@
 @import 'tailwindcss';
 
 :root {
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	/* Modern neutral color palette */
+	--color-gray-50: #fafafa;
+	--color-gray-100: #f5f5f5;
+	--color-gray-200: #e5e5e5;
+	--color-gray-300: #d4d4d4;
+	--color-gray-400: #a3a3a3;
+	--color-gray-500: #737373;
+	--color-gray-600: #525252;
+	--color-gray-700: #404040;
+	--color-gray-800: #262626;
+	--color-gray-900: #171717;
+
+	/* Soft accent colors */
+	--color-blue-50: #eff6ff;
+	--color-blue-100: #dbeafe;
+	--color-blue-500: #3b82f6;
+	--color-blue-600: #2563eb;
+	--color-blue-700: #1d4ed8;
+
+	/* Semantic colors */
+	--color-green-50: #f0fdf4;
+	--color-green-100: #dcfce7;
+	--color-green-500: #22c55e;
+	--color-green-600: #16a34a;
+
+	--color-red-50: #fef2f2;
+	--color-red-100: #fee2e2;
+	--color-red-500: #ef4444;
+	--color-red-600: #dc2626;
+
+	--color-yellow-50: #fefce8;
+	--color-yellow-100: #fef3c7;
+	--color-yellow-500: #eab308;
+	--color-yellow-600: #ca8a04;
+
+	/* Typography */
+	font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
+		system-ui, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
+	letter-spacing: -0.01em;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
+	background-color: var(--color-gray-50);
+	color: var(--color-gray-900);
 }
 
 #root {
 	width: 100%;
 	min-height: 100vh;
+}
+
+/* Modern focus styles */
+*:focus {
+	outline: 2px solid var(--color-blue-500);
+	outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Improved button styles */
+button {
+	font-family: inherit;
+	font-feature-settings: inherit;
+	font-variation-settings: inherit;
 }

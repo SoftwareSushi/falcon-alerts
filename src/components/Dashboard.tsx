@@ -9,18 +9,31 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 	const navigate = useNavigate();
 
 	const getStatusBadge = (status: string) => {
-		const baseClasses =
-			'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium';
 		switch (status) {
 			case 'Clean':
-				return `${baseClasses} bg-green-100 text-green-800`;
+				return 'badge badge-success';
 			case 'Flagged':
-				return `${baseClasses} bg-red-100 text-red-800`;
+				return 'badge badge-error';
 			case 'In Progress':
-				return `${baseClasses} bg-yellow-100 text-yellow-800`;
+				return 'badge badge-warning';
 			default:
-				return `${baseClasses} bg-gray-100 text-gray-800`;
+				return 'badge badge-neutral';
 		}
+	};
+
+	const getStatsData = () => {
+		const total = mockPreviousChecks.length;
+		const clean = mockPreviousChecks.filter(
+			(check) => check.status === 'Clean'
+		).length;
+		const flagged = mockPreviousChecks.filter(
+			(check) => check.status === 'Flagged'
+		).length;
+		const inProgress = mockPreviousChecks.filter(
+			(check) => check.status === 'In Progress'
+		).length;
+
+		return { total, clean, flagged, inProgress };
 	};
 
 	const handleViewDetails = (id: string, status: string) => {
@@ -31,16 +44,24 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 		}
 	};
 
+	const stats = getStatsData();
+
 	return (
-		<div className="min-h-screen bg-gray-50">
-			{/* Header */}
-			<div className="bg-white shadow">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex justify-between items-center py-6">
-						<div className="flex items-center">
-							<div className="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+		<div
+			className="min-h-screen"
+			style={{ backgroundColor: 'var(--color-gray-50)' }}
+		>
+			{/* Modern Header */}
+			<header className="bg-white border-b border-gray-200">
+				<div className="max-w-7xl mx-auto px-6 py-4">
+					<div className="flex items-center justify-between">
+						<div className="flex items-center space-x-3">
+							<div
+								className="w-8 h-8 rounded-lg flex items-center justify-center"
+								style={{ backgroundColor: 'var(--color-gray-900)' }}
+							>
 								<svg
-									className="h-5 w-5 text-white"
+									className="w-5 h-5 text-white"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -53,7 +74,10 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 									/>
 								</svg>
 							</div>
-							<h1 className="text-2xl font-bold text-gray-900">
+							<h1
+								className="text-xl font-semibold"
+								style={{ color: 'var(--color-gray-900)' }}
+							>
 								Falcon Alerts
 							</h1>
 						</div>
@@ -62,110 +86,433 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								onLogout();
 								navigate('/login');
 							}}
-							className="text-gray-500 hover:text-gray-700"
+							className="btn btn-ghost"
 						>
 							Logout
 						</button>
 					</div>
 				</div>
-			</div>
+			</header>
 
 			{/* Main Content */}
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-				{/* Welcome Banner */}
-				<div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg p-6 mb-8">
-					<h2 className="text-2xl font-bold text-white mb-2">
-						Welcome back!
+			<main className="max-w-7xl mx-auto px-6 py-8">
+				{/* Welcome Section */}
+				<div className="mb-8">
+					<h2
+						className="text-2xl font-semibold mb-2"
+						style={{ color: 'var(--color-gray-900)' }}
+					>
+						Welcome back
 					</h2>
-					<p className="text-indigo-100">
+					<p
+						className="text-base"
+						style={{ color: 'var(--color-gray-600)' }}
+					>
 						Monitor and manage your background checks with confidence.
 					</p>
 				</div>
 
-				{/* Create New Check CTA */}
-				<div className="mb-8">
-					<button
-						onClick={() => navigate('/new-check')}
-						className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center"
-					>
-						<svg
-							className="h-5 w-5 mr-2"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth={2}
-								d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-							/>
-						</svg>
-						Create New Check
-					</button>
-				</div>
-
-				{/* Previous Checks Table */}
-				<div className="bg-white shadow rounded-lg overflow-hidden">
-					<div className="px-6 py-4 border-b border-gray-200">
-						<h3 className="text-lg font-medium text-gray-900">
-							Previous Checks
-						</h3>
+				{/* Stats Cards */}
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+					<div className="card">
+						<div className="card-body">
+							<div className="flex items-center justify-between">
+								<div>
+									<p
+										className="text-sm font-medium"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Total Checks
+									</p>
+									<p
+										className="text-2xl font-semibold"
+										style={{ color: 'var(--color-gray-900)' }}
+									>
+										{stats.total}
+									</p>
+								</div>
+								<div
+									className="w-10 h-10 rounded-lg flex items-center justify-center"
+									style={{ backgroundColor: 'var(--color-blue-100)' }}
+								>
+									<svg
+										className="w-5 h-5"
+										style={{ color: 'var(--color-blue-600)' }}
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
 					</div>
 
-					<div className="overflow-x-auto">
-						<table className="min-w-full divide-y divide-gray-200">
-							<thead className="bg-gray-50">
-								<tr>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Entity Name
-									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Type
-									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Status
-									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Last Updated
-									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Actions
-									</th>
-								</tr>
-							</thead>
-							<tbody className="bg-white divide-y divide-gray-200">
-								{mockPreviousChecks.map((check) => (
-									<tr key={check.id} className="hover:bg-gray-50">
-										<td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-											{check.entityName}
-										</td>
-										<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-											{check.type}
-										</td>
-										<td className="px-6 py-4 whitespace-nowrap">
-											<span className={getStatusBadge(check.status)}>
-												{check.status}
-											</span>
-										</td>
-										<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-											{check.lastUpdated}
-										</td>
-										<td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-											<button
-												onClick={() => handleViewDetails(check.id, check.status)}
-												className="text-indigo-600 hover:text-indigo-900"
-											>
-												View Details
-											</button>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
+					<div className="card">
+						<div className="card-body">
+							<div className="flex items-center justify-between">
+								<div>
+									<p
+										className="text-sm font-medium"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Clean
+									</p>
+									<p
+										className="text-2xl font-semibold"
+										style={{ color: 'var(--color-green-600)' }}
+									>
+										{stats.clean}
+									</p>
+								</div>
+								<div
+									className="w-10 h-10 rounded-lg flex items-center justify-center"
+									style={{ backgroundColor: 'var(--color-green-100)' }}
+								>
+									<svg
+										className="w-5 h-5"
+										style={{ color: 'var(--color-green-600)' }}
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M5 13l4 4L19 7"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="card">
+						<div className="card-body">
+							<div className="flex items-center justify-between">
+								<div>
+									<p
+										className="text-sm font-medium"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										Flagged
+									</p>
+									<p
+										className="text-2xl font-semibold"
+										style={{ color: 'var(--color-red-600)' }}
+									>
+										{stats.flagged}
+									</p>
+								</div>
+								<div
+									className="w-10 h-10 rounded-lg flex items-center justify-center"
+									style={{ backgroundColor: 'var(--color-red-100)' }}
+								>
+									<svg
+										className="w-5 h-5"
+										style={{ color: 'var(--color-red-600)' }}
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="card">
+						<div className="card-body">
+							<div className="flex items-center justify-between">
+								<div>
+									<p
+										className="text-sm font-medium"
+										style={{ color: 'var(--color-gray-600)' }}
+									>
+										In Progress
+									</p>
+									<p
+										className="text-2xl font-semibold"
+										style={{ color: 'var(--color-yellow-600)' }}
+									>
+										{stats.inProgress}
+									</p>
+								</div>
+								<div
+									className="w-10 h-10 rounded-lg flex items-center justify-center"
+									style={{ backgroundColor: 'var(--color-yellow-100)' }}
+								>
+									<svg
+										className="w-5 h-5"
+										style={{ color: 'var(--color-yellow-600)' }}
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
+
+				{/* Main Content Grid */}
+				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+					{/* Recent Checks Table */}
+					<div className="lg:col-span-2">
+						<div className="card">
+							<div className="card-header">
+								<div className="flex items-center justify-between">
+									<h3
+										className="text-lg font-semibold"
+										style={{ color: 'var(--color-gray-900)' }}
+									>
+										Recent Checks
+									</h3>
+									<button
+										onClick={() => navigate('/new-check')}
+										className="btn btn-primary"
+									>
+										<svg
+											className="w-4 h-4 mr-2"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+											/>
+										</svg>
+										New Check
+									</button>
+								</div>
+							</div>
+							<div className="card-body">
+								<div className="space-y-4">
+									{mockPreviousChecks.map((check) => (
+										<div
+											key={check.id}
+											className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0"
+										>
+											<div className="flex-1">
+												<div className="flex items-center space-x-3">
+													<div className="flex-shrink-0">
+														<div
+															className="w-8 h-8 rounded-full flex items-center justify-center"
+															style={{
+																backgroundColor:
+																	check.type === 'Person'
+																		? 'var(--color-blue-100)'
+																		: 'var(--color-gray-100)',
+															}}
+														>
+															{check.type === 'Person' ? (
+																<svg
+																	className="w-4 h-4"
+																	style={{ color: 'var(--color-blue-600)' }}
+																	fill="none"
+																	viewBox="0 0 24 24"
+																	stroke="currentColor"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth={2}
+																		d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+																	/>
+																</svg>
+															) : (
+																<svg
+																	className="w-4 h-4"
+																	style={{ color: 'var(--color-gray-600)' }}
+																	fill="none"
+																	viewBox="0 0 24 24"
+																	stroke="currentColor"
+																>
+																	<path
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth={2}
+																		d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+																	/>
+																</svg>
+															)}
+														</div>
+													</div>
+													<div className="flex-1 min-w-0">
+														<p
+															className="text-sm font-medium"
+															style={{ color: 'var(--color-gray-900)' }}
+														>
+															{check.entityName}
+														</p>
+														<p
+															className="text-xs"
+															style={{ color: 'var(--color-gray-500)' }}
+														>
+															{check.type} • {check.lastUpdated}
+														</p>
+													</div>
+												</div>
+											</div>
+											<div className="flex items-center space-x-3">
+												<span className={getStatusBadge(check.status)}>
+													{check.status}
+												</span>
+												<button
+													onClick={() => handleViewDetails(check.id, check.status)}
+													className="btn btn-ghost text-xs"
+												>
+													View
+												</button>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{/* Quick Actions */}
+					<div className="space-y-6">
+						<div className="card">
+							<div className="card-header">
+								<h3
+									className="text-lg font-semibold"
+									style={{ color: 'var(--color-gray-900)' }}
+								>
+									Quick Actions
+								</h3>
+							</div>
+							<div className="card-body">
+								<div className="space-y-3">
+									<button
+										onClick={() => navigate('/new-check')}
+										className="w-full btn btn-secondary justify-start"
+									>
+										<svg
+											className="w-4 h-4 mr-3"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+											/>
+										</svg>
+										Create New Check
+									</button>
+									<button
+										onClick={() => navigate('/dashboard')}
+										className="w-full btn btn-secondary justify-start"
+									>
+										<svg
+											className="w-4 h-4 mr-3"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+											/>
+										</svg>
+										View All Checks
+									</button>
+									<button className="w-full btn btn-secondary justify-start">
+										<svg
+											className="w-4 h-4 mr-3"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+											/>
+										</svg>
+										Export Report
+									</button>
+								</div>
+							</div>
+						</div>
+
+						{/* Recent Activity */}
+						<div className="card">
+							<div className="card-header">
+								<h3
+									className="text-lg font-semibold"
+									style={{ color: 'var(--color-gray-900)' }}
+								>
+									Recent Activity
+								</h3>
+							</div>
+							<div className="card-body">
+								<div className="space-y-4">
+									{mockPreviousChecks.slice(0, 3).map((check) => (
+										<div key={check.id} className="flex items-start space-x-3">
+											<div className="flex-shrink-0 mt-1">
+												<div
+													className={`w-2 h-2 rounded-full ${
+														check.status === 'Clean'
+															? 'bg-green-500'
+															: check.status === 'Flagged'
+															? 'bg-red-500'
+															: 'bg-yellow-500'
+													}`}
+												></div>
+											</div>
+											<div className="flex-1 min-w-0">
+												<p
+													className="text-sm"
+													style={{ color: 'var(--color-gray-900)' }}
+												>
+													{check.entityName}
+												</p>
+												<p
+													className="text-xs"
+													style={{ color: 'var(--color-gray-500)' }}
+												>
+													Check completed • {check.lastUpdated}
+												</p>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
 		</div>
 	);
 }
