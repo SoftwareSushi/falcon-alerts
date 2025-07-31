@@ -78,7 +78,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								className="text-xl font-semibold"
 								style={{ color: 'var(--color-gray-900)' }}
 							>
-								Falcon Alerts
+								Sanction Watch
 							</h1>
 						</div>
 						<button

@@ -16,7 +16,7 @@ function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 	return (
-		<Router basename="/falcon-alerts">
+		<Router basename="/sanction-watch">
 			<div
 				className="min-h-screen"
 				style={{ backgroundColor: 'var(--color-gray-50)' }}

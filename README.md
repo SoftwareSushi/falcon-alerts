@@ -1,4 +1,4 @@
-# Falcon Alerts - Background Check Platform Demo
+# Sanction Watch - Background Check Platform Demo
 
 A comprehensive React demo showcasing a background check platform with a complete user flow from login to results viewing.
 

@@ -46,7 +46,7 @@ export default function Login({ onLogin }: LoginProps) {
 							/>
 						</svg>
 					</div>
-					<h1 className="text-4xl font-semibold mb-6">Falcon Alerts</h1>
+					<h1 className="text-4xl font-semibold mb-6">Sanction Watch</h1>
 					<p
 						className="text-lg leading-relaxed mb-12"
 						style={{ color: 'var(--color-gray-300)' }}
@@ -151,7 +151,7 @@ export default function Login({ onLogin }: LoginProps) {
 							className="text-2xl font-semibold mb-3"
 							style={{ color: 'var(--color-gray-900)' }}
 						>
-							Falcon Alerts
+							Sanction Watch
 						</h2>
 						<p style={{ color: 'var(--color-gray-600)' }}>
 							Smart Background Intelligence for Smarter Business Decisions
