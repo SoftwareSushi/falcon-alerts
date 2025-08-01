@@ -124,10 +124,15 @@ export default function NewCheck() {
 	return (
 		<div
 			className="min-h-screen"
-			style={{ backgroundColor: 'var(--color-gray-50)' }}
+			style={{ backgroundColor: 'var(--bg-primary)' }}
 		>
 			{/* Modern Header */}
-			<header className="bg-white border-b border-gray-200">
+			<header
+				style={{
+					backgroundColor: 'var(--bg-secondary)',
+					borderBottom: '1px solid var(--border-primary)',
+				}}
+			>
 				<div className="max-w-7xl mx-auto px-6 py-4">
 					<div className="flex items-center space-x-4">
 						<button
@@ -151,10 +156,11 @@ export default function NewCheck() {
 						<div className="flex items-center space-x-3">
 							<div
 								className="w-8 h-8 rounded-lg flex items-center justify-center"
-								style={{ backgroundColor: 'var(--color-gray-900)' }}
+								style={{ backgroundColor: 'var(--text-primary)' }}
 							>
 								<svg
-									className="h-5 w-5 text-white"
+									className="h-5 w-5"
+									style={{ color: 'var(--bg-primary)' }}
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -169,7 +175,7 @@ export default function NewCheck() {
 							</div>
 							<h1
 								className="text-xl font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								New Background Check
 							</h1>

@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 :root {
-	/* Modern neutral color palette */
+	/* Light theme colors */
 	--color-gray-50: #fafafa;
 	--color-gray-100: #f5f5f5;
 	--color-gray-200: #e5e5e5;
@@ -36,7 +36,60 @@
 	--color-yellow-500: #eab308;
 	--color-yellow-600: #ca8a04;
 
-	/* Typography */
+	/* Theme-aware semantic colors */
+	--bg-primary: var(--color-gray-50);
+	--bg-secondary: #ffffff;
+	--bg-tertiary: var(--color-gray-100);
+	--text-primary: var(--color-gray-900);
+	--text-secondary: var(--color-gray-700);
+	--text-tertiary: var(--color-gray-600);
+	--border-primary: var(--color-gray-200);
+	--border-secondary: var(--color-gray-300);
+	--shadow-primary: rgba(0, 0, 0, 0.05);
+	--shadow-secondary: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme overrides */
+[data-theme='dark'] {
+	--color-gray-50: #0a0a0a;
+	--color-gray-100: #171717;
+	--color-gray-200: #262626;
+	--color-gray-300: #404040;
+	--color-gray-400: #525252;
+	--color-gray-500: #737373;
+	--color-gray-600: #a3a3a3;
+	--color-gray-700: #d4d4d4;
+	--color-gray-800: #e5e5e5;
+	--color-gray-900: #fafafa;
+
+	/* Dark theme semantic colors */
+	--bg-primary: #0a0a0a;
+	--bg-secondary: #171717;
+	--bg-tertiary: #262626;
+	--text-primary: #fafafa;
+	--text-secondary: #d4d4d4;
+	--text-tertiary: #a3a3a3;
+	--border-primary: #262626;
+	--border-secondary: #404040;
+	--shadow-primary: rgba(0, 0, 0, 0.3);
+	--shadow-secondary: rgba(0, 0, 0, 0.5);
+
+	/* Adjust semantic colors for dark theme */
+	--color-green-50: #0c1f0c;
+	--color-green-100: #1a3a1a;
+
+	--color-red-50: #1f0c0c;
+	--color-red-100: #3a1a1a;
+
+	--color-yellow-50: #1f1c0c;
+	--color-yellow-100: #3a361a;
+
+	--color-blue-50: #0c1420;
+	--color-blue-100: #1a2b3a;
+}
+
+/* Typography */
+:root {
 	font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
 		system-ui, sans-serif;
 	line-height: 1.5;
@@ -58,8 +111,9 @@ body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
-	background-color: var(--color-gray-50);
-	color: var(--color-gray-900);
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {

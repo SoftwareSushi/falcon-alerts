@@ -96,10 +96,15 @@ export default function ERPIntegration() {
 	return (
 		<div
 			className="min-h-screen"
-			style={{ backgroundColor: 'var(--color-gray-50)' }}
+			style={{ backgroundColor: 'var(--bg-primary)' }}
 		>
 			{/* Header */}
-			<header className="bg-white border-b border-gray-200">
+			<header
+				style={{
+					backgroundColor: 'var(--bg-secondary)',
+					borderBottom: '1px solid var(--border-primary)',
+				}}
+			>
 				<div className="max-w-7xl mx-auto px-6 py-4">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center space-x-3">
@@ -124,7 +129,7 @@ export default function ERPIntegration() {
 							</button>
 							<h1
 								className="text-2xl font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								ERP/CRM Integrations
 							</h1>

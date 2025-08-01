@@ -187,10 +187,15 @@ export default function Alerts() {
 	return (
 		<div
 			className="min-h-screen"
-			style={{ backgroundColor: 'var(--color-gray-50)' }}
+			style={{ backgroundColor: 'var(--bg-primary)' }}
 		>
 			{/* Header */}
-			<header className="bg-white border-b border-gray-200">
+			<header
+				style={{
+					backgroundColor: 'var(--bg-secondary)',
+					borderBottom: '1px solid var(--border-primary)',
+				}}
+			>
 				<div className="max-w-7xl mx-auto px-6 py-4">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center space-x-3">
@@ -215,7 +220,7 @@ export default function Alerts() {
 							</button>
 							<h1
 								className="text-2xl font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Alert Management
 							</h1>
@@ -249,13 +254,13 @@ export default function Alerts() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Alerts
 									</p>
 									<p
 										className="text-2xl font-semibold"
-										style={{ color: 'var(--color-gray-900)' }}
+										style={{ color: 'var(--text-primary)' }}
 									>
 										{alerts.length}
 									</p>
@@ -289,7 +294,7 @@ export default function Alerts() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Unread
 									</p>
@@ -329,7 +334,7 @@ export default function Alerts() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Critical
 									</p>
@@ -369,7 +374,7 @@ export default function Alerts() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Action Required
 									</p>
@@ -456,7 +461,7 @@ export default function Alerts() {
 						<div className="flex items-center justify-between">
 							<h3
 								className="text-lg font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Alerts
 							</h3>
@@ -477,7 +482,7 @@ export default function Alerts() {
 							<div className="text-center py-8">
 								<svg
 									className="w-12 h-12 mx-auto mb-4"
-									style={{ color: 'var(--color-gray-400)' }}
+									style={{ color: 'var(--text-tertiary)' }}
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -491,13 +496,13 @@ export default function Alerts() {
 								</svg>
 								<p
 									className="text-lg font-medium mb-2"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									No alerts match your filters
 								</p>
 								<p
 									className="text-sm"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Try adjusting your filter criteria to see more results.
 								</p>
@@ -507,11 +512,15 @@ export default function Alerts() {
 								{filteredAlerts.map((alert) => (
 									<div
 										key={alert.id}
-										className={`border rounded-lg p-4 ${
-											alert.isRead
-												? 'bg-gray-50 border-gray-200'
-												: 'bg-white border-blue-200'
-										}`}
+										className="border rounded-lg p-4"
+										style={{
+											backgroundColor: alert.isRead
+												? 'var(--bg-tertiary)'
+												: 'var(--bg-secondary)',
+											borderColor: alert.isRead
+												? 'var(--border-primary)'
+												: 'var(--color-blue-500)',
+										}}
 									>
 										<div className="flex items-start space-x-4">
 											<input
@@ -536,9 +545,12 @@ export default function Alerts() {
 											<div className="flex-1 min-w-0">
 												<div className="flex items-center justify-between mb-2">
 													<h4
-														className={`text-lg font-semibold ${
-															alert.isRead ? 'text-gray-600' : 'text-gray-900'
-														}`}
+														className="text-lg font-semibold"
+														style={{
+															color: alert.isRead
+																? 'var(--text-secondary)'
+																: 'var(--text-primary)',
+														}}
 													>
 														{alert.title}
 													</h4>
@@ -554,15 +566,21 @@ export default function Alerts() {
 													</div>
 												</div>
 												<p
-													className={`text-sm mb-3 ${
-														alert.isRead ? 'text-gray-500' : 'text-gray-700'
-													}`}
+													className="text-sm mb-3"
+													style={{
+														color: alert.isRead
+															? 'var(--text-tertiary)'
+															: 'var(--text-secondary)',
+													}}
 												>
 													{alert.description}
 												</p>
 												{alert.relatedEntities.length > 0 && (
 													<div className="mb-3">
-														<span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+														<span
+															className="text-xs font-medium uppercase tracking-wide"
+															style={{ color: 'var(--text-tertiary)' }}
+														>
 															Related Entities:
 														</span>
 														<div className="flex flex-wrap gap-1 mt-1">
@@ -578,7 +596,10 @@ export default function Alerts() {
 													</div>
 												)}
 												<div className="flex items-center justify-between">
-													<span className="text-xs text-gray-500">
+													<span
+														className="text-xs"
+														style={{ color: 'var(--text-tertiary)' }}
+													>
 														{formatTimestamp(alert.timestamp)}
 													</span>
 													<div className="flex space-x-2">

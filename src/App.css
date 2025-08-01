@@ -51,21 +51,21 @@
 
 /* Modern card styles */
 .card {
-	background: white;
+	background: var(--bg-secondary);
 	border-radius: 12px;
-	border: 1px solid var(--color-gray-200);
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+	border: 1px solid var(--border-primary);
+	box-shadow: 0 1px 3px 0 var(--shadow-primary);
 	transition: all 0.2s ease;
 }
 
 .card:hover {
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	box-shadow: 0 4px 6px -1px var(--shadow-secondary),
+		0 2px 4px -1px var(--shadow-primary);
 }
 
 .card-header {
 	padding: 24px 24px 16px 24px;
-	border-bottom: 1px solid var(--color-gray-100);
+	border-bottom: 1px solid var(--border-primary);
 }
 
 .card-body {
@@ -94,36 +94,36 @@
 }
 
 .btn-primary {
-	background-color: var(--color-gray-900);
-	color: white;
-	border-color: var(--color-gray-900);
+	background-color: var(--text-primary);
+	color: var(--bg-primary);
+	border-color: var(--text-primary);
 }
 
 .btn-primary:hover:not(:disabled) {
-	background-color: var(--color-gray-800);
-	border-color: var(--color-gray-800);
+	background-color: var(--text-secondary);
+	border-color: var(--text-secondary);
 }
 
 .btn-secondary {
-	background-color: white;
-	color: var(--color-gray-700);
-	border-color: var(--color-gray-300);
+	background-color: var(--bg-secondary);
+	color: var(--text-secondary);
+	border-color: var(--border-secondary);
 }
 
 .btn-secondary:hover:not(:disabled) {
-	background-color: var(--color-gray-50);
+	background-color: var(--bg-tertiary);
 	border-color: var(--color-gray-400);
 }
 
 .btn-ghost {
 	background-color: transparent;
-	color: var(--color-gray-600);
+	color: var(--text-tertiary);
 	border-color: transparent;
 }
 
 .btn-ghost:hover:not(:disabled) {
-	background-color: var(--color-gray-100);
-	color: var(--color-gray-900);
+	background-color: var(--bg-tertiary);
+	color: var(--text-primary);
 }
 
 /* Status badges */
@@ -162,9 +162,10 @@
 	width: 100%;
 	padding: 12px 16px;
 	font-size: 14px;
-	border: 1px solid var(--color-gray-300);
+	border: 1px solid var(--border-secondary);
 	border-radius: 8px;
-	background-color: white;
+	background-color: var(--bg-secondary);
+	color: var(--text-primary);
 	transition: all 0.2s ease;
 }
 
@@ -175,13 +176,13 @@
 }
 
 .form-input::placeholder {
-	color: var(--color-gray-400);
+	color: var(--text-tertiary);
 }
 
 .form-label {
 	display: block;
 	font-size: 14px;
 	font-weight: 500;
-	color: var(--color-gray-700);
+	color: var(--text-secondary);
 	margin-bottom: 6px;
 }

@@ -114,10 +114,15 @@ export default function SuspiciousRegistry() {
 	return (
 		<div
 			className="min-h-screen"
-			style={{ backgroundColor: 'var(--color-gray-50)' }}
+			style={{ backgroundColor: 'var(--bg-primary)' }}
 		>
 			{/* Header */}
-			<header className="bg-white border-b border-gray-200">
+			<header
+				style={{
+					backgroundColor: 'var(--bg-secondary)',
+					borderBottom: '1px solid var(--border-primary)',
+				}}
+			>
 				<div className="max-w-7xl mx-auto px-6 py-4">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center space-x-3">
@@ -142,14 +147,17 @@ export default function SuspiciousRegistry() {
 							</button>
 							<h1
 								className="text-2xl font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Suspicious Port & Person Registry
 							</h1>
 							<span className="badge badge-info">Q1-2024 Update</span>
 						</div>
 						<div className="flex items-center space-x-2">
-							<span className="text-sm text-gray-600">
+							<span
+								className="text-sm"
+								style={{ color: 'var(--text-secondary)' }}
+							>
 								Last Updated: {formatDate('2024-01-01')}
 							</span>
 							<button className="btn btn-primary btn-sm" disabled>
@@ -169,13 +177,13 @@ export default function SuspiciousRegistry() {
 							<div className="text-center">
 								<p
 									className="text-2xl font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									{entityCounts.total}
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Total Entities
 								</p>
@@ -193,7 +201,7 @@ export default function SuspiciousRegistry() {
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Ports
 								</p>
@@ -211,7 +219,7 @@ export default function SuspiciousRegistry() {
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Persons
 								</p>
@@ -229,7 +237,7 @@ export default function SuspiciousRegistry() {
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Brokers
 								</p>
@@ -247,7 +255,7 @@ export default function SuspiciousRegistry() {
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Organizations
 								</p>
@@ -265,7 +273,7 @@ export default function SuspiciousRegistry() {
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Critical Risk
 								</p>
@@ -349,8 +357,14 @@ export default function SuspiciousRegistry() {
 								</div>
 							</div>
 						</div>
-						<div className="flex items-center justify-between pt-4 border-t border-gray-200">
-							<div className="text-sm text-gray-600">
+						<div
+							className="flex items-center justify-between pt-4"
+							style={{ borderTop: '1px solid var(--border-primary)' }}
+						>
+							<div
+								className="text-sm"
+								style={{ color: 'var(--text-secondary)' }}
+							>
 								Showing {filteredEntities.length} of {entities.length}{' '}
 								entities
 							</div>
@@ -373,10 +387,13 @@ export default function SuspiciousRegistry() {
 
 				{/* Registry Table */}
 				<div className="card">
-					<div className="card-header p-6 border-b border-gray-200">
+					<div
+						className="card-header p-6"
+						style={{ borderBottom: '1px solid var(--border-primary)' }}
+					>
 						<h3
 							className="text-lg font-semibold"
-							style={{ color: 'var(--color-gray-900)' }}
+							style={{ color: 'var(--text-primary)' }}
 						>
 							Registry Entries
 						</h3>
@@ -386,7 +403,7 @@ export default function SuspiciousRegistry() {
 							<div className="text-center py-12 px-6">
 								<svg
 									className="w-12 h-12 mx-auto mb-4"
-									style={{ color: 'var(--color-gray-400)' }}
+									style={{ color: 'var(--text-tertiary)' }}
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -415,26 +432,70 @@ export default function SuspiciousRegistry() {
 							<div className="overflow-x-auto">
 								<table className="table w-full">
 									<thead>
-										<tr className="border-b border-gray-200">
-											<th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
+										<tr
+											style={{ borderBottom: '1px solid var(--border-primary)' }}
+										>
+											<th
+												className="text-left py-4 px-6 font-semibold"
+												style={{
+													color: 'var(--text-secondary)',
+													backgroundColor: 'var(--bg-tertiary)',
+												}}
+											>
 												Entity
 											</th>
-											<th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
+											<th
+												className="text-left py-4 px-6 font-semibold"
+												style={{
+													color: 'var(--text-secondary)',
+													backgroundColor: 'var(--bg-tertiary)',
+												}}
+											>
 												Type
 											</th>
-											<th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
+											<th
+												className="text-left py-4 px-6 font-semibold"
+												style={{
+													color: 'var(--text-secondary)',
+													backgroundColor: 'var(--bg-tertiary)',
+												}}
+											>
 												Risk Level
 											</th>
-											<th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
+											<th
+												className="text-left py-4 px-6 font-semibold"
+												style={{
+													color: 'var(--text-secondary)',
+													backgroundColor: 'var(--bg-tertiary)',
+												}}
+											>
 												Location
 											</th>
-											<th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
+											<th
+												className="text-left py-4 px-6 font-semibold"
+												style={{
+													color: 'var(--text-secondary)',
+													backgroundColor: 'var(--bg-tertiary)',
+												}}
+											>
 												Source Agency
 											</th>
-											<th className="text-left py-4 px-6 font-semibold text-gray-700 bg-gray-50">
+											<th
+												className="text-left py-4 px-6 font-semibold"
+												style={{
+													color: 'var(--text-secondary)',
+													backgroundColor: 'var(--bg-tertiary)',
+												}}
+											>
 												Last Updated
 											</th>
-											<th className="text-center py-4 px-6 font-semibold text-gray-700 bg-gray-50">
+											<th
+												className="text-center py-4 px-6 font-semibold"
+												style={{
+													color: 'var(--text-secondary)',
+													backgroundColor: 'var(--bg-tertiary)',
+												}}
+											>
 												Actions
 											</th>
 										</tr>
@@ -443,19 +504,30 @@ export default function SuspiciousRegistry() {
 										{filteredEntities.map((entity) => (
 											<tr
 												key={entity.id}
-												className="border-b border-gray-100 hover:bg-gray-50"
+												className="hover:bg-opacity-10"
+												style={{
+													borderBottom: '1px solid var(--border-primary)',
+													backgroundColor: 'transparent',
+												}}
+												onMouseEnter={(e) => {
+													e.currentTarget.style.backgroundColor =
+														'var(--bg-tertiary)';
+												}}
+												onMouseLeave={(e) => {
+													e.currentTarget.style.backgroundColor = 'transparent';
+												}}
 											>
 												<td className="py-4 px-6">
 													<div>
 														<div
 															className="font-medium text-base"
-															style={{ color: 'var(--color-gray-900)' }}
+															style={{ color: 'var(--text-primary)' }}
 														>
 															{entity.name}
 														</div>
 														<div
 															className="text-sm mt-1"
-															style={{ color: 'var(--color-gray-600)' }}
+															style={{ color: 'var(--text-secondary)' }}
 														>
 															Added {formatDate(entity.dateAdded)}
 														</div>
@@ -485,13 +557,13 @@ export default function SuspiciousRegistry() {
 														<div>
 															<div
 																className="text-sm font-medium"
-																style={{ color: 'var(--color-gray-900)' }}
+																style={{ color: 'var(--text-primary)' }}
 															>
 																{entity.location.country}
 															</div>
 															<div
 																className="text-xs mt-1"
-																style={{ color: 'var(--color-gray-600)' }}
+																style={{ color: 'var(--text-secondary)' }}
 															>
 																{entity.location.region}
 															</div>
@@ -503,7 +575,7 @@ export default function SuspiciousRegistry() {
 												<td className="py-4 px-6">
 													<div
 														className="text-sm"
-														style={{ color: 'var(--color-gray-700)' }}
+														style={{ color: 'var(--text-secondary)' }}
 													>
 														{entity.sourceAgency}
 													</div>
@@ -535,10 +607,13 @@ export default function SuspiciousRegistry() {
 
 				{/* OSINT Sources */}
 				<div className="card mt-8">
-					<div className="card-header p-6 border-b border-gray-200">
+					<div
+						className="card-header p-6"
+						style={{ borderBottom: '1px solid var(--border-primary)' }}
+					>
 						<h3
 							className="text-lg font-semibold"
-							style={{ color: 'var(--color-gray-900)' }}
+							style={{ color: 'var(--text-primary)' }}
 						>
 							OSINT Sources
 						</h3>
@@ -548,12 +623,16 @@ export default function SuspiciousRegistry() {
 							{mockOSINTSources.map((source) => (
 								<div
 									key={source.id}
-									className="border border-gray-200 rounded-lg p-5 bg-white hover:shadow-md transition-shadow"
+									className="border rounded-lg p-5 hover:shadow-md transition-shadow"
+									style={{
+										borderColor: 'var(--border-primary)',
+										backgroundColor: 'var(--bg-secondary)',
+									}}
 								>
 									<div className="flex items-center justify-between mb-3">
 										<h4
 											className="font-semibold text-sm"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											{source.name}
 										</h4>

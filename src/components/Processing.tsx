@@ -58,10 +58,15 @@ export default function Processing() {
 	return (
 		<div
 			className="min-h-screen"
-			style={{ backgroundColor: 'var(--color-gray-50)' }}
+			style={{ backgroundColor: 'var(--bg-primary)' }}
 		>
 			{/* Modern Header */}
-			<header className="bg-white border-b border-gray-200">
+			<header
+				style={{
+					backgroundColor: 'var(--bg-secondary)',
+					borderBottom: '1px solid var(--border-primary)',
+				}}
+			>
 				<div className="max-w-7xl mx-auto px-6 py-4">
 					<div className="flex items-center space-x-4">
 						<button
@@ -85,10 +90,11 @@ export default function Processing() {
 						<div className="flex items-center space-x-3">
 							<div
 								className="w-8 h-8 rounded-lg flex items-center justify-center"
-								style={{ backgroundColor: 'var(--color-gray-900)' }}
+								style={{ backgroundColor: 'var(--text-primary)' }}
 							>
 								<svg
-									className="w-5 h-5 text-white"
+									className="w-5 h-5"
+									style={{ color: 'var(--bg-primary)' }}
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -103,7 +109,7 @@ export default function Processing() {
 							</div>
 							<h1
 								className="text-xl font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Processing Background Check
 							</h1>
@@ -180,17 +186,17 @@ export default function Processing() {
 						{/* Current Source */}
 						<div
 							className="rounded-lg p-4 mb-6"
-							style={{ backgroundColor: 'var(--color-gray-50)' }}
+							style={{ backgroundColor: 'var(--bg-tertiary)' }}
 						>
 							<p
 								className="text-sm font-medium mb-1"
-								style={{ color: 'var(--color-gray-600)' }}
+								style={{ color: 'var(--text-secondary)' }}
 							>
 								Currently scanning:
 							</p>
 							<p
 								className="font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								{dataSources[currentSource]}
 							</p>

@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 interface LoginProps {
 	onLogin: () => void;
@@ -19,21 +20,29 @@ export default function Login({ onLogin }: LoginProps) {
 
 	return (
 		<div
-			className="min-h-screen flex"
-			style={{ backgroundColor: 'var(--color-gray-50)' }}
+			className="min-h-screen flex relative"
+			style={{ backgroundColor: 'var(--bg-primary)' }}
 		>
+			{/* Theme Toggle */}
+			<div className="absolute top-4 right-4 z-10">
+				<ThemeToggle />
+			</div>
 			{/* Left Side - Branding */}
 			<div
 				className="hidden lg:flex lg:w-1/2 items-center justify-center p-12"
-				style={{ backgroundColor: 'var(--color-gray-900)' }}
+				style={{
+					backgroundColor: 'var(--text-primary)',
+					color: 'var(--bg-primary)',
+				}}
 			>
-				<div className="text-center text-white max-w-md">
+				<div className="text-center max-w-md">
 					<div
 						className="mx-auto h-20 w-20 rounded-2xl flex items-center justify-center mb-8"
-						style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+						style={{ backgroundColor: 'var(--bg-tertiary)' }}
 					>
 						<svg
-							className="h-12 w-12 text-white"
+							className="h-12 w-12"
+							style={{ color: 'var(--text-primary)' }}
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -46,10 +55,15 @@ export default function Login({ onLogin }: LoginProps) {
 							/>
 						</svg>
 					</div>
-					<h1 className="text-4xl font-semibold mb-6">Sanction Watch</h1>
+					<h1
+						className="text-4xl font-semibold mb-6"
+						style={{ color: 'var(--bg-primary)' }}
+					>
+						Sanction Watch
+					</h1>
 					<p
 						className="text-lg leading-relaxed mb-12"
-						style={{ color: 'var(--color-gray-300)' }}
+						style={{ color: 'var(--bg-secondary)' }}
 					>
 						Smart Background Intelligence for Smarter Business Decisions
 					</p>
@@ -71,7 +85,7 @@ export default function Login({ onLogin }: LoginProps) {
 									/>
 								</svg>
 							</div>
-							<span style={{ color: 'var(--color-gray-300)' }}>
+							<span style={{ color: 'var(--bg-secondary)' }}>
 								Real-time background screening
 							</span>
 						</div>
@@ -92,7 +106,7 @@ export default function Login({ onLogin }: LoginProps) {
 									/>
 								</svg>
 							</div>
-							<span style={{ color: 'var(--color-gray-300)' }}>
+							<span style={{ color: 'var(--bg-secondary)' }}>
 								Comprehensive data sources
 							</span>
 						</div>
@@ -113,7 +127,7 @@ export default function Login({ onLogin }: LoginProps) {
 									/>
 								</svg>
 							</div>
-							<span style={{ color: 'var(--color-gray-300)' }}>
+							<span style={{ color: 'var(--bg-secondary)' }}>
 								Instant reporting & alerts
 							</span>
 						</div>
@@ -124,17 +138,18 @@ export default function Login({ onLogin }: LoginProps) {
 			{/* Right Side - Login Form */}
 			<div
 				className="flex-1 lg:w-1/2 flex items-center justify-center p-8"
-				style={{ backgroundColor: 'var(--color-gray-50)' }}
+				style={{ backgroundColor: 'var(--bg-primary)' }}
 			>
 				<div className="max-w-md w-full space-y-8">
 					{/* Mobile Logo */}
 					<div className="text-center lg:hidden">
 						<div
 							className="mx-auto h-14 w-14 rounded-lg flex items-center justify-center mb-6"
-							style={{ backgroundColor: 'var(--color-gray-900)' }}
+							style={{ backgroundColor: 'var(--text-primary)' }}
 						>
 							<svg
-								className="h-8 w-8 text-white"
+								className="h-8 w-8"
+								style={{ color: 'var(--bg-primary)' }}
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke="currentColor"
@@ -149,11 +164,11 @@ export default function Login({ onLogin }: LoginProps) {
 						</div>
 						<h2
 							className="text-2xl font-semibold mb-3"
-							style={{ color: 'var(--color-gray-900)' }}
+							style={{ color: 'var(--text-primary)' }}
 						>
 							Sanction Watch
 						</h2>
-						<p style={{ color: 'var(--color-gray-600)' }}>
+						<p style={{ color: 'var(--text-secondary)' }}>
 							Smart Background Intelligence for Smarter Business Decisions
 						</p>
 					</div>
@@ -162,11 +177,11 @@ export default function Login({ onLogin }: LoginProps) {
 					<div className="text-center">
 						<h2
 							className="text-2xl font-semibold mb-2"
-							style={{ color: 'var(--color-gray-900)' }}
+							style={{ color: 'var(--text-primary)' }}
 						>
 							Welcome back
 						</h2>
-						<p style={{ color: 'var(--color-gray-600)' }}>
+						<p style={{ color: 'var(--text-secondary)' }}>
 							Sign in to your account to continue
 						</p>
 					</div>
