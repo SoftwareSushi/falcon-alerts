@@ -177,7 +177,7 @@ export default function NewCheck() {
 								className="text-xl font-semibold"
 								style={{ color: 'var(--text-primary)' }}
 							>
-								New Background Check
+								New Entity Risk Scanner
 							</h1>
 						</div>
 					</div>
@@ -227,7 +227,7 @@ export default function NewCheck() {
 											className="text-xs"
 											style={{ color: 'var(--color-gray-500)' }}
 										>
-											Company background check
+											Company entity risk scan
 										</div>
 									</div>
 								</label>
@@ -259,7 +259,7 @@ export default function NewCheck() {
 											className="text-xs"
 											style={{ color: 'var(--color-gray-500)' }}
 										>
-											Individual background check
+											Individual entity risk scan
 										</div>
 									</div>
 								</label>
@@ -712,7 +712,7 @@ export default function NewCheck() {
 								className="w-full btn btn-primary"
 								style={{ padding: '16px 24px', fontSize: '16px' }}
 							>
-								Submit Background Check
+								Submit Entity Risk Scanner
 							</button>
 						</div>
 					</div>

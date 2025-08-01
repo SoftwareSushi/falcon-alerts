@@ -30,13 +30,13 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 	const getStatsData = () => {
 		const total = mockPreviousChecks.length;
 		const clean = mockPreviousChecks.filter(
-			(check) => check.status === 'Clean'
+			(scan) => scan.status === 'Clean'
 		).length;
 		const flagged = mockPreviousChecks.filter(
-			(check) => check.status === 'Flagged'
+			(scan) => scan.status === 'Flagged'
 		).length;
 		const inProgress = mockPreviousChecks.filter(
-			(check) => check.status === 'In Progress'
+			(scan) => scan.status === 'In Progress'
 		).length;
 
 		return { total, clean, flagged, inProgress };
@@ -123,7 +123,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 						className="text-base"
 						style={{ color: 'var(--color-gray-600)' }}
 					>
-						Monitor and manage your background checks with confidence.
+						Monitor and manage your entity risk scans with confidence.
 					</p>
 				</div>
 
@@ -137,7 +137,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 										className="text-sm font-medium"
 										style={{ color: 'var(--color-gray-600)' }}
 									>
-										Total Checks
+										Total Scans
 									</p>
 									<p
 										className="text-2xl font-semibold"
@@ -496,7 +496,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 										className="text-lg font-semibold"
 										style={{ color: 'var(--color-gray-900)' }}
 									>
-										Recent Checks
+										Recent Scans
 									</h3>
 									<button
 										onClick={() => navigate('/new-check')}
@@ -515,15 +515,15 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 												d="M12 6v6m0 0v6m0-6h6m-6 0H6"
 											/>
 										</svg>
-										New Check
+										New Scan
 									</button>
 								</div>
 							</div>
 							<div className="card-body">
 								<div className="space-y-4">
-									{mockPreviousChecks.map((check) => (
+									{mockPreviousChecks.map((scan) => (
 										<div
-											key={check.id}
+											key={scan.id}
 											className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0"
 										>
 											<div className="flex-1">
@@ -533,12 +533,12 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 															className="w-8 h-8 rounded-full flex items-center justify-center"
 															style={{
 																backgroundColor:
-																	check.type === 'Person'
+																	scan.type === 'Person'
 																		? 'var(--color-blue-100)'
 																		: 'var(--color-gray-100)',
 															}}
 														>
-															{check.type === 'Person' ? (
+															{scan.type === 'Person' ? (
 																<svg
 																	className="w-4 h-4"
 																	style={{ color: 'var(--color-blue-600)' }}
@@ -576,23 +576,23 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 															className="text-sm font-medium"
 															style={{ color: 'var(--color-gray-900)' }}
 														>
-															{check.entityName}
+															{scan.entityName}
 														</p>
 														<p
 															className="text-xs"
 															style={{ color: 'var(--color-gray-500)' }}
 														>
-															{check.type} • {check.lastUpdated}
+															{scan.type} • {scan.lastUpdated}
 														</p>
 													</div>
 												</div>
 											</div>
 											<div className="flex items-center space-x-3">
-												<span className={getStatusBadge(check.status)}>
-													{check.status}
+												<span className={getStatusBadge(scan.status)}>
+													{scan.status}
 												</span>
 												<button
-													onClick={() => handleViewDetails(check.id, check.status)}
+													onClick={() => handleViewDetails(scan.id, scan.status)}
 													className="btn btn-ghost text-xs"
 												>
 													View
@@ -635,7 +635,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 												d="M12 6v6m0 0v6m0-6h6m-6 0H6"
 											/>
 										</svg>
-										Create New Check
+										Create New Scan
 									</button>
 									<button
 										onClick={() => navigate('/dashboard')}
@@ -654,7 +654,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 												d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
 											/>
 										</svg>
-										View All Checks
+										View All Scans
 									</button>
 									<button
 										onClick={() => navigate('/watchlist')}
@@ -754,14 +754,14 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							</div>
 							<div className="card-body">
 								<div className="space-y-4">
-									{mockPreviousChecks.slice(0, 3).map((check) => (
-										<div key={check.id} className="flex items-start space-x-3">
+									{mockPreviousChecks.slice(0, 3).map((scan) => (
+										<div key={scan.id} className="flex items-start space-x-3">
 											<div className="flex-shrink-0 mt-1">
 												<div
 													className={`w-2 h-2 rounded-full ${
-														check.status === 'Clean'
+														scan.status === 'Clean'
 															? 'bg-green-500'
-															: check.status === 'Flagged'
+															: scan.status === 'Flagged'
 															? 'bg-red-500'
 															: 'bg-yellow-500'
 													}`}
@@ -772,13 +772,13 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 													className="text-sm"
 													style={{ color: 'var(--color-gray-900)' }}
 												>
-													{check.entityName}
+													{scan.entityName}
 												</p>
 												<p
 													className="text-xs"
 													style={{ color: 'var(--color-gray-500)' }}
 												>
-													Check completed • {check.lastUpdated}
+													Scan completed • {scan.lastUpdated}
 												</p>
 											</div>
 										</div>
