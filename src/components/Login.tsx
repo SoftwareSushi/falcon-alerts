@@ -7,8 +7,8 @@ interface LoginProps {
 }
 
 export default function Login({ onLogin }: LoginProps) {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [email, setEmail] = useState('john@email.com');
+	const [password, setPassword] = useState('demo123');
 	const navigate = useNavigate();
 
 	const handleSubmit = (e: FormEvent) => {
@@ -235,6 +235,25 @@ export default function Login({ onLogin }: LoginProps) {
 							</button>
 						</div>
 					</form>
+
+					{/* Demo Disclaimer */}
+					<div
+						className="text-center p-4 rounded-lg mt-4"
+						style={{
+							backgroundColor: 'var(--bg-secondary)',
+							border: '1px solid var(--border-color)',
+						}}
+					>
+						<p
+							className="text-sm"
+							style={{ color: 'var(--text-secondary)' }}
+						>
+							<strong>Demo Notice:</strong> This is a demonstration
+							application. The authentication system is simulated and no real
+							credentials are required. Use the prefilled demo credentials to
+							explore the platform.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
