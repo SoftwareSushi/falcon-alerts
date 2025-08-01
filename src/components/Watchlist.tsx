@@ -137,6 +137,7 @@ export default function Watchlist() {
 						<button
 							onClick={() => setShowAddModal(true)}
 							className="btn btn-primary"
+							disabled
 						>
 							<svg
 								className="w-4 h-4 mr-2"

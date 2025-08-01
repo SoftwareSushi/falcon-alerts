@@ -867,44 +867,30 @@ export default function Results() {
 						</div>
 					)}
 
-					{/* Download Options */}
-					{showFullReport && (
-						<div className="card mt-6">
-							<div className="card-header">
-								<h4
-									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
-								>
-									Download Report
-								</h4>
-							</div>
-							<div className="card-body">
-								<div className="flex gap-4">
-									<button
-										onClick={() => downloadReport('pdf')}
-										className="btn btn-secondary"
-									>
-										Download as PDF
-									</button>
-									<button
-										onClick={() => downloadReport('json')}
-										className="btn btn-secondary"
-									>
-										Download as JSON
-									</button>
-								</div>
-							</div>
-						</div>
-					)}
-
 					{/* Action Buttons */}
-					<div className="flex justify-center mt-8">
+					<div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
 						<button
 							onClick={() => navigate('/dashboard')}
 							className="btn btn-primary"
 						>
 							Back to Dashboard
 						</button>
+						{showFullReport && (
+							<>
+								<button
+									onClick={() => downloadReport('pdf')}
+									className="btn btn-secondary"
+								>
+									Download as PDF
+								</button>
+								<button
+									onClick={() => downloadReport('json')}
+									className="btn btn-secondary"
+								>
+									Download as JSON
+								</button>
+							</>
+						)}
 					</div>
 				</main>
 			</div>

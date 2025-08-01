@@ -7,6 +7,7 @@ export default function Alerts() {
 	const [alerts, setAlerts] = useState<Alert[]>(mockAlerts);
 	const [filterSeverity, setFilterSeverity] = useState<string>('all');
 	const [filterRead, setFilterRead] = useState<string>('all');
+	const [filterSource, setFilterSource] = useState<string>('all');
 	const [selectedAlerts, setSelectedAlerts] = useState<string[]>([]);
 
 	const getSeverityBadge = (severity: string) => {
@@ -169,7 +170,9 @@ export default function Alerts() {
 			filterRead === 'all' ||
 			(filterRead === 'read' && alert.isRead) ||
 			(filterRead === 'unread' && !alert.isRead);
-		return severityMatch && readMatch;
+		const sourceMatch =
+			filterSource === 'all' || alert.sourceName === filterSource;
+		return severityMatch && readMatch && sourceMatch;
 	});
 
 	const unreadCount = alerts.filter((alert) => !alert.isRead).length;
@@ -183,6 +186,39 @@ export default function Alerts() {
 	const formatTimestamp = (timestamp: string) => {
 		return new Date(timestamp).toLocaleString();
 	};
+
+	const getSourceBadgeClass = (sourceName: string) => {
+		// Check for specific full source names first for precise matching
+		switch (sourceName) {
+			case 'OFAC SDN List':
+				return 'badge badge-error badge-sm'; // Red - OFAC sanctions
+			case 'DEA EPIC Database':
+			case 'DEA Intelligence Division':
+				return 'badge badge-warning badge-sm'; // Orange - DEA sources
+			case 'UN Sanctions Committee':
+				return 'badge badge-info badge-sm'; // Blue - UN sanctions
+			case 'US State Department FTO List':
+				return 'badge badge-secondary badge-sm'; // Gray - FTO list
+			case 'Enhanced Due Diligence Database':
+				return 'badge badge-primary badge-sm'; // Purple - compliance
+			default:
+				// Fallback to substring matching for partial matches
+				if (sourceName.includes('OFAC'))
+					return 'badge badge-error badge-sm';
+				if (sourceName.includes('DEA'))
+					return 'badge badge-warning badge-sm';
+				if (sourceName.includes('UN')) return 'badge badge-info badge-sm';
+				if (sourceName.includes('FTO'))
+					return 'badge badge-secondary badge-sm';
+				if (sourceName.includes('Enhanced Due Diligence'))
+					return 'badge badge-primary badge-sm';
+				return 'badge badge-accent badge-sm'; // Default green
+		}
+	};
+
+	const uniqueSources = [
+		...new Set(alerts.map((alert) => alert.sourceName)),
+	].sort();
 
 	return (
 		<div
@@ -445,6 +481,23 @@ export default function Alerts() {
 							</div>
 							<div className="form-control">
 								<label className="label">
+									<span className="label-text">Source</span>
+								</label>
+								<select
+									className="select select-bordered select-sm"
+									value={filterSource}
+									onChange={(e) => setFilterSource(e.target.value)}
+								>
+									<option value="all">All Sources</option>
+									{uniqueSources.map((source) => (
+										<option key={source} value={source}>
+											{source}
+										</option>
+									))}
+								</select>
+							</div>
+							<div className="form-control">
+								<label className="label">
 									<span className="label-text">Results</span>
 								</label>
 								<div className="text-sm text-gray-600">
@@ -575,6 +628,19 @@ export default function Alerts() {
 												>
 													{alert.description}
 												</p>
+												<div className="mb-3">
+													<span
+														className="text-xs font-medium uppercase tracking-wide"
+														style={{ color: 'var(--text-tertiary)' }}
+													>
+														Source:
+													</span>
+													<div className="mt-1">
+														<span className={getSourceBadgeClass(alert.sourceName)}>
+															{alert.sourceName}
+														</span>
+													</div>
+												</div>
 												{alert.relatedEntities.length > 0 && (
 													<div className="mb-3">
 														<span

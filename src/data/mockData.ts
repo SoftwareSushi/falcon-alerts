@@ -56,6 +56,7 @@ export interface Alert {
 	isRead: boolean;
 	requiresAction: boolean;
 	relatedEntities: string[];
+	sourceName: string;
 	sourceData: any;
 }
 
@@ -295,6 +296,7 @@ export const mockAlerts: Alert[] = [
 		isRead: false,
 		requiresAction: true,
 		relatedEntities: ['ABC Corporation', 'Shell Company XYZ'],
+		sourceName: 'US State Department FTO List',
 		sourceData: { sourceList: 'State Department FTO', confidence: 85 },
 	},
 	{
@@ -309,6 +311,7 @@ export const mockAlerts: Alert[] = [
 		isRead: false,
 		requiresAction: false,
 		relatedEntities: ['Michael Brown', 'Port of Buenaventura'],
+		sourceName: 'DEA EPIC Database',
 		sourceData: {
 			port: 'Buenaventura',
 			activity: 'Commercial shipment',
@@ -326,7 +329,59 @@ export const mockAlerts: Alert[] = [
 		isRead: true,
 		requiresAction: false,
 		relatedEntities: ['ABC Corporation'],
+		sourceName: 'Enhanced Due Diligence Database',
 		sourceData: { changeType: 'Beneficial ownership', newEntities: 2 },
+	},
+	{
+		id: 'a4',
+		watchlistEntryId: 'w1',
+		alertType: 'NEW_SANCTIONS',
+		severity: 'critical',
+		title: 'New OFAC SDN Designation',
+		description:
+			'Entity has been added to OFAC Specially Designated Nationals list for involvement in narcotics trafficking.',
+		timestamp: '2024-01-16T08:45:00Z',
+		isRead: false,
+		requiresAction: true,
+		relatedEntities: ['Cartel Front Company LLC'],
+		sourceName: 'OFAC SDN List',
+		sourceData: { designation: 'SDN', sanctions_program: 'NARCOTICS' },
+	},
+	{
+		id: 'a5',
+		watchlistEntryId: 'w2',
+		alertType: 'FTO_TCO_LINK',
+		severity: 'high',
+		title: 'UN Security Council Sanctions Match',
+		description:
+			'Associated entity appears on UN Security Council Sanctions list under Resolution 1267.',
+		timestamp: '2024-01-15T16:20:00Z',
+		isRead: false,
+		requiresAction: true,
+		relatedEntities: ['International Holdings Corp'],
+		sourceName: 'UN Sanctions Committee',
+		sourceData: { resolution: '1267', committee: 'Security Council' },
+	},
+	{
+		id: 'a6',
+		watchlistEntryId: 'w1',
+		alertType: 'NETWORK_CHANGE',
+		severity: 'high',
+		title: 'Known Cartel Front Company Connection',
+		description:
+			'Entity has established business relationships with known cartel front companies identified by DEA intelligence.',
+		timestamp: '2024-01-14T11:30:00Z',
+		isRead: true,
+		requiresAction: false,
+		relatedEntities: [
+			'Los Chapitos Organization',
+			'Gulf Cartel Network',
+		],
+		sourceName: 'DEA Intelligence Division',
+		sourceData: {
+			cartel_affiliation: 'Los Chapitos',
+			threat_level: 'HIGH',
+		},
 	},
 ];
 

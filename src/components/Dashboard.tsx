@@ -496,7 +496,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 										className="text-lg font-semibold"
 										style={{ color: 'var(--color-gray-900)' }}
 									>
-										Recent Scans
+										Scans
 									</h3>
 									<button
 										onClick={() => navigate('/new-check')}
@@ -637,25 +637,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 										</svg>
 										Create New Scan
 									</button>
-									<button
-										onClick={() => navigate('/dashboard')}
-										className="w-full btn btn-secondary justify-start"
-									>
-										<svg
-											className="w-4 h-4 mr-3"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke="currentColor"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={2}
-												d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-											/>
-										</svg>
-										View All Scans
-									</button>
+
 									<button
 										onClick={() => navigate('/watchlist')}
 										className="w-full btn btn-secondary justify-start"
