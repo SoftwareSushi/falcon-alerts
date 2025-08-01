@@ -639,7 +639,7 @@ const generateSuspiciousEntities = (): SuspiciousEntity[] => {
 		'Liechtenstein',
 	];
 
-	const regions = {
+	const regions: Record<string, string[]> = {
 		Colombia: [
 			'Valle del Cauca',
 			'Antioquia',
@@ -839,12 +839,7 @@ const generateSuspiciousEntities = (): SuspiciousEntity[] => {
 		'Q1-2023',
 		'Q4-2022',
 	];
-	const riskLevels: ('low' | 'medium' | 'high' | 'critical')[] = [
-		'low',
-		'medium',
-		'high',
-		'critical',
-	];
+
 	const entityTypes: (
 		| 'port'
 		| 'person'
@@ -978,6 +973,199 @@ const generateSuspiciousEntities = (): SuspiciousEntity[] => {
 
 export const mockSuspiciousEntities: SuspiciousEntity[] =
 	generateSuspiciousEntities();
+
+export interface FTOLocation {
+	id: string;
+	name: string;
+	type: 'country' | 'organization' | 'regional_group';
+	coordinates: { lat: number; lng: number };
+	riskLevel: 'low' | 'medium' | 'high' | 'critical';
+	description: string;
+	sourceList: string;
+	lastUpdated: string;
+	relatedEntities: string[];
+}
+
+export const mockFTOLocations: FTOLocation[] = [
+	// High-risk countries with FTO presence
+	{
+		id: 'fto-1',
+		name: 'Afghanistan',
+		type: 'country',
+		coordinates: { lat: 33.93911, lng: 67.709953 },
+		riskLevel: 'critical',
+		description: 'Known Taliban and Al-Qaeda operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-15',
+		relatedEntities: ['Taliban', 'Al-Qaeda', 'ISIS-K'],
+	},
+	{
+		id: 'fto-2',
+		name: 'Syria',
+		type: 'country',
+		coordinates: { lat: 34.802075, lng: 38.996815 },
+		riskLevel: 'critical',
+		description: 'ISIS and Al-Nusra Front operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-12',
+		relatedEntities: ['ISIS', 'Al-Nusra Front', 'Hayat Tahrir al-Sham'],
+	},
+	{
+		id: 'fto-3',
+		name: 'Iraq',
+		type: 'country',
+		coordinates: { lat: 33.223191, lng: 43.679291 },
+		riskLevel: 'high',
+		description: 'ISIS remnants and militia activities',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-10',
+		relatedEntities: ['ISIS', 'Popular Mobilization Forces'],
+	},
+	{
+		id: 'fto-4',
+		name: 'Lebanon',
+		type: 'country',
+		coordinates: { lat: 33.854721, lng: 35.862285 },
+		riskLevel: 'high',
+		description: 'Hezbollah stronghold and operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-08',
+		relatedEntities: ['Hezbollah', 'Palestinian Islamic Jihad'],
+	},
+	{
+		id: 'fto-5',
+		name: 'Gaza Strip',
+		type: 'regional_group',
+		coordinates: { lat: 31.354676, lng: 34.308825 },
+		riskLevel: 'critical',
+		description: 'Hamas territorial control and operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-16',
+		relatedEntities: ['Hamas', 'Palestinian Islamic Jihad'],
+	},
+	{
+		id: 'fto-6',
+		name: 'Iran',
+		type: 'country',
+		coordinates: { lat: 32.427908, lng: 53.688046 },
+		riskLevel: 'critical',
+		description: 'State sponsor of terrorism, IRGC operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-14',
+		relatedEntities: ['IRGC', 'Quds Force', 'Hezbollah'],
+	},
+	{
+		id: 'fto-7',
+		name: 'Yemen',
+		type: 'country',
+		coordinates: { lat: 15.552727, lng: 48.516388 },
+		riskLevel: 'high',
+		description: 'Al-Qaeda in Arabian Peninsula operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-11',
+		relatedEntities: ['AQAP', 'Houthis', 'Ansar Allah'],
+	},
+	{
+		id: 'fto-8',
+		name: 'Somalia',
+		type: 'country',
+		coordinates: { lat: 5.152149, lng: 46.199616 },
+		riskLevel: 'high',
+		description: 'Al-Shabaab territorial control',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-09',
+		relatedEntities: ['Al-Shabaab', 'Al-Qaeda East Africa'],
+	},
+	{
+		id: 'fto-9',
+		name: 'Nigeria',
+		type: 'country',
+		coordinates: { lat: 9.081999, lng: 8.675277 },
+		riskLevel: 'high',
+		description: 'Boko Haram and ISWAP operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-07',
+		relatedEntities: ['Boko Haram', 'ISWAP', 'Ansaru'],
+	},
+	{
+		id: 'fto-10',
+		name: 'Mali',
+		type: 'country',
+		coordinates: { lat: 17.570692, lng: -3.996166 },
+		riskLevel: 'medium',
+		description: 'JNIM and ISIS-GS activities',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-06',
+		relatedEntities: ['JNIM', 'ISIS-GS', 'AQIM'],
+	},
+	{
+		id: 'fto-11',
+		name: 'Pakistan',
+		type: 'country',
+		coordinates: { lat: 30.375321, lng: 69.345116 },
+		riskLevel: 'medium',
+		description: 'Taliban and terrorist group presence',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-05',
+		relatedEntities: ['TTP', 'Lashkar-e-Taiba', 'Jaish-e-Mohammed'],
+	},
+	{
+		id: 'fto-12',
+		name: 'Libya',
+		type: 'country',
+		coordinates: { lat: 26.3351, lng: 17.228331 },
+		riskLevel: 'medium',
+		description: 'ISIS-Libya and militia activities',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-04',
+		relatedEntities: ['ISIS-Libya', 'Various militias'],
+	},
+	{
+		id: 'fto-13',
+		name: 'Philippines',
+		type: 'country',
+		coordinates: { lat: 12.879721, lng: 121.774017 },
+		riskLevel: 'medium',
+		description: 'Abu Sayyaf Group operations',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-03',
+		relatedEntities: ['Abu Sayyaf Group', 'Maute Group', 'BIFF'],
+	},
+	// Organizations with specific locations
+	{
+		id: 'fto-org-1',
+		name: 'Hamas HQ',
+		type: 'organization',
+		coordinates: { lat: 31.5017, lng: 34.4668 },
+		riskLevel: 'critical',
+		description: 'Hamas political and military headquarters',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-16',
+		relatedEntities: ['Hamas', 'Izz al-Din al-Qassam Brigades'],
+	},
+	{
+		id: 'fto-org-2',
+		name: 'Hezbollah Southern Command',
+		type: 'organization',
+		coordinates: { lat: 33.2775, lng: 35.2048 },
+		riskLevel: 'critical',
+		description: 'Hezbollah military operations center',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-14',
+		relatedEntities: ['Hezbollah', 'Islamic Resistance'],
+	},
+	{
+		id: 'fto-org-3',
+		name: 'IRGC Quds Force Base',
+		type: 'organization',
+		coordinates: { lat: 35.6892, lng: 51.389 },
+		riskLevel: 'critical',
+		description: 'IRGC Quds Force headquarters',
+		sourceList: 'US State Department FTO List',
+		lastUpdated: '2024-01-13',
+		relatedEntities: ['IRGC', 'Quds Force'],
+	},
+];
 
 export const mockERPIntegrations: ERPIntegration[] = [
 	{

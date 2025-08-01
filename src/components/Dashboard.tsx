@@ -6,6 +6,7 @@ import {
 	mockSuspiciousEntities,
 } from '../data/mockData';
 import ThemeToggle from './ThemeToggle';
+import FTOMap from './FTOMap';
 
 interface DashboardProps {
 	onLogout: () => void;
@@ -490,6 +491,11 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							</div>
 						</div>
 					</div>
+				</div>
+
+				{/* FTO Map Section */}
+				<div style={{ marginBottom: '3rem' }}>
+					<FTOMap />
 				</div>
 
 				{/* Main Content Grid */}
