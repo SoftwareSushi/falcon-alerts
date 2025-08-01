@@ -121,7 +121,7 @@ export default function Results() {
 							{/* Entity Name */}
 							<h2
 								className="text-2xl font-semibold mb-2"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								{getEntityName()}
 							</h2>
@@ -138,7 +138,7 @@ export default function Results() {
 							{/* Secondary Text */}
 							<p
 								className="mb-8 max-w-md mx-auto"
-								style={{ color: 'var(--color-gray-600)' }}
+								style={{ color: 'var(--text-secondary)' }}
 							>
 								Entity passed comprehensive screening across sanctions
 								databases, cartel intelligence, ML pattern analysis, and
@@ -153,7 +153,7 @@ export default function Results() {
 						<div className="card-header">
 							<h4
 								className="text-lg font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Comprehensive Scan Summary
 							</h4>
@@ -181,7 +181,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											OFAC SDN List
 										</p>
@@ -214,7 +214,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											DEA Database
 										</p>
@@ -247,7 +247,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											UN Sanctions
 										</p>
@@ -280,7 +280,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											FTO List
 										</p>
@@ -313,7 +313,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											Cartel Intelligence
 										</p>
@@ -346,7 +346,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											ML Pattern Analysis
 										</p>
@@ -379,7 +379,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											Geographic Risk Flags
 										</p>
@@ -412,7 +412,7 @@ export default function Results() {
 									<div>
 										<p
 											className="font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											Known Associates
 										</p>
@@ -452,13 +452,13 @@ export default function Results() {
 							</div>
 							<h4
 								className="text-lg font-semibold mb-2"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Monitor Future Changes
 							</h4>
 							<p
 								className="mb-4 max-w-md mx-auto"
-								style={{ color: 'var(--color-gray-600)' }}
+								style={{ color: 'var(--text-secondary)' }}
 							>
 								Stay informed about any future changes to{' '}
 								<strong>{getEntityName()}</strong>'s risk profile. Add this
@@ -598,7 +598,7 @@ export default function Results() {
 							{/* Entity Name */}
 							<h2
 								className="text-2xl font-semibold mb-2"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								{getEntityName()}
 							</h2>
@@ -610,7 +610,7 @@ export default function Results() {
 							>
 								{mockFlaggedRecords.length} high-risk matches found
 							</h3>
-							<p className="mb-6" style={{ color: 'var(--color-gray-600)' }}>
+							<p className="mb-6" style={{ color: 'var(--text-secondary)' }}>
 								Identified across{' '}
 								{new Set(mockFlaggedRecords.map((r) => r.sourceName)).size}{' '}
 								intelligence sources including sanctions databases, cartel
@@ -646,7 +646,7 @@ export default function Results() {
 							<div className="card-header">
 								<h4
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Risk Overview
 								</h4>
@@ -684,7 +684,7 @@ export default function Results() {
 									<div className="text-center">
 										<div
 											className="text-2xl font-bold"
-											style={{ color: 'var(--color-gray-600)' }}
+											style={{ color: 'var(--text-secondary)' }}
 										>
 											{new Set(mockFlaggedRecords.map((r) => r.category)).size}
 										</div>
@@ -736,7 +736,7 @@ export default function Results() {
 								</div>
 								<h4
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Risk Management Actions
 								</h4>
@@ -1085,7 +1085,7 @@ export default function Results() {
 							<div className="card-header">
 								<h4
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Detailed Findings
 								</h4>
@@ -1102,7 +1102,7 @@ export default function Results() {
 												case 'Low':
 													return 'var(--color-green-600)';
 												default:
-													return 'var(--color-gray-600)';
+													return 'var(--text-secondary)';
 											}
 										};
 
@@ -1200,22 +1200,28 @@ export default function Results() {
 													<div className="flex justify-between items-start mb-4">
 														<div className="flex-1">
 															<div className="flex items-center space-x-2 mb-2">
-																<div className="flex items-center space-x-1 text-gray-600">
+																<div
+																	className="flex items-center space-x-1"
+																	style={{ color: 'var(--text-secondary)' }}
+																>
 																	{getCategoryIcon(record.category)}
-																	<span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+																	<span
+																		className="text-xs font-medium uppercase tracking-wide"
+																		style={{ color: 'var(--text-tertiary)' }}
+																	>
 																		{record.category.replace('_', ' ')}
 																	</span>
 																</div>
 															</div>
 															<h5
 																className="font-medium text-lg"
-																style={{ color: 'var(--color-gray-900)' }}
+																style={{ color: 'var(--text-primary)' }}
 															>
 																{record.recordType}
 															</h5>
 															<p
 																className="text-sm"
-																style={{ color: 'var(--color-gray-600)' }}
+																style={{ color: 'var(--text-secondary)' }}
 															>
 																Source: {record.sourceName}
 															</p>
@@ -1250,7 +1256,7 @@ export default function Results() {
 														>
 															<p
 																className="text-sm font-medium mb-1"
-																style={{ color: 'var(--color-gray-900)' }}
+																style={{ color: 'var(--text-primary)' }}
 															>
 																Risk Details:
 															</p>
@@ -1265,7 +1271,7 @@ export default function Results() {
 															<div>
 																<span
 																	className="font-medium"
-																	style={{ color: 'var(--color-gray-900)' }}
+																	style={{ color: 'var(--text-primary)' }}
 																>
 																	Matching Criteria:
 																</span>
@@ -1276,7 +1282,7 @@ export default function Results() {
 															<div>
 																<span
 																	className="font-medium"
-																	style={{ color: 'var(--color-gray-900)' }}
+																	style={{ color: 'var(--text-primary)' }}
 																>
 																	Date Identified:
 																</span>
@@ -1319,13 +1325,13 @@ export default function Results() {
 							</div>
 							<h4
 								className="text-lg font-semibold mb-2"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Critical: Enable Continuous Monitoring
 							</h4>
 							<p
 								className="mb-4 max-w-md mx-auto"
-								style={{ color: 'var(--color-gray-600)' }}
+								style={{ color: 'var(--text-secondary)' }}
 							>
 								Given the high-risk findings for{' '}
 								<strong>{getEntityName()}</strong>, it's essential to monitor
@@ -1394,7 +1400,7 @@ export default function Results() {
 				<div className="card-body">
 					<h2
 						className="text-2xl font-semibold mb-4"
-						style={{ color: 'var(--color-gray-900)' }}
+						style={{ color: 'var(--text-primary)' }}
 					>
 						No Results Available
 					</h2>

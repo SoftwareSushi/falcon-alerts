@@ -192,7 +192,7 @@ export default function NewCheck() {
 						<div className="card-header">
 							<h2
 								className="text-lg font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Select Entity Type
 							</h2>
@@ -200,11 +200,17 @@ export default function NewCheck() {
 						<div className="card-body">
 							<div className="grid grid-cols-2 gap-4">
 								<label
-									className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-										entityType === 'business'
-											? 'border-blue-500 bg-blue-50'
-											: 'border-gray-200 hover:border-gray-300'
-									}`}
+									className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+									style={{
+										borderColor:
+											entityType === 'business'
+												? 'var(--color-blue-500)'
+												: 'var(--border-primary)',
+										backgroundColor:
+											entityType === 'business'
+												? 'var(--color-blue-50)'
+												: 'transparent',
+									}}
 								>
 									<input
 										type="radio"
@@ -219,24 +225,30 @@ export default function NewCheck() {
 									<div className="ml-3">
 										<div
 											className="text-sm font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											Business
 										</div>
 										<div
 											className="text-xs"
-											style={{ color: 'var(--color-gray-500)' }}
+											style={{ color: 'var(--text-tertiary)' }}
 										>
 											Company entity risk scan
 										</div>
 									</div>
 								</label>
 								<label
-									className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-										entityType === 'person'
-											? 'border-blue-500 bg-blue-50'
-											: 'border-gray-200 hover:border-gray-300'
-									}`}
+									className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+									style={{
+										borderColor:
+											entityType === 'person'
+												? 'var(--color-blue-500)'
+												: 'var(--border-primary)',
+										backgroundColor:
+											entityType === 'person'
+												? 'var(--color-blue-50)'
+												: 'transparent',
+									}}
 								>
 									<input
 										type="radio"
@@ -251,13 +263,13 @@ export default function NewCheck() {
 									<div className="ml-3">
 										<div
 											className="text-sm font-medium"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 										>
 											Person
 										</div>
 										<div
 											className="text-xs"
-											style={{ color: 'var(--color-gray-500)' }}
+											style={{ color: 'var(--text-tertiary)' }}
 										>
 											Individual entity risk scan
 										</div>
@@ -273,7 +285,7 @@ export default function NewCheck() {
 							<div className="card-header">
 								<h2
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Person Information
 								</h2>
@@ -523,7 +535,7 @@ export default function NewCheck() {
 							<div className="card-header">
 								<h2
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Business Information
 								</h2>

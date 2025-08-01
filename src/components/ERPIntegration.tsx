@@ -195,13 +195,13 @@ export default function ERPIntegration() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Integrations
 									</p>
 									<p
 										className="text-2xl font-semibold"
-										style={{ color: 'var(--color-gray-900)' }}
+										style={{ color: 'var(--text-primary)' }}
 									>
 										{totalCount}
 									</p>
@@ -235,7 +235,7 @@ export default function ERPIntegration() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Active
 									</p>
@@ -275,7 +275,7 @@ export default function ERPIntegration() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										ERP Systems
 									</p>
@@ -315,7 +315,7 @@ export default function ERPIntegration() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										CRM Systems
 									</p>
@@ -355,7 +355,7 @@ export default function ERPIntegration() {
 					<div className="card-header">
 						<h3
 							className="text-lg font-semibold"
-							style={{ color: 'var(--color-gray-900)' }}
+							style={{ color: 'var(--text-primary)' }}
 						>
 							Configured Integrations
 						</h3>
@@ -379,13 +379,13 @@ export default function ERPIntegration() {
 								</svg>
 								<p
 									className="text-lg font-medium mb-2"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									No integrations configured
 								</p>
 								<p
 									className="text-sm mb-4"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Add your first ERP or CRM integration to start syncing data.
 								</p>
@@ -417,13 +417,13 @@ export default function ERPIntegration() {
 													<div>
 														<div
 															className="font-medium"
-															style={{ color: 'var(--color-gray-900)' }}
+															style={{ color: 'var(--text-primary)' }}
 														>
 															{integration.name}
 														</div>
 														<div
 															className="text-sm"
-															style={{ color: 'var(--color-gray-600)' }}
+															style={{ color: 'var(--text-secondary)' }}
 														>
 															{integration.endpoint}
 														</div>
@@ -495,7 +495,7 @@ export default function ERPIntegration() {
 						<div className="card-header">
 							<h3
 								className="text-lg font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Available Features
 							</h3>
@@ -590,7 +590,7 @@ export default function ERPIntegration() {
 						<div className="card-header">
 							<h3
 								className="text-lg font-semibold"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Supported Systems
 							</h3>

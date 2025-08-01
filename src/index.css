@@ -13,28 +13,28 @@
 	--color-gray-800: #262626;
 	--color-gray-900: #171717;
 
-	/* Soft accent colors */
+	/* Soft accent colors - improved contrast */
 	--color-blue-50: #eff6ff;
 	--color-blue-100: #dbeafe;
-	--color-blue-500: #3b82f6;
-	--color-blue-600: #2563eb;
-	--color-blue-700: #1d4ed8;
+	--color-blue-500: #2563eb;
+	--color-blue-600: #1d4ed8;
+	--color-blue-700: #1e40af;
 
-	/* Semantic colors */
+	/* Semantic colors - improved contrast */
 	--color-green-50: #f0fdf4;
 	--color-green-100: #dcfce7;
-	--color-green-500: #22c55e;
-	--color-green-600: #16a34a;
+	--color-green-500: #16a34a;
+	--color-green-600: #15803d;
 
 	--color-red-50: #fef2f2;
 	--color-red-100: #fee2e2;
-	--color-red-500: #ef4444;
-	--color-red-600: #dc2626;
+	--color-red-500: #dc2626;
+	--color-red-600: #b91c1c;
 
 	--color-yellow-50: #fefce8;
 	--color-yellow-100: #fef3c7;
-	--color-yellow-500: #eab308;
-	--color-yellow-600: #ca8a04;
+	--color-yellow-500: #ca8a04;
+	--color-yellow-600: #a16207;
 
 	/* Theme-aware semantic colors */
 	--bg-primary: var(--color-gray-50);
@@ -60,32 +60,40 @@
 	--color-gray-600: #a3a3a3;
 	--color-gray-700: #d4d4d4;
 	--color-gray-800: #e5e5e5;
-	--color-gray-900: #fafafa;
+	--color-gray-900: #f1f1f1;
 
-	/* Dark theme semantic colors */
+	/* Dark theme semantic colors - whiter text for better readability */
 	--bg-primary: #0a0a0a;
 	--bg-secondary: #171717;
 	--bg-tertiary: #262626;
-	--text-primary: #fafafa;
-	--text-secondary: #d4d4d4;
-	--text-tertiary: #a3a3a3;
+	--text-primary: #f8f8f8;
+	--text-secondary: #e0e0e0;
+	--text-tertiary: #c0c0c0;
 	--border-primary: #262626;
 	--border-secondary: #404040;
 	--shadow-primary: rgba(0, 0, 0, 0.3);
 	--shadow-secondary: rgba(0, 0, 0, 0.5);
 
-	/* Adjust semantic colors for dark theme */
-	--color-green-50: #0c1f0c;
-	--color-green-100: #1a3a1a;
+	/* Adjust semantic colors for dark theme - muted, less neon colors */
+	--color-green-50: #0f2a0f;
+	--color-green-100: #1d4a1d;
+	--color-green-500: #4ade80;
+	--color-green-600: #22c55e;
 
-	--color-red-50: #1f0c0c;
-	--color-red-100: #3a1a1a;
+	--color-red-50: #2a0f0f;
+	--color-red-100: #4a1d1d;
+	--color-red-500: #f87171;
+	--color-red-600: #ef4444;
 
-	--color-yellow-50: #1f1c0c;
-	--color-yellow-100: #3a361a;
+	--color-yellow-50: #2a270f;
+	--color-yellow-100: #4a421d;
+	--color-yellow-500: #facc15;
+	--color-yellow-600: #eab308;
 
-	--color-blue-50: #0c1420;
-	--color-blue-100: #1a2b3a;
+	--color-blue-50: #0f1a2a;
+	--color-blue-100: #1d334a;
+	--color-blue-500: #7dd3fc;
+	--color-blue-600: #0ea5e9;
 }
 
 /* Typography */

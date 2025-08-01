@@ -133,7 +133,7 @@ export default function Processing() {
 									className="absolute inset-0 w-20 h-20 border-4 rounded-full animate-spin"
 									style={{
 										borderColor:
-											'var(--color-gray-900) transparent transparent transparent',
+											'var(--text-primary) transparent transparent transparent',
 									}}
 								></div>
 								<div className="absolute inset-0 flex items-center justify-center">
@@ -143,7 +143,7 @@ export default function Processing() {
 									>
 										<svg
 											className="w-6 h-6"
-											style={{ color: 'var(--color-gray-900)' }}
+											style={{ color: 'var(--text-primary)' }}
 											fill="none"
 											viewBox="0 0 24 24"
 											stroke="currentColor"
@@ -178,7 +178,7 @@ export default function Processing() {
 								className="h-2 rounded-full transition-all duration-300 ease-out"
 								style={{
 									width: `${progress}%`,
-									backgroundColor: 'var(--color-gray-900)',
+									backgroundColor: 'var(--text-primary)',
 								}}
 							></div>
 						</div>
@@ -207,13 +207,13 @@ export default function Processing() {
 							<div className="text-center">
 								<p
 									className="text-2xl font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									{Math.round(progress)}%
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-500)' }}
+									style={{ color: 'var(--text-tertiary)' }}
 								>
 									Complete
 								</p>
@@ -227,7 +227,7 @@ export default function Processing() {
 								</p>
 								<p
 									className="text-sm font-medium"
-									style={{ color: 'var(--color-gray-500)' }}
+									style={{ color: 'var(--text-tertiary)' }}
 								>
 									Sources Scanned
 								</p>
@@ -242,7 +242,7 @@ export default function Processing() {
 									</p>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-500)' }}
+										style={{ color: 'var(--text-tertiary)' }}
 									>
 										Remaining
 									</p>
@@ -257,7 +257,7 @@ export default function Processing() {
 									</p>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-500)' }}
+										style={{ color: 'var(--text-tertiary)' }}
 									>
 										Complete
 									</p>

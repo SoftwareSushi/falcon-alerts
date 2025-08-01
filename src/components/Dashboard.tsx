@@ -119,13 +119,13 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 				<div className="mb-8">
 					<h2
 						className="text-2xl font-semibold mb-2"
-						style={{ color: 'var(--color-gray-900)' }}
+						style={{ color: 'var(--text-primary)' }}
 					>
 						Welcome back
 					</h2>
 					<p
 						className="text-base"
-						style={{ color: 'var(--color-gray-600)' }}
+						style={{ color: 'var(--text-secondary)' }}
 					>
 						Monitor and manage your entity risk scans with confidence.
 					</p>
@@ -139,13 +139,13 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Scans
 									</p>
 									<p
 										className="text-2xl font-semibold"
-										style={{ color: 'var(--color-gray-900)' }}
+										style={{ color: 'var(--text-primary)' }}
 									>
 										{stats.total}
 									</p>
@@ -179,7 +179,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Clean
 									</p>
@@ -219,7 +219,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Flagged
 									</p>
@@ -259,7 +259,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										In Progress
 									</p>
@@ -302,7 +302,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="flex items-center justify-between">
 								<h3
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Alerts
 								</h3>
@@ -319,7 +319,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Unread
 									</span>
@@ -330,7 +330,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Critical
 									</span>
@@ -344,7 +344,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Action Required
 									</span>
@@ -362,7 +362,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="flex items-center justify-between">
 								<h3
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Watchlist
 								</h3>
@@ -379,7 +379,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Monitored Entities
 									</span>
@@ -390,7 +390,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Real-time
 									</span>
@@ -406,7 +406,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Weekly
 									</span>
@@ -429,7 +429,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="flex items-center justify-between">
 								<h3
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Suspicious Registry
 								</h3>
@@ -446,7 +446,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Entities
 									</span>
@@ -457,7 +457,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Critical Risk
 									</span>
@@ -472,7 +472,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<span
 										className="text-sm"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Ports
 									</span>
@@ -498,27 +498,19 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<div className="flex items-center justify-between">
 									<h3
 										className="text-lg font-semibold"
-										style={{ color: 'var(--color-gray-900)' }}
+										style={{ color: 'var(--text-primary)' }}
 									>
 										Scans
 									</h3>
 									<button
 										onClick={() => navigate('/new-check')}
-										className="btn btn-primary"
+										className="btn"
+										style={{
+											backgroundColor: '#2c5eae',
+											color: 'white',
+											border: '1px solid #2c5eae',
+										}}
 									>
-										<svg
-											className="w-4 h-4 mr-2"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke="currentColor"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={2}
-												d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-											/>
-										</svg>
 										New Scan
 									</button>
 								</div>
@@ -560,7 +552,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 															) : (
 																<svg
 																	className="w-4 h-4"
-																	style={{ color: 'var(--color-gray-600)' }}
+																	style={{ color: 'var(--text-secondary)' }}
 																	fill="none"
 																	viewBox="0 0 24 24"
 																	stroke="currentColor"
@@ -578,13 +570,13 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 													<div className="flex-1 min-w-0">
 														<p
 															className="text-sm font-medium"
-															style={{ color: 'var(--color-gray-900)' }}
+															style={{ color: 'var(--text-primary)' }}
 														>
 															{scan.entityName}
 														</p>
 														<p
 															className="text-xs"
-															style={{ color: 'var(--color-gray-500)' }}
+															style={{ color: 'var(--text-tertiary)' }}
 														>
 															{scan.type} • {scan.lastUpdated}
 														</p>
@@ -615,7 +607,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="card-header">
 								<h3
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Quick Actions
 								</h3>
@@ -733,7 +725,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="card-header">
 								<h3
 									className="text-lg font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Recent Activity
 								</h3>
@@ -744,25 +736,27 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 										<div key={scan.id} className="flex items-start space-x-3">
 											<div className="flex-shrink-0 mt-1">
 												<div
-													className={`w-2 h-2 rounded-full ${
-														scan.status === 'Clean'
-															? 'bg-green-500'
-															: scan.status === 'Flagged'
-															? 'bg-red-500'
-															: 'bg-yellow-500'
-													}`}
+													className="w-2 h-2 rounded-full"
+													style={{
+														backgroundColor:
+															scan.status === 'Clean'
+																? 'var(--color-green-500)'
+																: scan.status === 'Flagged'
+																? 'var(--color-red-500)'
+																: 'var(--color-yellow-500)',
+													}}
 												></div>
 											</div>
 											<div className="flex-1 min-w-0">
 												<p
 													className="text-sm"
-													style={{ color: 'var(--color-gray-900)' }}
+													style={{ color: 'var(--text-primary)' }}
 												>
 													{scan.entityName}
 												</p>
 												<p
 													className="text-xs"
-													style={{ color: 'var(--color-gray-500)' }}
+													style={{ color: 'var(--text-tertiary)' }}
 												>
 													Scan completed • {scan.lastUpdated}
 												</p>

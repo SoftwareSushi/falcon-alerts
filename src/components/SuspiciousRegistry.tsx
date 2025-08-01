@@ -293,7 +293,7 @@ export default function SuspiciousRegistry() {
 						<div className="mb-6">
 							<h3
 								className="text-lg font-semibold mb-4"
-								style={{ color: 'var(--color-gray-900)' }}
+								style={{ color: 'var(--text-primary)' }}
 							>
 								Search & Filters
 							</h3>
@@ -425,13 +425,13 @@ export default function SuspiciousRegistry() {
 								</svg>
 								<p
 									className="text-lg font-medium mb-2"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									No entities match your search
 								</p>
 								<p
 									className="text-sm"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Try adjusting your search terms or filters.
 								</p>
@@ -591,7 +591,7 @@ export default function SuspiciousRegistry() {
 												<td className="py-4 px-6">
 													<div
 														className="text-sm"
-														style={{ color: 'var(--color-gray-600)' }}
+														style={{ color: 'var(--text-secondary)' }}
 													>
 														{formatDate(entity.lastUpdated)}
 													</div>
@@ -675,7 +675,7 @@ export default function SuspiciousRegistry() {
 									</div>
 									<p
 										className="text-sm mb-3 capitalize"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										{source.type.charAt(0).toUpperCase() + source.type.slice(1)}
 									</p>

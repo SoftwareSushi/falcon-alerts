@@ -202,13 +202,13 @@ export default function Watchlist() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Monitored
 									</p>
 									<p
 										className="text-2xl font-semibold"
-										style={{ color: 'var(--color-gray-900)' }}
+										style={{ color: 'var(--text-primary)' }}
 									>
 										{watchlistEntries.length}
 									</p>
@@ -248,7 +248,7 @@ export default function Watchlist() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Active
 									</p>
@@ -288,13 +288,13 @@ export default function Watchlist() {
 								<div>
 									<p
 										className="text-sm font-medium"
-										style={{ color: 'var(--color-gray-600)' }}
+										style={{ color: 'var(--text-secondary)' }}
 									>
 										Inactive
 									</p>
 									<p
 										className="text-2xl font-semibold"
-										style={{ color: 'var(--color-gray-500)' }}
+										style={{ color: 'var(--text-tertiary)' }}
 									>
 										{watchlistEntries.filter((e) => !e.isActive).length}
 									</p>
@@ -305,7 +305,7 @@ export default function Watchlist() {
 								>
 									<svg
 										className="w-5 h-5"
-										style={{ color: 'var(--color-gray-500)' }}
+										style={{ color: 'var(--text-tertiary)' }}
 										fill="none"
 										viewBox="0 0 24 24"
 										stroke="currentColor"
@@ -328,7 +328,7 @@ export default function Watchlist() {
 					<div className="card-header p-6 border-b border-gray-200">
 						<h3
 							className="text-lg font-semibold"
-							style={{ color: 'var(--color-gray-900)' }}
+							style={{ color: 'var(--text-primary)' }}
 						>
 							Monitored Entities
 						</h3>
@@ -358,13 +358,13 @@ export default function Watchlist() {
 								</svg>
 								<p
 									className="text-lg font-medium mb-2"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									No entities in watchlist
 								</p>
 								<p
 									className="text-sm mb-4"
-									style={{ color: 'var(--color-gray-600)' }}
+									style={{ color: 'var(--text-secondary)' }}
 								>
 									Add entities to start monitoring for ongoing risk changes.
 								</p>
@@ -410,13 +410,13 @@ export default function Watchlist() {
 													<div>
 														<div
 															className="font-medium text-base"
-															style={{ color: 'var(--color-gray-900)' }}
+															style={{ color: 'var(--text-primary)' }}
 														>
 															{entry.entityName}
 														</div>
 														<div
 															className="text-sm mt-1"
-															style={{ color: 'var(--color-gray-600)' }}
+															style={{ color: 'var(--text-secondary)' }}
 														>
 															Added {entry.createdDate}
 														</div>
@@ -439,7 +439,7 @@ export default function Watchlist() {
 												<td className="py-4 px-6">
 													<div
 														className="text-sm"
-														style={{ color: 'var(--color-gray-600)' }}
+														style={{ color: 'var(--text-secondary)' }}
 													>
 														{entry.lastScanned}
 													</div>

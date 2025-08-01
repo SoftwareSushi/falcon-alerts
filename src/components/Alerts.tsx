@@ -583,15 +583,25 @@ export default function Alerts() {
 												onChange={() => toggleSelectAlert(alert.id)}
 											/>
 											<div
-												className={`p-2 rounded-lg ${
-													alert.severity === 'critical'
-														? 'bg-red-100 text-red-600'
-														: alert.severity === 'high'
-														? 'bg-orange-100 text-orange-600'
-														: alert.severity === 'medium'
-														? 'bg-blue-100 text-blue-600'
-														: 'bg-green-100 text-green-600'
-												}`}
+												className="p-2 rounded-lg"
+												style={{
+													backgroundColor:
+														alert.severity === 'critical'
+															? 'var(--color-red-100)'
+															: alert.severity === 'high'
+															? 'var(--color-yellow-100)'
+															: alert.severity === 'medium'
+															? 'var(--color-blue-100)'
+															: 'var(--color-green-100)',
+													color:
+														alert.severity === 'critical'
+															? 'var(--color-red-600)'
+															: alert.severity === 'high'
+															? 'var(--color-yellow-600)'
+															: alert.severity === 'medium'
+															? 'var(--color-blue-600)'
+															: 'var(--color-green-600)',
+												}}
 											>
 												{getAlertTypeIcon(alert.alertType)}
 											</div>
