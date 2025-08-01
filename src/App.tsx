@@ -7,6 +7,7 @@ import {
 import { useState } from 'react';
 import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
+import LandingPage from './components/LandingPage';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import NewCheck from './components/NewCheck';
@@ -28,6 +29,7 @@ function App() {
 					style={{ backgroundColor: 'var(--bg-primary)' }}
 				>
 					<Routes>
+						<Route path="/" element={<LandingPage />} />
 						<Route
 							path="/login"
 							element={
@@ -118,7 +120,6 @@ function App() {
 								)
 							}
 						/>
-						<Route path="/" element={<Navigate to="/login" replace />} />
 					</Routes>
 				</div>
 			</Router>
