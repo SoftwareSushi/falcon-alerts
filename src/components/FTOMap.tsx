@@ -201,17 +201,9 @@ export default function FTOMap({ className = '' }: FTOMapProps) {
 												level
 											)} ${
 												selectedFilters[level]
-													? 'ring-2 ring-offset-1'
+													? 'border border-white/50'
 													: 'badge-outline opacity-60 hover:opacity-80'
 											}`}
-											style={
-												selectedFilters[level]
-													? ({
-															'--tw-ring-color': 'var(--color-blue-500)',
-															'--tw-ring-offset-color': 'var(--bg-primary)',
-													  } as React.CSSProperties)
-													: {}
-											}
 											onClick={() =>
 												setSelectedFilters((prev) => ({
 													...prev,
@@ -264,17 +256,9 @@ export default function FTOMap({ className = '' }: FTOMapProps) {
 												type
 											)} ${
 												selectedFilters[type]
-													? 'ring-2 ring-offset-1'
+													? 'border border-white/50'
 													: 'badge-outline opacity-60 hover:opacity-80'
 											}`}
-											style={
-												selectedFilters[type]
-													? ({
-															'--tw-ring-color': 'var(--color-blue-500)',
-															'--tw-ring-offset-color': 'var(--bg-primary)',
-													  } as React.CSSProperties)
-													: {}
-											}
 											onClick={() =>
 												setSelectedFilters((prev) => ({
 													...prev,
