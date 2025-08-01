@@ -116,36 +116,56 @@ export default function FTOMap({ className = '' }: FTOMapProps) {
 			] && selectedFilters[location.type as keyof typeof selectedFilters]
 	);
 
-	const getRiskLevelColor = (riskLevel: string) => {
-		switch (riskLevel) {
-			case 'critical':
-				return 'text-red-600';
-			case 'high':
-				return 'text-orange-600';
-			case 'medium':
-				return 'text-amber-600';
-			case 'low':
-				return 'text-lime-600';
+	const getTypeBadge = (type: string) => {
+		switch (type) {
+			case 'country':
+				return 'badge badge-primary';
+			case 'organization':
+				return 'badge badge-secondary';
+			case 'regional_group':
+				return 'badge badge-accent';
 			default:
-				return 'text-gray-500';
+				return 'badge badge-neutral';
 		}
 	};
 
-	const getTypeIcon = (type: string) => {
-		switch (type) {
-			case 'country':
-				return '🌍';
-			case 'organization':
-				return '🏢';
-			case 'regional_group':
-				return '📍';
+	const getRiskBadge = (riskLevel: string) => {
+		switch (riskLevel) {
+			case 'critical':
+				return 'badge badge-error';
+			case 'high':
+				return 'badge badge-warning';
+			case 'medium':
+				return 'badge badge-info';
+			case 'low':
+				return 'badge badge-success';
 			default:
-				return '●';
+				return 'badge badge-neutral';
 		}
 	};
 
 	return (
 		<div className={`${className}`}>
+			{/* Custom styles for Leaflet popup in dark mode */}
+			<style>
+				{`
+					.leaflet-popup-content-wrapper {
+						background: transparent !important;
+						box-shadow: none !important;
+						border-radius: 0 !important;
+						padding: 0 !important;
+					}
+					.leaflet-popup-content {
+						margin: 0 !important;
+						padding: 0 !important;
+					}
+					.leaflet-popup-tip {
+						background: var(--bg-secondary) !important;
+						border: 1px solid var(--border-primary) !important;
+						border-top: none !important;
+					}
+				`}
+			</style>
 			<div className="card">
 				<div className="card-header">
 					<div className="flex items-center justify-between flex-wrap gap-4">
@@ -163,78 +183,131 @@ export default function FTOMap({ className = '' }: FTOMapProps) {
 					</div>
 
 					{/* Filters */}
-					<div className="mt-4 flex flex-wrap gap-4">
+					<div className="mt-4 flex flex-wrap gap-6">
 						{/* Risk Level Filters */}
-						<div className="flex items-center space-x-2">
+						<div className="flex items-center gap-3">
 							<span
 								className="text-sm font-medium"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								Risk Level:
 							</span>
-							{(['critical', 'high', 'medium', 'low'] as const).map(
-								(level) => (
-									<label
-										key={level}
-										className="flex items-center space-x-1 cursor-pointer"
-									>
-										<input
-											type="checkbox"
-											checked={selectedFilters[level]}
-											onChange={(e) =>
+							<div className="flex flex-wrap gap-2">
+								{(['critical', 'high', 'medium', 'low'] as const).map(
+									(level) => (
+										<label
+											key={level}
+											className={`cursor-pointer transition-all duration-200 ${getRiskBadge(
+												level
+											)} ${
+												selectedFilters[level]
+													? 'ring-2 ring-offset-1'
+													: 'badge-outline opacity-60 hover:opacity-80'
+											}`}
+											style={
+												selectedFilters[level]
+													? ({
+															'--tw-ring-color': 'var(--color-blue-500)',
+															'--tw-ring-offset-color': 'var(--bg-primary)',
+													  } as React.CSSProperties)
+													: {}
+											}
+											onClick={() =>
 												setSelectedFilters((prev) => ({
 													...prev,
-													[level]: e.target.checked,
+													[level]: !prev[level],
 												}))
 											}
-											className="form-checkbox h-4 w-4"
-										/>
-										<span
-											className={`text-sm capitalize ${getRiskLevelColor(
-												level
-											)}`}
 										>
-											{level}
-										</span>
-									</label>
-								)
-							)}
+											<input
+												type="checkbox"
+												checked={selectedFilters[level]}
+												onChange={() => {}}
+												className="sr-only"
+											/>
+											<span className="capitalize flex items-center gap-1">
+												{selectedFilters[level] && (
+													<svg
+														className="w-3 h-3"
+														fill="currentColor"
+														viewBox="0 0 20 20"
+													>
+														<path
+															fillRule="evenodd"
+															d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+															clipRule="evenodd"
+														/>
+													</svg>
+												)}
+												{level}
+											</span>
+										</label>
+									)
+								)}
+							</div>
 						</div>
 
 						{/* Type Filters */}
-						<div className="flex items-center space-x-2">
+						<div className="flex items-center gap-3">
 							<span
 								className="text-sm font-medium"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								Type:
 							</span>
-							{(['country', 'organization', 'regional_group'] as const).map(
-								(type) => (
-									<label
-										key={type}
-										className="flex items-center space-x-1 cursor-pointer"
-									>
-										<input
-											type="checkbox"
-											checked={selectedFilters[type]}
-											onChange={(e) =>
+							<div className="flex flex-wrap gap-2">
+								{(['country', 'organization', 'regional_group'] as const).map(
+									(type) => (
+										<label
+											key={type}
+											className={`cursor-pointer transition-all duration-200 ${getTypeBadge(
+												type
+											)} ${
+												selectedFilters[type]
+													? 'ring-2 ring-offset-1'
+													: 'badge-outline opacity-60 hover:opacity-80'
+											}`}
+											style={
+												selectedFilters[type]
+													? ({
+															'--tw-ring-color': 'var(--color-blue-500)',
+															'--tw-ring-offset-color': 'var(--bg-primary)',
+													  } as React.CSSProperties)
+													: {}
+											}
+											onClick={() =>
 												setSelectedFilters((prev) => ({
 													...prev,
-													[type]: e.target.checked,
+													[type]: !prev[type],
 												}))
 											}
-											className="form-checkbox h-4 w-4"
-										/>
-										<span
-											className="text-sm"
-											style={{ color: 'var(--text-primary)' }}
 										>
-											{getTypeIcon(type)} {type.replace('_', ' ')}
-										</span>
-									</label>
-								)
-							)}
+											<input
+												type="checkbox"
+												checked={selectedFilters[type]}
+												onChange={() => {}}
+												className="sr-only"
+											/>
+											<span className="capitalize flex items-center gap-1">
+												{selectedFilters[type] && (
+													<svg
+														className="w-3 h-3"
+														fill="currentColor"
+														viewBox="0 0 20 20"
+													>
+														<path
+															fillRule="evenodd"
+															d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+															clipRule="evenodd"
+														/>
+													</svg>
+												)}
+												{type.replace('_', ' ')}
+											</span>
+										</label>
+									)
+								)}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -272,47 +345,81 @@ export default function FTOMap({ className = '' }: FTOMapProps) {
 									icon={createCustomIcon(location.riskLevel, location.type)}
 								>
 									<Popup>
-										<div className="p-2 min-w-[250px]">
-											<div className="flex items-center space-x-2 mb-2">
-												<span className="text-lg">
-													{getTypeIcon(location.type)}
+										<div
+											className="p-3 min-w-[280px] rounded-lg border"
+											style={{
+												backgroundColor: 'var(--bg-secondary)',
+												borderColor: 'var(--border-primary)',
+												boxShadow: 'var(--shadow-secondary)',
+											}}
+										>
+											<div className="flex items-center justify-between mb-3">
+												<h4
+													className="font-semibold text-lg"
+													style={{ color: 'var(--text-primary)' }}
+												>
+													{location.name}
+												</h4>
+												<span
+													className={`${getTypeBadge(location.type)} badge-sm`}
+												>
+													{location.type === 'regional_group'
+														? 'Regional Group'
+														: location.type.charAt(0).toUpperCase() +
+														  location.type.slice(1)}
 												</span>
-												<h4 className="font-semibold text-lg">{location.name}</h4>
 											</div>
 
-											<div className="space-y-2">
-												<div className="flex items-center space-x-2">
-													<span className="text-sm font-medium">Risk Level:</span>
+											<div className="space-y-3">
+												<div className="flex items-center justify-between">
 													<span
-														className={`text-sm font-semibold capitalize ${getRiskLevelColor(
-															location.riskLevel
-														)}`}
+														className="text-sm font-medium"
+														style={{ color: 'var(--text-secondary)' }}
 													>
-														{location.riskLevel}
+														Risk Level:
 													</span>
-												</div>
-
-												<div className="flex items-center space-x-2">
-													<span className="text-sm font-medium">Type:</span>
-													<span className="text-sm capitalize">
-														{location.type.replace('_', ' ')}
+													<span
+														className={`${getRiskBadge(
+															location.riskLevel
+														)} badge-sm`}
+													>
+														{location.riskLevel.charAt(0).toUpperCase() +
+															location.riskLevel.slice(1)}
 													</span>
 												</div>
 
 												<div>
-													<span className="text-sm font-medium">Description:</span>
-													<p className="text-sm mt-1">{location.description}</p>
+													<span
+														className="text-sm font-medium"
+														style={{ color: 'var(--text-secondary)' }}
+													>
+														Description:
+													</span>
+													<p
+														className="text-sm mt-1"
+														style={{ color: 'var(--text-primary)' }}
+													>
+														{location.description}
+													</p>
 												</div>
 
 												<div>
-													<span className="text-sm font-medium">
+													<span
+														className="text-sm font-medium"
+														style={{ color: 'var(--text-secondary)' }}
+													>
 														Related Entities:
 													</span>
 													<div className="flex flex-wrap gap-1 mt-1">
 														{location.relatedEntities.map((entity, index) => (
 															<span
 																key={index}
-																className="inline-block px-2 py-1 text-xs bg-gray-100 rounded"
+																className="inline-block px-2 py-1 text-xs rounded border"
+																style={{
+																	backgroundColor: 'var(--bg-tertiary)',
+																	color: 'var(--text-primary)',
+																	borderColor: 'var(--border-secondary)',
+																}}
 															>
 																{entity}
 															</span>
@@ -320,10 +427,17 @@ export default function FTOMap({ className = '' }: FTOMapProps) {
 													</div>
 												</div>
 
-												<div className="text-xs text-gray-500 mt-2">
-													Source: {location.sourceList}
-													<br />
-													Last Updated: {location.lastUpdated}
+												<div
+													className="border-t pt-2"
+													style={{ borderColor: 'var(--border-primary)' }}
+												>
+													<div
+														className="text-xs space-y-1"
+														style={{ color: 'var(--text-tertiary)' }}
+													>
+														<div>Source: {location.sourceList}</div>
+														<div>Last Updated: {location.lastUpdated}</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -336,43 +450,47 @@ export default function FTOMap({ className = '' }: FTOMapProps) {
 
 				{/* Legend */}
 				<div className="card-footer">
-					<div className="flex flex-wrap items-center justify-between gap-4 text-sm">
-						<div className="flex items-center space-x-4">
+					<div className="flex flex-wrap items-center justify-between gap-4">
+						<div className="flex items-center gap-4">
 							<span
-								className="font-medium"
+								className="text-sm font-medium"
 								style={{ color: 'var(--text-secondary)' }}
 							>
-								Legend:
+								Risk Levels:
 							</span>
-							<div className="flex items-center space-x-1">
-								<span style={{ color: '#dc2626' }}>●</span>
-								<span>Critical</span>
-							</div>
-							<div className="flex items-center space-x-1">
-								<span style={{ color: '#ea580c' }}>●</span>
-								<span>High</span>
-							</div>
-							<div className="flex items-center space-x-1">
-								<span style={{ color: '#d97706' }}>●</span>
-								<span>Medium</span>
-							</div>
-							<div className="flex items-center space-x-1">
-								<span style={{ color: '#65a30d' }}>●</span>
-								<span>Low</span>
+							<div className="flex flex-wrap gap-2">
+								{(['critical', 'high', 'medium', 'low'] as const).map(
+									(level) => (
+										<span
+											key={level}
+											className={`${getRiskBadge(level)} badge-sm`}
+										>
+											{level.charAt(0).toUpperCase() + level.slice(1)}
+										</span>
+									)
+								)}
 							</div>
 						</div>
-						<div className="flex items-center space-x-4">
-							<div className="flex items-center space-x-1">
-								<span>●</span>
-								<span>Country</span>
-							</div>
-							<div className="flex items-center space-x-1">
-								<span>■</span>
-								<span>Organization</span>
-							</div>
-							<div className="flex items-center space-x-1">
-								<span>▲</span>
-								<span>Regional Group</span>
+						<div className="flex items-center gap-4">
+							<span
+								className="text-sm font-medium"
+								style={{ color: 'var(--text-secondary)' }}
+							>
+								Types:
+							</span>
+							<div className="flex flex-wrap gap-2">
+								{(['country', 'organization', 'regional_group'] as const).map(
+									(type) => (
+										<span
+											key={type}
+											className={`${getTypeBadge(type)} badge-sm`}
+										>
+											{type === 'regional_group'
+												? 'Regional Group'
+												: type.charAt(0).toUpperCase() + type.slice(1)}
+										</span>
+									)
+								)}
 							</div>
 						</div>
 					</div>
