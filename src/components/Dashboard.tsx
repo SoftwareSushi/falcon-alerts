@@ -66,7 +66,11 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 			>
 				<div className="max-w-7xl mx-auto px-6 py-4">
 					<div className="flex items-center justify-between">
-						<div className="flex items-center space-x-3">
+						<button
+							onClick={() => navigate('/')}
+							className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+							title="Back to home"
+						>
 							<div
 								className="w-8 h-8 rounded-lg flex items-center justify-center"
 								style={{ backgroundColor: 'var(--text-primary)' }}
@@ -92,7 +96,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							>
 								Sanction Watch
 							</h1>
-						</div>
+						</button>
 						<div className="flex items-center space-x-2">
 							<ThemeToggle />
 							<button
