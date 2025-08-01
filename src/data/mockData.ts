@@ -385,73 +385,599 @@ export const mockAlerts: Alert[] = [
 	},
 ];
 
-export const mockSuspiciousEntities: SuspiciousEntity[] = [
-	{
-		id: 's1',
-		name: 'Port of Buenaventura',
-		type: 'port',
-		riskLevel: 'critical',
-		flaggedReasons: [
-			'Known narcotics trafficking hub',
-			'Cartel control',
-			'Corruption',
+// Function to generate realistic suspicious entities data
+const generateSuspiciousEntities = (): SuspiciousEntity[] => {
+	const entities: SuspiciousEntity[] = [];
+
+	// Base data for generating realistic entries
+	const portNames = [
+		'Port of Buenaventura',
+		'Port of Manzanillo',
+		'Port of Veracruz',
+		'Port of Antwerp',
+		'Port of Santos',
+		'Port of Hamburg',
+		'Port of Callao',
+		'Port of Guayaquil',
+		'Port of Cartagena',
+		'Port of Puerto Cabello',
+		'Port of Colon',
+		'Port of Kingston',
+		'Port of Acajutla',
+		'Port of Corinto',
+		'Port of Puerto Cortes',
+		'Port of Santo Tomas',
+		'Port of La Ceiba',
+		'Port of Puerto Barrios',
+		'Port of Caucedo',
+		'Port of Haina',
+		'Port of San Juan',
+		'Port of Ponce',
+		'Port of Fort de France',
+		'Port of Bridgetown',
+		'Port of Georgetown',
+		'Port of Paramaribo',
+		'Port of Cayenne',
+		'Port of Belém',
+		'Port of Fortaleza',
+		'Port of Recife',
+		'Port of Salvador',
+		'Port of Vitória',
+		'Port of Rio de Janeiro',
+		'Port of Itaguaí',
+		'Port of Paranaguá',
+		'Port of Itajaí',
+		'Port of Rio Grande',
+		'Port of Montevideo',
+		'Port of Buenos Aires',
+		'Port of Rosario',
+		'Port of Bahía Blanca',
+		'Port of Ushuaia',
+		'Port of Valparaíso',
+		'Port of San Antonio',
+		'Port of Arica',
+		'Port of Iquique',
+		'Port of Antofagasta',
+		'Port of Coquimbo',
+	];
+
+	const firstNames = [
+		'Carlos',
+		'Miguel',
+		'José',
+		'Luis',
+		'Juan',
+		'Antonio',
+		'Francisco',
+		'Rafael',
+		'Eduardo',
+		'Ricardo',
+		'Fernando',
+		'Pablo',
+		'Diego',
+		'Alejandro',
+		'Manuel',
+		'Gabriel',
+		'Andrés',
+		'Javier',
+		'Roberto',
+		'Daniel',
+		'Sergio',
+		'Marco',
+		'Alberto',
+		'Raúl',
+		'Enrique',
+		'Víctor',
+		'Óscar',
+		'César',
+		'Rubén',
+		'Arturo',
+		'Héctor',
+		'Ramón',
+		'Jorge',
+		'Pedro',
+		'Gonzalo',
+		'Iván',
+		'Emilio',
+		'Lorenzo',
+		'Mauricio',
+		'Salvador',
+		'Julio',
+		'Tomás',
+		'Agustín',
+		'Ernesto',
+		'Guillermo',
+		'Rodrigo',
+		'Patricio',
+		'Ignacio',
+		'Sebastián',
+		'Nicolás',
+	];
+
+	const lastNames = [
+		'García',
+		'Rodríguez',
+		'González',
+		'Fernández',
+		'López',
+		'Martínez',
+		'Sánchez',
+		'Pérez',
+		'Gómez',
+		'Martín',
+		'Jiménez',
+		'Ruiz',
+		'Hernández',
+		'Díaz',
+		'Moreno',
+		'Muñoz',
+		'Álvarez',
+		'Romero',
+		'Alonso',
+		'Gutiérrez',
+		'Navarro',
+		'Torres',
+		'Domínguez',
+		'Vázquez',
+		'Ramos',
+		'Gil',
+		'Ramírez',
+		'Serrano',
+		'Blanco',
+		'Suárez',
+		'Molina',
+		'Morales',
+		'Ortega',
+		'Delgado',
+		'Castro',
+		'Ortiz',
+		'Rubio',
+		'Marín',
+		'Sanz',
+		'Iglesias',
+		'Medina',
+		'Garrido',
+		'Cortés',
+		'Castillo',
+		'Santos',
+		'Lozano',
+		'Guerrero',
+		'Cano',
+		'Prieto',
+		'Méndez',
+	];
+
+	const organizations = [
+		'Maritime Logistics',
+		'Coastal Shipping',
+		'International Trading',
+		'Global Express',
+		'Pacific Transport',
+		'Atlantic Holdings',
+		'Caribbean Freight',
+		'Andean Logistics',
+		'Continental Trading',
+		'Oceanic Services',
+		'Strategic Holdings',
+		'Prime Ventures',
+		'Elite Trading',
+		'Sovereign Holdings',
+		'Imperial Logistics',
+		'Royal Trading',
+		'Supreme Services',
+		'Premier Holdings',
+		'Executive Trading',
+		'Corporate Solutions',
+		'Business Ventures',
+		'Commercial Holdings',
+		'Industrial Trading',
+		'Financial Services',
+		'Investment Holdings',
+		'Capital Ventures',
+		'Equity Trading',
+		'Asset Management',
+		'Wealth Holdings',
+		'Fortune Trading',
+		'Success Ventures',
+		'Prosperity Holdings',
+	];
+
+	const orgSuffixes = [
+		'Inc',
+		'LLC',
+		'Corp',
+		'Ltd',
+		'SA',
+		'SRL',
+		'GmbH',
+		'BV',
+		'AG',
+	];
+
+	const countries = [
+		'Colombia',
+		'Mexico',
+		'Panama',
+		'Venezuela',
+		'Brazil',
+		'Argentina',
+		'Chile',
+		'Peru',
+		'Ecuador',
+		'Bolivia',
+		'Paraguay',
+		'Uruguay',
+		'Costa Rica',
+		'Guatemala',
+		'Honduras',
+		'El Salvador',
+		'Nicaragua',
+		'Dominican Republic',
+		'Haiti',
+		'Jamaica',
+		'Trinidad and Tobago',
+		'Barbados',
+		'Guyana',
+		'Suriname',
+		'French Guiana',
+		'Spain',
+		'Portugal',
+		'Netherlands',
+		'Belgium',
+		'Germany',
+		'Italy',
+		'France',
+		'Switzerland',
+		'Austria',
+		'United States',
+		'Canada',
+		'United Kingdom',
+		'Ireland',
+		'Cyprus',
+		'Malta',
+		'Luxembourg',
+		'Liechtenstein',
+	];
+
+	const regions = {
+		Colombia: [
+			'Valle del Cauca',
+			'Antioquia',
+			'Atlántico',
+			'Magdalena',
+			'Bolívar',
 		],
-		sourceAgency: 'DEA Intelligence Division',
-		dateAdded: '2023-07-15',
-		lastUpdated: '2024-01-01',
-		location: {
-			country: 'Colombia',
-			region: 'Valle del Cauca',
-			coordinates: { lat: 3.8801, lng: -77.0492 },
-		},
-		associatedEntities: ['Los Chapitos', 'Gulf Cartel'],
-		osintSources: ['DEA EPIC', 'Colombian Navy Intelligence'],
-		isActive: true,
-		quarterlyUpdate: 'Q1-2024',
-	},
-	{
-		id: 's2',
-		name: 'Carlos Rodriguez Mendez',
-		type: 'broker',
-		riskLevel: 'high',
-		flaggedReasons: [
-			'Money laundering facilitator',
-			'Bulk cash smuggling',
+		Mexico: [
+			'Sinaloa',
+			'Sonora',
+			'Baja California',
+			'Veracruz',
+			'Tamaulipas',
 		],
-		sourceAgency: 'FinCEN',
-		dateAdded: '2023-09-22',
-		lastUpdated: '2024-01-01',
-		location: {
-			country: 'Mexico',
-			region: 'Sinaloa',
-		},
-		associatedEntities: ['Sinaloa Cartel', 'Fentanyl Network Alpha'],
-		osintSources: ['FinCEN SAR Database', 'OFAC Investigations'],
-		isActive: true,
-		quarterlyUpdate: 'Q1-2024',
-	},
-	{
-		id: 's3',
-		name: 'Maritime Logistics Inc',
-		type: 'organization',
-		riskLevel: 'medium',
-		flaggedReasons: [
-			'Shell company patterns',
-			'Unusual shipping routes',
+		Panama: [
+			'Panama City',
+			'Colon',
+			'Chiriquí',
+			'Herrera',
+			'Los Santos',
 		],
-		sourceAgency: 'CBP Trade Intelligence',
-		dateAdded: '2023-11-10',
-		lastUpdated: '2024-01-01',
-		location: {
-			country: 'Panama',
-			region: 'Panama City',
-		},
-		associatedEntities: ['Port of Colon', 'Various shell companies'],
-		osintSources: ['CBP ACAS', 'Panama Ship Registry'],
-		isActive: true,
-		quarterlyUpdate: 'Q1-2024',
-	},
-];
+		Venezuela: ['Zulia', 'Miranda', 'Carabobo', 'Aragua', 'Anzoátegui'],
+		Brazil: [
+			'São Paulo',
+			'Rio de Janeiro',
+			'Bahia',
+			'Ceará',
+			'Pernambuco',
+		],
+		Argentina: [
+			'Buenos Aires',
+			'Córdoba',
+			'Santa Fe',
+			'Mendoza',
+			'Tucumán',
+		],
+		Chile: [
+			'Santiago',
+			'Valparaíso',
+			'Antofagasta',
+			'Tarapacá',
+			'Atacama',
+		],
+		Peru: ['Lima', 'Callao', 'Arequipa', 'Trujillo', 'Chiclayo'],
+	};
+
+	const sourceAgencies = [
+		'DEA Intelligence Division',
+		'FinCEN',
+		'CBP Trade Intelligence',
+		'OFAC Investigations',
+		'FBI Financial Crimes',
+		'ICE HSI',
+		'US Treasury FINCEN',
+		'ATF Intelligence',
+		'Colombian CNP Intelligence',
+		'Mexican FGR',
+		'Brazilian PF Intelligence',
+		'Argentine AFI',
+		'Chilean PDI',
+		'Peruvian DIRANDRO',
+		'Panamanian AML Unit',
+		'Venezuelan CICPC',
+		'Ecuadorian UAFE',
+		'Costa Rican ICD',
+		'Guatemalan INTECAP',
+		'Honduran ATIC',
+		'Salvadoran FGR',
+		'Nicaraguan Police',
+		'Dominican DNCD',
+		'Jamaican CTOC',
+		'Trinidad FIU',
+		'Barbados FIU',
+		'Guyanese SOCU',
+		'Surinamese Police',
+		'French TRACFIN',
+		'Spanish SEPBLAC',
+		'Portuguese UIF',
+		'Dutch FIU',
+		'Belgian CTIF',
+		'German BKA',
+		'Italian DIA',
+		'Swiss MROS',
+		'Austrian BMI',
+		'Canadian FINTRAC',
+		'UK NCA',
+		'Irish GBFI',
+		'Cypriot MOKAS',
+	];
+
+	const flaggedReasons = [
+		'Known narcotics trafficking hub',
+		'Cartel control',
+		'Corruption',
+		'Money laundering facilitator',
+		'Bulk cash smuggling',
+		'Shell company patterns',
+		'Unusual shipping routes',
+		'Trade-based money laundering',
+		'Invoice manipulation',
+		'High-risk correspondent banking',
+		'Sanctions evasion',
+		'Front company operations',
+		'Wire transfer anomalies',
+		'Cash structuring',
+		'Cross-border smuggling',
+		'Document fraud',
+		'Identity theft',
+		'Beneficial ownership concealment',
+		'Layering transactions',
+		'Integration schemes',
+		'Hawala operations',
+		'Underground banking',
+		'Cryptocurrency laundering',
+		'Trade misinvoicing',
+		'Over/under invoicing',
+		'Multiple invoicing',
+		'Phantom shipments',
+		'Carousel trading',
+		'Round-tripping',
+		'Back-to-back loans',
+		'Loan-back schemes',
+		'Real estate laundering',
+		'Casino money laundering',
+		'Precious metals trading',
+		'Art and antiquities',
+		'Insurance fraud',
+		'Securities fraud',
+		'Investment fraud',
+		'Ponzi schemes',
+		'Advance fee fraud',
+		'Business email compromise',
+		'Cyber-enabled fraud',
+		'Terrorist financing',
+		'PEP associations',
+		'Sanctions violations',
+		'Export control violations',
+		'Arms trafficking',
+		'Human trafficking',
+		'Wildlife trafficking',
+		'Intellectual property theft',
+		'Counterfeiting',
+		'Tax evasion',
+	];
+
+	const osintSources = [
+		'DEA EPIC',
+		'FinCEN SAR Database',
+		'OFAC Investigations',
+		'CBP ACAS',
+		'FBI FinCrime Database',
+		'ICE TECS',
+		'US Treasury Database',
+		'ATF eTrace',
+		'Colombian Navy Intelligence',
+		'Mexican Navy Intel',
+		'Brazilian PF Database',
+		'Argentine Navy Intel',
+		'Chilean Navy Database',
+		'Peruvian DIRANDRO Intel',
+		'Panamanian Ship Registry',
+		'Venezuelan Port Authority',
+		'Ecuadorian Customs',
+		'Costa Rican Security',
+		'Guatemalan Port Authority',
+		'Honduran Customs',
+		'Salvadoran Police Intel',
+		'Nicaraguan Customs',
+		'Dominican Port Authority',
+		'Jamaican Customs',
+		'Trinidad Coast Guard',
+		'Barbados Police',
+		'Guyanese Customs',
+		'Surinamese Police Intel',
+		'French Customs',
+		'Spanish Guardia Civil',
+		'Portuguese Maritime Police',
+		'Dutch Coast Guard',
+		'Belgian Federal Police',
+		'German BKA Database',
+		'Italian Guardia di Finanza',
+		'Swiss Federal Police',
+		'Austrian Police',
+		'Canadian RCMP',
+		'UK Border Force',
+		'Irish Customs',
+		'Cypriot Police',
+		'Maltese Police',
+		'Luxembourg Police',
+	];
+
+	const quarters = [
+		'Q1-2024',
+		'Q4-2023',
+		'Q3-2023',
+		'Q2-2023',
+		'Q1-2023',
+		'Q4-2022',
+	];
+	const riskLevels: ('low' | 'medium' | 'high' | 'critical')[] = [
+		'low',
+		'medium',
+		'high',
+		'critical',
+	];
+	const entityTypes: (
+		| 'port'
+		| 'person'
+		| 'broker'
+		| 'handler'
+		| 'organization'
+	)[] = ['port', 'person', 'broker', 'handler', 'organization'];
+
+	// Generate 2,847 entities to show realistic scale
+	for (let i = 1; i <= 2847; i++) {
+		const entityType =
+			entityTypes[Math.floor(Math.random() * entityTypes.length)];
+		const country =
+			countries[Math.floor(Math.random() * countries.length)];
+		const region = regions[country]
+			? regions[country][
+					Math.floor(Math.random() * regions[country].length)
+			  ]
+			: country;
+
+		let name: string;
+		if (entityType === 'port') {
+			name = portNames[Math.floor(Math.random() * portNames.length)];
+		} else if (
+			entityType === 'person' ||
+			entityType === 'broker' ||
+			entityType === 'handler'
+		) {
+			const firstName =
+				firstNames[Math.floor(Math.random() * firstNames.length)];
+			const lastName1 =
+				lastNames[Math.floor(Math.random() * lastNames.length)];
+			const lastName2 =
+				Math.random() > 0.7
+					? ` ${lastNames[Math.floor(Math.random() * lastNames.length)]}`
+					: '';
+			name = `${firstName} ${lastName1}${lastName2}`;
+		} else {
+			const orgName =
+				organizations[Math.floor(Math.random() * organizations.length)];
+			const suffix =
+				orgSuffixes[Math.floor(Math.random() * orgSuffixes.length)];
+			name = `${orgName} ${suffix}`;
+		}
+
+		// Risk level distribution: 15% critical, 25% high, 40% medium, 20% low
+		let riskLevel: 'low' | 'medium' | 'high' | 'critical';
+		const riskRand = Math.random();
+		if (riskRand < 0.15) riskLevel = 'critical';
+		else if (riskRand < 0.4) riskLevel = 'high';
+		else if (riskRand < 0.8) riskLevel = 'medium';
+		else riskLevel = 'low';
+
+		// Generate 1-4 flagged reasons
+		const reasonCount = Math.floor(Math.random() * 4) + 1;
+		const shuffledReasons = [...flaggedReasons].sort(
+			() => Math.random() - 0.5
+		);
+		const selectedReasons = shuffledReasons.slice(0, reasonCount);
+
+		// Generate 1-3 associated entities
+		const associatedCount = Math.floor(Math.random() * 3) + 1;
+		const associatedEntities: string[] = [];
+		for (let j = 0; j < associatedCount; j++) {
+			if (Math.random() > 0.5) {
+				const orgName =
+					organizations[Math.floor(Math.random() * organizations.length)];
+				const suffix =
+					orgSuffixes[Math.floor(Math.random() * orgSuffixes.length)];
+				associatedEntities.push(`${orgName} ${suffix}`);
+			} else {
+				const firstName =
+					firstNames[Math.floor(Math.random() * firstNames.length)];
+				const lastName =
+					lastNames[Math.floor(Math.random() * lastNames.length)];
+				associatedEntities.push(`${firstName} ${lastName}`);
+			}
+		}
+
+		// Generate 1-3 OSINT sources
+		const sourceCount = Math.floor(Math.random() * 3) + 1;
+		const shuffledSources = [...osintSources].sort(
+			() => Math.random() - 0.5
+		);
+		const selectedSources = shuffledSources.slice(0, sourceCount);
+
+		// Generate dates
+		const addedDate = new Date(
+			2023,
+			Math.floor(Math.random() * 12),
+			Math.floor(Math.random() * 28) + 1
+		);
+		const updatedDate = new Date(
+			addedDate.getTime() +
+				Math.random() * (Date.now() - addedDate.getTime())
+		);
+
+		const entity: SuspiciousEntity = {
+			id: `s${i}`,
+			name,
+			type: entityType,
+			riskLevel,
+			flaggedReasons: selectedReasons,
+			sourceAgency:
+				sourceAgencies[Math.floor(Math.random() * sourceAgencies.length)],
+			dateAdded: addedDate.toISOString().split('T')[0],
+			lastUpdated: updatedDate.toISOString().split('T')[0],
+			location: {
+				country,
+				region,
+				...(entityType === 'port' &&
+					Math.random() > 0.5 && {
+						coordinates: {
+							lat: (Math.random() - 0.5) * 180,
+							lng: (Math.random() - 0.5) * 360,
+						},
+					}),
+			},
+			associatedEntities,
+			osintSources: selectedSources,
+			isActive: Math.random() > 0.1, // 90% active
+			quarterlyUpdate:
+				quarters[Math.floor(Math.random() * quarters.length)],
+		};
+
+		entities.push(entity);
+	}
+
+	return entities;
+};
+
+export const mockSuspiciousEntities: SuspiciousEntity[] =
+	generateSuspiciousEntities();
 
 export const mockERPIntegrations: ERPIntegration[] = [
 	{

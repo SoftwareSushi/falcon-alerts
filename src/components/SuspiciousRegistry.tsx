@@ -11,6 +11,7 @@ export default function SuspiciousRegistry() {
 	const [entities] = useState<SuspiciousEntity[]>(
 		mockSuspiciousEntities
 	);
+	const DISPLAY_LIMIT = 100;
 	const [searchTerm, setSearchTerm] = useState('');
 	const [filterType, setFilterType] = useState<string>('all');
 	const [filterRisk, setFilterRisk] = useState<string>('all');
@@ -88,6 +89,10 @@ export default function SuspiciousRegistry() {
 			matchesSearch && matchesType && matchesRisk && matchesCountry
 		);
 	});
+
+	// Limit displayed entities to DISPLAY_LIMIT for performance
+	const displayedEntities = filteredEntities.slice(0, DISPLAY_LIMIT);
+	const hasMoreEntities = filteredEntities.length > DISPLAY_LIMIT;
 
 	const uniqueCountries = [
 		...new Set(
@@ -365,8 +370,11 @@ export default function SuspiciousRegistry() {
 								className="text-sm"
 								style={{ color: 'var(--text-secondary)' }}
 							>
-								Showing {filteredEntities.length} of {entities.length}{' '}
-								entities
+								Showing{' '}
+								{Math.min(displayedEntities.length, filteredEntities.length)}{' '}
+								of {filteredEntities.length} filtered entities
+								{entities.length !== filteredEntities.length &&
+									` (${entities.length} total)`}
 							</div>
 							<div className="flex items-center space-x-2">
 								<button
@@ -501,7 +509,7 @@ export default function SuspiciousRegistry() {
 										</tr>
 									</thead>
 									<tbody>
-										{filteredEntities.map((entity) => (
+										{displayedEntities.map((entity) => (
 											<tr
 												key={entity.id}
 												className="hover:bg-opacity-10"
@@ -598,6 +606,27 @@ export default function SuspiciousRegistry() {
 												</td>
 											</tr>
 										))}
+										{hasMoreEntities && (
+											<tr>
+												<td
+													colSpan={6}
+													className="py-4 px-6 text-center"
+													style={{
+														borderBottom: '1px solid var(--border-primary)',
+														color: 'var(--text-secondary)',
+													}}
+												>
+													<div className="flex items-center justify-center space-x-2">
+														<span>...</span>
+														<span className="text-sm">
+															Showing {DISPLAY_LIMIT} of {filteredEntities.length}{' '}
+															entities
+														</span>
+														<span>...</span>
+													</div>
+												</td>
+											</tr>
+										)}
 									</tbody>
 								</table>
 							</div>
