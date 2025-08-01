@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import heroVideo from '../assets/hero-video.mp4';
 
 export default function LandingPage() {
 	const navigate = useNavigate();
@@ -271,7 +272,7 @@ export default function LandingPage() {
 						<div className="flex items-center space-x-3">
 							<div
 								className="w-10 h-10 rounded-lg flex items-center justify-center"
-								style={{ backgroundColor: '#3b82f6' }}
+								style={{ backgroundColor: '#07C30A' }}
 							>
 								<svg
 									className="w-6 h-6 text-white"
@@ -313,19 +314,30 @@ export default function LandingPage() {
 			</header>
 
 			{/* Hero Section */}
-			<section className="py-20 px-6">
-				<div className="max-w-7xl mx-auto text-center">
-					<h1
-						className="text-5xl md:text-6xl font-bold mb-6"
-						style={{ color: 'var(--text-primary)' }}
-					>
+			<section className="relative py-20 px-6 overflow-hidden">
+				{/* Video Background */}
+				<video
+					autoPlay
+					muted
+					loop
+					playsInline
+					src={heroVideo}
+					className="absolute inset-0 w-full h-full object-cover z-0"
+				>
+					<source src={heroVideo} type="video/mp4" />
+				</video>
+
+				{/* Overlay for better text readability */}
+				<div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-10"></div>
+
+				<div className="relative z-20 max-w-7xl mx-auto text-center">
+					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
 						Protect Your Business From
-						<span className="text-blue-500 block">Dangerous Entities</span>
+						<span style={{ color: '#07C30A' }} className="block">
+							Dangerous Entities
+						</span>
 					</h1>
-					<p
-						className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed"
-						style={{ color: 'var(--text-secondary)' }}
-					>
+					<p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed text-white">
 						Identify links to Foreign Terrorist Organizations, Transnational
 						Criminal Organizations, and sanctioned entities before they
 						impact your business operations.
@@ -348,10 +360,7 @@ export default function LandingPage() {
 							Learn More
 						</button>
 					</div>
-					<div
-						className="flex flex-wrap justify-center gap-8 text-sm"
-						style={{ color: 'var(--text-secondary)' }}
-					>
+					<div className="flex flex-wrap justify-center gap-8 text-sm text-white">
 						<div className="flex items-center gap-2">
 							<svg
 								className="w-5 h-5 text-green-500"
@@ -437,7 +446,9 @@ export default function LandingPage() {
 									borderColor: 'var(--border-primary)',
 								}}
 							>
-								<div className="text-blue-500 mb-4">{feature.icon}</div>
+								<div style={{ color: '#07C30A' }} className="mb-4">
+									{feature.icon}
+								</div>
 								<h3
 									className="text-xl font-semibold mb-3"
 									style={{ color: 'var(--text-primary)' }}
@@ -481,7 +492,10 @@ export default function LandingPage() {
 									borderColor: 'var(--border-primary)',
 								}}
 							>
-								<div className="text-blue-500 mb-4 flex justify-center">
+								<div
+									style={{ color: '#07C30A' }}
+									className="mb-4 flex justify-center"
+								>
 									{audience.icon}
 								</div>
 								<h3
@@ -640,11 +654,17 @@ export default function LandingPage() {
 
 						{/* Professional Plan */}
 						<div
-							className="p-8 rounded-xl border-2 border-blue-500 relative"
-							style={{ backgroundColor: 'var(--bg-primary)' }}
+							className="p-8 rounded-xl border-2 relative"
+							style={{
+								backgroundColor: 'var(--bg-primary)',
+								borderColor: '#07C30A',
+							}}
 						>
 							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-								<span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+								<span
+									className="text-white px-4 py-1 rounded-full text-sm font-semibold"
+									style={{ backgroundColor: '#07C30A' }}
+								>
 									Most Popular
 								</span>
 							</div>
@@ -926,7 +946,7 @@ export default function LandingPage() {
 									borderColor: 'var(--border-primary)',
 								}}
 							>
-								<div className="text-blue-500 mb-4">
+								<div style={{ color: '#07C30A' }} className="mb-4">
 									<svg
 										className="w-8 h-8"
 										fill="currentColor"
@@ -1100,7 +1120,7 @@ export default function LandingPage() {
 							<div className="flex items-center space-x-3 mb-4">
 								<div
 									className="w-8 h-8 rounded-lg flex items-center justify-center"
-									style={{ backgroundColor: '#3b82f6' }}
+									style={{ backgroundColor: '#07C30A' }}
 								>
 									<svg
 										className="w-5 h-5 text-white"
@@ -1143,22 +1163,22 @@ export default function LandingPage() {
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								<li>
-									<a href="#features" className="hover:text-blue-500">
+									<a href="#features" className="hover:text-[#07C30A]">
 										Features
 									</a>
 								</li>
 								<li>
-									<a href="#pricing" className="hover:text-blue-500">
+									<a href="#pricing" className="hover:text-[#07C30A]">
 										Pricing
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										API
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Integrations
 									</a>
 								</li>
@@ -1176,22 +1196,22 @@ export default function LandingPage() {
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Training Hub
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Documentation
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Blog
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Webinars
 									</a>
 								</li>
@@ -1209,22 +1229,22 @@ export default function LandingPage() {
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										About
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Contact
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Privacy
 									</a>
 								</li>
 								<li>
-									<a href="#" className="hover:text-blue-500">
+									<a href="#" className="hover:text-[#07C30A]">
 										Terms
 									</a>
 								</li>
