@@ -22,7 +22,7 @@ export default function Results() {
 
 	const downloadReport = (format: 'pdf' | 'json') => {
 		// Simulate download
-		const filename = `background_check_${getEntityName().replace(
+		const filename = `entity_risk_scan_${getEntityName().replace(
 			/\s+/g,
 			'_'
 		)}.${format}`;
@@ -86,7 +86,7 @@ export default function Results() {
 									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
-									Background Check Results
+									Entity Risk Scanner Results
 								</h1>
 							</div>
 						</div>
@@ -563,7 +563,7 @@ export default function Results() {
 									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
-									Background Check Results
+									Entity Risk Scanner Results
 								</h1>
 							</div>
 						</div>

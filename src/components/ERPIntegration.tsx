@@ -138,6 +138,7 @@ export default function ERPIntegration() {
 						<button
 							onClick={() => setShowAddModal(true)}
 							className="btn btn-primary"
+							disabled
 						>
 							<svg
 								className="w-4 h-4 mr-2"
@@ -391,6 +392,7 @@ export default function ERPIntegration() {
 								<button
 									onClick={() => setShowAddModal(true)}
 									className="btn btn-primary"
+									disabled
 								>
 									Add Integration
 								</button>

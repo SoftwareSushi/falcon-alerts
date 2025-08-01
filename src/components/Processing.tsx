@@ -34,7 +34,7 @@ export default function Processing() {
 							state: {
 								...location.state,
 								status: isClean ? 'Clean' : 'Flagged',
-								isNewCheck: true,
+								isNewScan: true,
 							},
 						});
 					}, 500);
@@ -111,7 +111,7 @@ export default function Processing() {
 								className="text-xl font-semibold"
 								style={{ color: 'var(--text-primary)' }}
 							>
-								Processing Background Check
+								Processing Entity Risk Scan
 							</h1>
 						</div>
 					</div>
