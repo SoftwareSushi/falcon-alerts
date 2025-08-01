@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function Results() {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const [showFullReport, setShowFullReport] = useState(false);
+	const [showFullReport, setShowFullReport] = useState(true);
 
 	const { status, entityType, data } = location.state || {};
 	const isClean = status === 'Clean';
