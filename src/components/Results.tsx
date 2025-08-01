@@ -711,6 +711,374 @@ export default function Results() {
 						</div>
 					)}
 
+					{/* Risk Management Actions */}
+					<div className="card mt-6">
+						<div className="card-header">
+							<div className="flex items-center space-x-2">
+								<div
+									className="w-6 h-6 rounded-lg flex items-center justify-center"
+									style={{ backgroundColor: 'var(--color-blue-100)' }}
+								>
+									<svg
+										className="w-4 h-4"
+										style={{ color: 'var(--color-blue-600)' }}
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+										/>
+									</svg>
+								</div>
+								<h4
+									className="text-lg font-semibold"
+									style={{ color: 'var(--color-gray-900)' }}
+								>
+									Risk Management Actions
+								</h4>
+							</div>
+						</div>
+						<div className="card-body">
+							{/* High Risk Warning */}
+							{mockFlaggedRecords.some((r) => r.riskLevel === 'High') && (
+								<div
+									className="mb-6 p-4 rounded-lg border-l-4"
+									style={{
+										backgroundColor: 'var(--color-red-50)',
+										borderLeftColor: 'var(--color-red-500)',
+									}}
+								>
+									<div className="flex items-start space-x-3">
+										<div
+											className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
+											style={{ backgroundColor: 'var(--color-red-100)' }}
+										>
+											<svg
+												className="w-4 h-4"
+												style={{ color: 'var(--color-red-600)' }}
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"
+												/>
+											</svg>
+										</div>
+										<div className="flex-1">
+											<h5
+												className="text-sm font-semibold mb-1"
+												style={{ color: 'var(--color-red-800)' }}
+											>
+												Immediate Action Required
+											</h5>
+											<p
+												className="text-sm"
+												style={{ color: 'var(--color-red-700)' }}
+											>
+												High-risk findings detected. Consider suspending or
+												escalating existing business relationships with{' '}
+												{getEntityName()} until further review.
+											</p>
+										</div>
+									</div>
+								</div>
+							)}
+
+							{/* Action Items Grid */}
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+								{/* Compliance Documentation */}
+								<div
+									className="p-4 rounded-lg border"
+									style={{
+										backgroundColor: 'var(--bg-secondary)',
+										borderColor: 'var(--border-primary)',
+									}}
+								>
+									<div className="flex items-start space-x-3">
+										<div
+											className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+											style={{ backgroundColor: 'var(--color-blue-100)' }}
+										>
+											<svg
+												className="w-4 h-4"
+												style={{ color: 'var(--color-blue-600)' }}
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+												/>
+											</svg>
+										</div>
+										<div className="flex-1">
+											<h6
+												className="font-medium text-sm mb-2"
+												style={{ color: 'var(--text-primary)' }}
+											>
+												Document Findings
+											</h6>
+											<p
+												className="text-xs mb-3"
+												style={{ color: 'var(--text-secondary)' }}
+											>
+												Create compliance records and notify relevant teams about
+												the risk findings.
+											</p>
+											<button
+												onClick={() => {
+													const documentationData = {
+														entityName: getEntityName(),
+														entityType: entityType,
+														riskLevel: mockFlaggedRecords.some(
+															(r) => r.riskLevel === 'High'
+														)
+															? 'High'
+															: 'Medium',
+														findings: mockFlaggedRecords.length,
+														categories: Array.from(
+															new Set(mockFlaggedRecords.map((r) => r.category))
+														),
+														timestamp: new Date().toISOString(),
+													};
+
+													const filename = `compliance_documentation_${getEntityName().replace(
+														/\s+/g,
+														'_'
+													)}.pdf`;
+													alert(
+														`Generating compliance documentation: ${filename}`
+													);
+												}}
+												className="btn btn-sm btn-secondary w-full"
+											>
+												Generate Documentation
+											</button>
+										</div>
+									</div>
+								</div>
+
+								{/* Expert Support */}
+								<div
+									className="p-4 rounded-lg border"
+									style={{
+										backgroundColor: 'var(--bg-secondary)',
+										borderColor: 'var(--border-primary)',
+									}}
+								>
+									<div className="flex items-start space-x-3">
+										<div
+											className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+											style={{ backgroundColor: 'var(--color-green-100)' }}
+										>
+											<svg
+												className="w-4 h-4"
+												style={{ color: 'var(--color-green-600)' }}
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+												/>
+											</svg>
+										</div>
+										<div className="flex-1">
+											<h6
+												className="font-medium text-sm mb-2"
+												style={{ color: 'var(--text-primary)' }}
+											>
+												Get Expert Guidance
+											</h6>
+											<p
+												className="text-xs mb-3"
+												style={{ color: 'var(--text-secondary)' }}
+											>
+												Connect with compliance experts for personalized advice on
+												handling this situation.
+											</p>
+											<button
+												onClick={() => {
+													// Simulate opening support system
+													alert(
+														'Connecting you with a compliance expert. You will receive a callback within 2 business hours.'
+													);
+												}}
+												className="btn btn-sm btn-primary w-full"
+											>
+												Contact Expert Support
+											</button>
+										</div>
+									</div>
+								</div>
+
+								{/* Risk Mitigation Guide */}
+								<div
+									className="p-4 rounded-lg border"
+									style={{
+										backgroundColor: 'var(--bg-secondary)',
+										borderColor: 'var(--border-primary)',
+									}}
+								>
+									<div className="flex items-start space-x-3">
+										<div
+											className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+											style={{ backgroundColor: 'var(--color-purple-100)' }}
+										>
+											<svg
+												className="w-4 h-4"
+												style={{ color: 'var(--color-purple-600)' }}
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+												/>
+											</svg>
+										</div>
+										<div className="flex-1">
+											<h6
+												className="font-medium text-sm mb-2"
+												style={{ color: 'var(--text-primary)' }}
+											>
+												Risk Mitigation Playbook
+											</h6>
+											<p
+												className="text-xs mb-3"
+												style={{ color: 'var(--text-secondary)' }}
+											>
+												Download step-by-step guidance for managing relationships
+												with flagged entities.
+											</p>
+											<button
+												onClick={() => {
+													const riskLevel = mockFlaggedRecords.some(
+														(r) => r.riskLevel === 'High'
+													)
+														? 'high'
+														: 'medium';
+													const categories = Array.from(
+														new Set(mockFlaggedRecords.map((r) => r.category))
+													).join('_');
+													const filename = `risk_mitigation_playbook_${riskLevel}_risk_${categories}.pdf`;
+													alert(`Downloading: ${filename}`);
+												}}
+												className="btn btn-sm btn-secondary w-full"
+											>
+												Download Playbook
+											</button>
+										</div>
+									</div>
+								</div>
+
+								{/* Enhanced Due Diligence */}
+								<div
+									className="p-4 rounded-lg border"
+									style={{
+										backgroundColor: 'var(--bg-secondary)',
+										borderColor: 'var(--border-primary)',
+									}}
+								>
+									<div className="flex items-start space-x-3">
+										<div
+											className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+											style={{ backgroundColor: 'var(--color-orange-100)' }}
+										>
+											<svg
+												className="w-4 h-4"
+												style={{ color: 'var(--color-orange-600)' }}
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+												/>
+											</svg>
+										</div>
+										<div className="flex-1">
+											<h6
+												className="font-medium text-sm mb-2"
+												style={{ color: 'var(--text-primary)' }}
+											>
+												Enhanced Due Diligence
+											</h6>
+											<p
+												className="text-xs mb-3"
+												style={{ color: 'var(--text-secondary)' }}
+											>
+												Initiate additional verification and background checks for
+												comprehensive assessment.
+											</p>
+											<button
+												onClick={() => {
+													navigate('/new-check', {
+														state: {
+															entityName: getEntityName(),
+															entityType: entityType,
+														},
+													});
+												}}
+												className="btn btn-sm btn-secondary w-full"
+											>
+												Start Enhanced Check
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							{/* Next Steps Summary */}
+							<div
+								className="p-4 rounded-lg"
+								style={{ backgroundColor: 'var(--color-blue-50)' }}
+							>
+								<h6
+									className="font-medium text-sm mb-2"
+									style={{ color: 'var(--color-blue-800)' }}
+								>
+									Recommended Next Steps:
+								</h6>
+								<ul
+									className="text-xs space-y-1"
+									style={{ color: 'var(--color-blue-700)' }}
+								>
+									<li>• Review all flagged findings in detail below</li>
+									<li>
+										•{' '}
+										{mockFlaggedRecords.some((r) => r.riskLevel === 'High')
+											? 'Consider suspending existing business relationships pending further review'
+											: 'Implement enhanced monitoring and documentation procedures'}
+									</li>
+									<li>• Document decision rationale for compliance records</li>
+									<li>• Add entity to watchlist for ongoing monitoring</li>
+									<li>• Consult with legal/compliance team if needed</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
 					{/* Full Report */}
 					{showFullReport && (
 						<div className="card mt-6">
