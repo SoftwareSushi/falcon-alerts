@@ -191,7 +191,7 @@ export default function NewCheck() {
 					<div className="card">
 						<div className="card-header">
 							<h2
-								className="text-lg font-semibold"
+								className="text-xl font-semibold"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Select Entity Type
@@ -224,13 +224,13 @@ export default function NewCheck() {
 									/>
 									<div className="ml-3">
 										<div
-											className="text-sm font-medium"
+											className="text-base font-medium"
 											style={{ color: 'var(--text-primary)' }}
 										>
 											Business
 										</div>
 										<div
-											className="text-xs"
+											className="text-base"
 											style={{ color: 'var(--text-tertiary)' }}
 										>
 											Company entity risk scan
@@ -262,13 +262,13 @@ export default function NewCheck() {
 									/>
 									<div className="ml-3">
 										<div
-											className="text-sm font-medium"
+											className="text-base font-medium"
 											style={{ color: 'var(--text-primary)' }}
 										>
 											Person
 										</div>
 										<div
-											className="text-xs"
+											className="text-base"
 											style={{ color: 'var(--text-tertiary)' }}
 										>
 											Individual entity risk scan
@@ -284,7 +284,7 @@ export default function NewCheck() {
 						<div className="card">
 							<div className="card-header">
 								<h2
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Person Information
@@ -465,7 +465,7 @@ export default function NewCheck() {
 										<button
 											type="button"
 											onClick={addPhoneNumber}
-											className="btn btn-ghost text-blue-600 hover:text-blue-700 text-sm"
+											className="btn btn-ghost text-blue-600 hover:text-blue-700 text-base"
 										>
 											+ Add Phone Number
 										</button>
@@ -534,7 +534,7 @@ export default function NewCheck() {
 						<div className="card">
 							<div className="card-header">
 								<h2
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Business Information
@@ -649,7 +649,7 @@ export default function NewCheck() {
 										<button
 											type="button"
 											onClick={addPhoneNumber}
-											className="btn btn-ghost text-blue-600 hover:text-blue-700 text-sm"
+											className="btn btn-ghost text-blue-600 hover:text-blue-700 text-base"
 										>
 											+ Add Phone Number
 										</button>

@@ -152,7 +152,7 @@ export default function Results() {
 					<div className="card mt-6">
 						<div className="card-header">
 							<h4
-								className="text-lg font-semibold"
+								className="text-xl font-semibold"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Comprehensive Scan Summary
@@ -186,7 +186,7 @@ export default function Results() {
 											OFAC SDN List
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -219,7 +219,7 @@ export default function Results() {
 											DEA Database
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -252,7 +252,7 @@ export default function Results() {
 											UN Sanctions
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -285,7 +285,7 @@ export default function Results() {
 											FTO List
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -318,7 +318,7 @@ export default function Results() {
 											Cartel Intelligence
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -351,7 +351,7 @@ export default function Results() {
 											ML Pattern Analysis
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -384,7 +384,7 @@ export default function Results() {
 											Geographic Risk Flags
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -417,7 +417,7 @@ export default function Results() {
 											Known Associates
 										</p>
 										<p
-											className="text-sm"
+											className="text-base"
 											style={{ color: 'var(--color-green-600)' }}
 										>
 											Clear
@@ -451,7 +451,7 @@ export default function Results() {
 								</svg>
 							</div>
 							<h4
-								className="text-lg font-semibold mb-2"
+								className="text-xl font-semibold mb-2"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Monitor Future Changes
@@ -645,7 +645,7 @@ export default function Results() {
 						<div className="card mt-6">
 							<div className="card-header">
 								<h4
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Risk Overview
@@ -663,7 +663,7 @@ export default function Results() {
 													.length
 											}
 										</div>
-										<div className="text-sm text-gray-600">
+										<div className="text-base text-gray-600">
 											High Risk Matches
 										</div>
 									</div>
@@ -677,7 +677,7 @@ export default function Results() {
 													.length
 											}
 										</div>
-										<div className="text-sm text-gray-600">
+										<div className="text-base text-gray-600">
 											Medium Risk Matches
 										</div>
 									</div>
@@ -688,7 +688,9 @@ export default function Results() {
 										>
 											{new Set(mockFlaggedRecords.map((r) => r.category)).size}
 										</div>
-										<div className="text-sm text-gray-600">Risk Categories</div>
+										<div className="text-base text-gray-600">
+											Risk Categories
+										</div>
 									</div>
 								</div>
 								<div className="mt-4 flex flex-wrap gap-2">
@@ -697,7 +699,7 @@ export default function Results() {
 									).map((category) => (
 										<span
 											key={category}
-											className="px-3 py-1 text-xs font-medium rounded-full"
+											className="px-3 py-1 text-base font-medium rounded-full"
 											style={{
 												backgroundColor: 'var(--color-gray-100)',
 												color: 'var(--color-gray-700)',
@@ -735,7 +737,7 @@ export default function Results() {
 									</svg>
 								</div>
 								<h4
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Risk Management Actions
@@ -774,13 +776,13 @@ export default function Results() {
 										</div>
 										<div className="flex-1">
 											<h5
-												className="text-sm font-semibold mb-1"
+												className="text-base font-semibold mb-1"
 												style={{ color: 'var(--color-red-800)' }}
 											>
 												Immediate Action Required
 											</h5>
 											<p
-												className="text-sm"
+												className="text-base"
 												style={{ color: 'var(--color-red-700)' }}
 											>
 												High-risk findings detected. Consider suspending or
@@ -824,13 +826,13 @@ export default function Results() {
 										</div>
 										<div className="flex-1">
 											<h6
-												className="font-medium text-sm mb-2"
+												className="font-medium text-base mb-2"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												Document Findings
 											</h6>
 											<p
-												className="text-xs mb-3"
+												className="text-base mb-3"
 												style={{ color: 'var(--text-secondary)' }}
 											>
 												Create compliance records and notify relevant teams about
@@ -899,13 +901,13 @@ export default function Results() {
 										</div>
 										<div className="flex-1">
 											<h6
-												className="font-medium text-sm mb-2"
+												className="font-medium text-base mb-2"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												Get Expert Guidance
 											</h6>
 											<p
-												className="text-xs mb-3"
+												className="text-base mb-3"
 												style={{ color: 'var(--text-secondary)' }}
 											>
 												Connect with compliance experts for personalized advice on
@@ -956,13 +958,13 @@ export default function Results() {
 										</div>
 										<div className="flex-1">
 											<h6
-												className="font-medium text-sm mb-2"
+												className="font-medium text-base mb-2"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												Risk Mitigation Playbook
 											</h6>
 											<p
-												className="text-xs mb-3"
+												className="text-base mb-3"
 												style={{ color: 'var(--text-secondary)' }}
 											>
 												Download step-by-step guidance for managing relationships
@@ -1019,13 +1021,13 @@ export default function Results() {
 										</div>
 										<div className="flex-1">
 											<h6
-												className="font-medium text-sm mb-2"
+												className="font-medium text-base mb-2"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												Enhanced Due Diligence
 											</h6>
 											<p
-												className="text-xs mb-3"
+												className="text-base mb-3"
 												style={{ color: 'var(--text-secondary)' }}
 											>
 												Initiate additional verification and background checks for
@@ -1055,13 +1057,13 @@ export default function Results() {
 								style={{ backgroundColor: 'var(--color-blue-50)' }}
 							>
 								<h6
-									className="font-medium text-sm mb-2"
+									className="font-medium text-base mb-2"
 									style={{ color: 'var(--color-blue-800)' }}
 								>
 									Recommended Next Steps:
 								</h6>
 								<ul
-									className="text-xs space-y-1"
+									className="text-base space-y-1"
 									style={{ color: 'var(--color-blue-700)' }}
 								>
 									<li>• Review all flagged findings in detail below</li>
@@ -1084,7 +1086,7 @@ export default function Results() {
 						<div className="card mt-6">
 							<div className="card-header">
 								<h4
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Detailed Findings
@@ -1206,7 +1208,7 @@ export default function Results() {
 																>
 																	{getCategoryIcon(record.category)}
 																	<span
-																		className="text-xs font-medium uppercase tracking-wide"
+																		className="text-base font-medium uppercase tracking-wide"
 																		style={{ color: 'var(--text-tertiary)' }}
 																	>
 																		{record.category.replace('_', ' ')}
@@ -1214,13 +1216,13 @@ export default function Results() {
 																</div>
 															</div>
 															<h5
-																className="font-medium text-lg"
+																className="font-medium text-xl"
 																style={{ color: 'var(--text-primary)' }}
 															>
 																{record.recordType}
 															</h5>
 															<p
-																className="text-sm"
+																className="text-base"
 																style={{ color: 'var(--text-secondary)' }}
 															>
 																Source: {record.sourceName}
@@ -1228,7 +1230,7 @@ export default function Results() {
 														</div>
 														<div className="text-right space-y-1">
 															<span
-																className="inline-block px-2 py-1 text-xs font-medium rounded-full"
+																className="inline-block px-2 py-1 text-base font-medium rounded-full"
 																style={{
 																	backgroundColor:
 																		record.riskLevel === 'High'
@@ -1255,19 +1257,19 @@ export default function Results() {
 															style={{ backgroundColor: 'rgba(0,0,0,0.02)' }}
 														>
 															<p
-																className="text-sm font-medium mb-1"
+																className="text-base font-medium mb-1"
 																style={{ color: 'var(--text-primary)' }}
 															>
 																Risk Details:
 															</p>
 															<p
-																className="text-sm"
+																className="text-base"
 																style={{ color: 'var(--color-gray-700)' }}
 															>
 																{record.details}
 															</p>
 														</div>
-														<div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+														<div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-base">
 															<div>
 																<span
 																	className="font-medium"
@@ -1324,7 +1326,7 @@ export default function Results() {
 								</svg>
 							</div>
 							<h4
-								className="text-lg font-semibold mb-2"
+								className="text-xl font-semibold mb-2"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Critical: Enable Continuous Monitoring

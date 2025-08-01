@@ -162,7 +162,7 @@ export default function Processing() {
 
 						{/* Progress Text */}
 						<p
-							className="text-lg font-medium mb-6"
+							className="text-xl font-medium mb-6"
 							style={{ color: 'var(--color-gray-700)' }}
 						>
 							Scanning {dataSources.length} data sources for comprehensive
@@ -189,7 +189,7 @@ export default function Processing() {
 							style={{ backgroundColor: 'var(--bg-tertiary)' }}
 						>
 							<p
-								className="text-sm font-medium mb-1"
+								className="text-base font-medium mb-1"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								Currently scanning:
@@ -212,7 +212,7 @@ export default function Processing() {
 									{Math.round(progress)}%
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-tertiary)' }}
 								>
 									Complete
@@ -226,7 +226,7 @@ export default function Processing() {
 									{Math.floor(progress / (100 / dataSources.length))}
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-tertiary)' }}
 								>
 									Sources Scanned
@@ -241,7 +241,7 @@ export default function Processing() {
 										{Math.max(1, Math.ceil((100 - progress) / 20))}s
 									</p>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-tertiary)' }}
 									>
 										Remaining
@@ -256,7 +256,7 @@ export default function Processing() {
 										✓
 									</p>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-tertiary)' }}
 									>
 										Complete

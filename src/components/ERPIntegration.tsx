@@ -178,7 +178,7 @@ export default function ERPIntegration() {
 					</svg>
 					<div>
 						<h3 className="font-bold">Integration Features (Demo)</h3>
-						<div className="text-sm">
+						<div className="text-base">
 							ERP/CRM integrations allow automatic syncing of screening
 							results and watchlist alerts with your existing business
 							systems. In production, these would provide real-time data
@@ -194,7 +194,7 @@ export default function ERPIntegration() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Integrations
@@ -234,7 +234,7 @@ export default function ERPIntegration() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Active
@@ -274,7 +274,7 @@ export default function ERPIntegration() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										ERP Systems
@@ -314,7 +314,7 @@ export default function ERPIntegration() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										CRM Systems
@@ -354,7 +354,7 @@ export default function ERPIntegration() {
 				<div className="card">
 					<div className="card-header">
 						<h3
-							className="text-lg font-semibold"
+							className="text-xl font-semibold"
 							style={{ color: 'var(--text-primary)' }}
 						>
 							Configured Integrations
@@ -378,13 +378,13 @@ export default function ERPIntegration() {
 									/>
 								</svg>
 								<p
-									className="text-lg font-medium mb-2"
+									className="text-xl font-medium mb-2"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									No integrations configured
 								</p>
 								<p
-									className="text-sm mb-4"
+									className="text-base mb-4"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Add your first ERP or CRM integration to start syncing data.
@@ -422,7 +422,7 @@ export default function ERPIntegration() {
 															{integration.name}
 														</div>
 														<div
-															className="text-sm"
+															className="text-base"
 															style={{ color: 'var(--text-secondary)' }}
 														>
 															{integration.endpoint}
@@ -440,12 +440,12 @@ export default function ERPIntegration() {
 													</span>
 												</td>
 												<td>
-													<span className="text-sm text-gray-600">
+													<span className="text-base text-gray-600">
 														{integration.config.syncFrequency}
 													</span>
 												</td>
 												<td>
-													<span className="text-sm text-gray-600">
+													<span className="text-base text-gray-600">
 														{formatLastSync(integration.lastSync)}
 													</span>
 												</td>
@@ -494,7 +494,7 @@ export default function ERPIntegration() {
 					<div className="card">
 						<div className="card-header">
 							<h3
-								className="text-lg font-semibold"
+								className="text-xl font-semibold"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Available Features
@@ -589,7 +589,7 @@ export default function ERPIntegration() {
 					<div className="card">
 						<div className="card-header">
 							<h3
-								className="text-lg font-semibold"
+								className="text-xl font-semibold"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Supported Systems
@@ -601,7 +601,7 @@ export default function ERPIntegration() {
 									<h4 className="font-medium text-gray-900 mb-2">
 										ERP Systems
 									</h4>
-									<ul className="text-sm text-gray-600 space-y-1">
+									<ul className="text-base text-gray-600 space-y-1">
 										<li>• SAP ERP</li>
 										<li>• Oracle ERP Cloud</li>
 										<li>• Microsoft Dynamics</li>
@@ -612,7 +612,7 @@ export default function ERPIntegration() {
 									<h4 className="font-medium text-gray-900 mb-2">
 										CRM Systems
 									</h4>
-									<ul className="text-sm text-gray-600 space-y-1">
+									<ul className="text-base text-gray-600 space-y-1">
 										<li>• Salesforce</li>
 										<li>• HubSpot</li>
 										<li>• Microsoft Dynamics CRM</li>
@@ -629,7 +629,7 @@ export default function ERPIntegration() {
 			{showAddModal && (
 				<div className="modal modal-open">
 					<div className="modal-box">
-						<h3 className="font-bold text-lg mb-4">Add New Integration</h3>
+						<h3 className="font-bold text-xl mb-4">Add New Integration</h3>
 
 						<div className="form-control mb-4">
 							<label className="label">
@@ -768,10 +768,10 @@ export default function ERPIntegration() {
 			{selectedIntegration && (
 				<div className="modal modal-open">
 					<div className="modal-box">
-						<h3 className="font-bold text-lg mb-4">
+						<h3 className="font-bold text-xl mb-4">
 							Edit {selectedIntegration.name}
 						</h3>
-						<p className="text-sm text-gray-600 mb-4">
+						<p className="text-base text-gray-600 mb-4">
 							Integration editing functionality would be implemented here in
 							a production environment.
 						</p>

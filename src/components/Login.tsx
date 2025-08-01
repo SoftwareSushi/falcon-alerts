@@ -85,7 +85,7 @@ export default function Login({ onLogin }: LoginProps) {
 						Sanction Watch
 					</h1>
 					<p
-						className="text-lg leading-relaxed mb-12"
+						className="text-xl leading-relaxed mb-12"
 						style={{ color: 'var(--bg-secondary)' }}
 					>
 						Smart Background Intelligence for Smarter Business Decisions
@@ -268,7 +268,7 @@ export default function Login({ onLogin }: LoginProps) {
 						}}
 					>
 						<p
-							className="text-sm"
+							className="text-base"
 							style={{ color: 'var(--text-secondary)' }}
 						>
 							<strong>Demo Notice:</strong> This is a demonstration

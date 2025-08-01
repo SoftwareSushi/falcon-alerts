@@ -289,7 +289,7 @@ export default function Alerts() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Alerts
@@ -329,7 +329,7 @@ export default function Alerts() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Unread
@@ -369,7 +369,7 @@ export default function Alerts() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Critical
@@ -409,7 +409,7 @@ export default function Alerts() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Action Required
@@ -500,7 +500,7 @@ export default function Alerts() {
 								<label className="label">
 									<span className="label-text">Results</span>
 								</label>
-								<div className="text-sm text-gray-600">
+								<div className="text-base text-gray-600">
 									{filteredAlerts.length} of {alerts.length} alerts
 								</div>
 							</div>
@@ -513,7 +513,7 @@ export default function Alerts() {
 					<div className="card-header">
 						<div className="flex items-center justify-between">
 							<h3
-								className="text-lg font-semibold"
+								className="text-xl font-semibold"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Alerts
@@ -548,13 +548,13 @@ export default function Alerts() {
 									/>
 								</svg>
 								<p
-									className="text-lg font-medium mb-2"
+									className="text-xl font-medium mb-2"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									No alerts match your filters
 								</p>
 								<p
-									className="text-sm"
+									className="text-base"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Try adjusting your filter criteria to see more results.
@@ -608,7 +608,7 @@ export default function Alerts() {
 											<div className="flex-1 min-w-0">
 												<div className="flex items-center justify-between mb-2">
 													<h4
-														className="text-lg font-semibold"
+														className="text-xl font-semibold"
 														style={{
 															color: alert.isRead
 																? 'var(--text-secondary)'
@@ -629,7 +629,7 @@ export default function Alerts() {
 													</div>
 												</div>
 												<p
-													className="text-sm mb-3"
+													className="text-base mb-3"
 													style={{
 														color: alert.isRead
 															? 'var(--text-tertiary)'
@@ -640,7 +640,7 @@ export default function Alerts() {
 												</p>
 												<div className="mb-3">
 													<span
-														className="text-xs font-medium uppercase tracking-wide"
+														className="text-base font-medium uppercase tracking-wide"
 														style={{ color: 'var(--text-tertiary)' }}
 													>
 														Source:
@@ -654,7 +654,7 @@ export default function Alerts() {
 												{alert.relatedEntities.length > 0 && (
 													<div className="mb-3">
 														<span
-															className="text-xs font-medium uppercase tracking-wide"
+															className="text-base font-medium uppercase tracking-wide"
 															style={{ color: 'var(--text-tertiary)' }}
 														>
 															Related Entities:
@@ -673,7 +673,7 @@ export default function Alerts() {
 												)}
 												<div className="flex items-center justify-between">
 													<span
-														className="text-xs"
+														className="text-base"
 														style={{ color: 'var(--text-tertiary)' }}
 													>
 														{formatTimestamp(alert.timestamp)}

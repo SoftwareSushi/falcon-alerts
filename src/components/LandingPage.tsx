@@ -296,7 +296,7 @@ export default function LandingPage() {
 									Sanction Watch
 								</h1>
 								<p
-									className="text-sm"
+									className="text-base"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Risk Intelligence Platform
@@ -345,7 +345,7 @@ export default function LandingPage() {
 					<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
 						<button
 							onClick={handleStartTrial}
-							className="btn btn-primary btn-lg px-8 py-4 text-lg"
+							className="btn btn-primary btn-lg px-8 py-4 text-xl"
 						>
 							Start 7-Day Free Trial
 						</button>
@@ -355,12 +355,12 @@ export default function LandingPage() {
 									.getElementById('features')
 									?.scrollIntoView({ behavior: 'smooth' })
 							}
-							className="btn btn-outline btn-lg px-8 py-4 text-lg"
+							className="btn btn-outline btn-lg px-8 py-4 text-xl"
 						>
 							Learn More
 						</button>
 					</div>
-					<div className="flex flex-wrap justify-center gap-8 text-sm text-white">
+					<div className="flex flex-wrap justify-center gap-8 text-base text-white">
 						<div className="flex items-center gap-2">
 							<svg
 								className="w-5 h-5 text-green-500"
@@ -499,13 +499,13 @@ export default function LandingPage() {
 									{audience.icon}
 								</div>
 								<h3
-									className="text-lg font-semibold mb-2"
+									className="text-xl font-semibold mb-2"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									{audience.title}
 								</h3>
 								<p
-									className="text-sm"
+									className="text-base"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									{audience.description}
@@ -560,7 +560,7 @@ export default function LandingPage() {
 								>
 									$299
 									<span
-										className="text-lg font-normal"
+										className="text-xl font-normal"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										/month
@@ -662,7 +662,7 @@ export default function LandingPage() {
 						>
 							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
 								<span
-									className="text-white px-4 py-1 rounded-full text-sm font-semibold"
+									className="text-white px-4 py-1 rounded-full text-base font-semibold"
 									style={{ backgroundColor: '#07C30A' }}
 								>
 									Most Popular
@@ -681,7 +681,7 @@ export default function LandingPage() {
 								>
 									$999
 									<span
-										className="text-lg font-normal"
+										className="text-xl font-normal"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										/month
@@ -956,7 +956,7 @@ export default function LandingPage() {
 									</svg>
 								</div>
 								<p
-									className="mb-4 text-lg"
+									className="mb-4 text-xl"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									"{testimonial.quote}"
@@ -969,7 +969,7 @@ export default function LandingPage() {
 										{testimonial.author}
 									</p>
 									<p
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										{testimonial.role}, {testimonial.company}
@@ -1055,7 +1055,7 @@ export default function LandingPage() {
 							</p>
 							<div className="space-y-4">
 								<div
-									className="text-sm"
+									className="text-base"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Next session: January 25, 2024 at 2:00 PM EST
@@ -1144,7 +1144,7 @@ export default function LandingPage() {
 								</span>
 							</div>
 							<p
-								className="text-sm mb-4"
+								className="text-base mb-4"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								Protecting businesses from dangerous entities through advanced
@@ -1159,7 +1159,7 @@ export default function LandingPage() {
 								Product
 							</h4>
 							<ul
-								className="space-y-2 text-sm"
+								className="space-y-2 text-base"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								<li>
@@ -1192,7 +1192,7 @@ export default function LandingPage() {
 								Resources
 							</h4>
 							<ul
-								className="space-y-2 text-sm"
+								className="space-y-2 text-base"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								<li>
@@ -1225,7 +1225,7 @@ export default function LandingPage() {
 								Company
 							</h4>
 							<ul
-								className="space-y-2 text-sm"
+								className="space-y-2 text-base"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								<li>
@@ -1252,7 +1252,7 @@ export default function LandingPage() {
 						</div>
 					</div>
 					<div
-						className="border-t pt-8 mt-8 text-center text-sm"
+						className="border-t pt-8 mt-8 text-center text-base"
 						style={{
 							borderColor: 'var(--border-primary)',
 							color: 'var(--text-secondary)',

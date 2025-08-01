@@ -160,7 +160,7 @@ export default function SuspiciousRegistry() {
 						</div>
 						<div className="flex items-center space-x-2">
 							<span
-								className="text-sm"
+								className="text-base"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								Last Updated: {formatDate('2024-01-01')}
@@ -187,7 +187,7 @@ export default function SuspiciousRegistry() {
 									{entityCounts.total}
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Total Entities
@@ -205,7 +205,7 @@ export default function SuspiciousRegistry() {
 									{entityCounts.ports}
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Ports
@@ -223,7 +223,7 @@ export default function SuspiciousRegistry() {
 									{entityCounts.persons}
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Persons
@@ -241,7 +241,7 @@ export default function SuspiciousRegistry() {
 									{entityCounts.brokers}
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Brokers
@@ -259,7 +259,7 @@ export default function SuspiciousRegistry() {
 									{entityCounts.organizations}
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Organizations
@@ -277,7 +277,7 @@ export default function SuspiciousRegistry() {
 									{entityCounts.critical}
 								</p>
 								<p
-									className="text-sm font-medium"
+									className="text-base font-medium"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Critical Risk
@@ -292,7 +292,7 @@ export default function SuspiciousRegistry() {
 					<div className="card-body p-6">
 						<div className="mb-6">
 							<h3
-								className="text-lg font-semibold mb-4"
+								className="text-xl font-semibold mb-4"
 								style={{ color: 'var(--text-primary)' }}
 							>
 								Search & Filters
@@ -367,7 +367,7 @@ export default function SuspiciousRegistry() {
 							style={{ borderTop: '1px solid var(--border-primary)' }}
 						>
 							<div
-								className="text-sm"
+								className="text-base"
 								style={{ color: 'var(--text-secondary)' }}
 							>
 								Showing{' '}
@@ -400,7 +400,7 @@ export default function SuspiciousRegistry() {
 						style={{ borderBottom: '1px solid var(--border-primary)' }}
 					>
 						<h3
-							className="text-lg font-semibold"
+							className="text-xl font-semibold"
 							style={{ color: 'var(--text-primary)' }}
 						>
 							Registry Entries
@@ -424,13 +424,13 @@ export default function SuspiciousRegistry() {
 									/>
 								</svg>
 								<p
-									className="text-lg font-medium mb-2"
+									className="text-xl font-medium mb-2"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									No entities match your search
 								</p>
 								<p
-									className="text-sm"
+									className="text-base"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Try adjusting your search terms or filters.
@@ -534,7 +534,7 @@ export default function SuspiciousRegistry() {
 															{entity.name}
 														</div>
 														<div
-															className="text-sm mt-1"
+															className="text-base mt-1"
 															style={{ color: 'var(--text-secondary)' }}
 														>
 															Added {formatDate(entity.dateAdded)}
@@ -545,7 +545,7 @@ export default function SuspiciousRegistry() {
 													<span
 														className={`${getTypeBadge(
 															entity.type
-														)} text-xs font-medium px-3 py-1`}
+														)} text-base font-medium px-3 py-1`}
 													>
 														{entity.type.charAt(0).toUpperCase() +
 															entity.type.slice(1)}
@@ -555,7 +555,7 @@ export default function SuspiciousRegistry() {
 													<span
 														className={`${getRiskBadge(
 															entity.riskLevel
-														)} text-xs font-medium px-3 py-1`}
+														)} text-base font-medium px-3 py-1`}
 													>
 														{entity.riskLevel.toUpperCase()}
 													</span>
@@ -564,25 +564,25 @@ export default function SuspiciousRegistry() {
 													{entity.location ? (
 														<div>
 															<div
-																className="text-sm font-medium"
+																className="text-base font-medium"
 																style={{ color: 'var(--text-primary)' }}
 															>
 																{entity.location.country}
 															</div>
 															<div
-																className="text-xs mt-1"
+																className="text-base mt-1"
 																style={{ color: 'var(--text-secondary)' }}
 															>
 																{entity.location.region}
 															</div>
 														</div>
 													) : (
-														<span className="text-sm text-gray-500">N/A</span>
+														<span className="text-base text-gray-500">N/A</span>
 													)}
 												</td>
 												<td className="py-4 px-6">
 													<div
-														className="text-sm"
+														className="text-base"
 														style={{ color: 'var(--text-secondary)' }}
 													>
 														{entity.sourceAgency}
@@ -590,7 +590,7 @@ export default function SuspiciousRegistry() {
 												</td>
 												<td className="py-4 px-6">
 													<div
-														className="text-sm"
+														className="text-base"
 														style={{ color: 'var(--text-secondary)' }}
 													>
 														{formatDate(entity.lastUpdated)}
@@ -599,7 +599,7 @@ export default function SuspiciousRegistry() {
 												<td className="py-4 px-6 text-center">
 													<button
 														onClick={() => setSelectedEntity(entity)}
-														className="btn btn-sm btn-primary text-xs px-4"
+														className="btn btn-sm btn-primary text-base px-4"
 													>
 														View Details
 													</button>
@@ -618,7 +618,7 @@ export default function SuspiciousRegistry() {
 												>
 													<div className="flex items-center justify-center space-x-2">
 														<span>...</span>
-														<span className="text-sm">
+														<span className="text-base">
 															Showing {DISPLAY_LIMIT} of {filteredEntities.length}{' '}
 															entities
 														</span>
@@ -641,7 +641,7 @@ export default function SuspiciousRegistry() {
 						style={{ borderBottom: '1px solid var(--border-primary)' }}
 					>
 						<h3
-							className="text-lg font-semibold"
+							className="text-xl font-semibold"
 							style={{ color: 'var(--text-primary)' }}
 						>
 							OSINT Sources
@@ -660,7 +660,7 @@ export default function SuspiciousRegistry() {
 								>
 									<div className="flex items-center justify-between mb-3">
 										<h4
-											className="font-semibold text-sm"
+											className="font-semibold text-base"
 											style={{ color: 'var(--text-primary)' }}
 										>
 											{source.name}
@@ -668,18 +668,18 @@ export default function SuspiciousRegistry() {
 										<span
 											className={`${getReliabilityBadge(
 												source.reliability
-											)} text-xs font-medium px-2 py-1`}
+											)} text-base font-medium px-2 py-1`}
 										>
 											{source.reliability}
 										</span>
 									</div>
 									<p
-										className="text-sm mb-3 capitalize"
+										className="text-base mb-3 capitalize"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										{source.type.charAt(0).toUpperCase() + source.type.slice(1)}
 									</p>
-									<div className="space-y-1 text-xs text-gray-500">
+									<div className="space-y-1 text-base text-gray-500">
 										<div className="flex justify-between">
 											<span>Last Update:</span>
 											<span className="font-medium">{source.lastUpdate}</span>
@@ -703,7 +703,7 @@ export default function SuspiciousRegistry() {
 				<div className="modal modal-open">
 					<div className="modal-box max-w-4xl">
 						<div className="flex items-center justify-between mb-4">
-							<h3 className="font-bold text-lg">{selectedEntity.name}</h3>
+							<h3 className="font-bold text-xl">{selectedEntity.name}</h3>
 							<div className="flex items-center space-x-2">
 								<span className={getTypeBadge(selectedEntity.type)}>
 									{selectedEntity.type.charAt(0).toUpperCase() +
@@ -720,7 +720,7 @@ export default function SuspiciousRegistry() {
 								<h4 className="font-semibold mb-2 text-gray-900">
 									Entity Information
 								</h4>
-								<div className="space-y-2 text-sm">
+								<div className="space-y-2 text-base">
 									<div>
 										<span className="font-medium text-gray-600">
 											Source Agency:
@@ -753,7 +753,7 @@ export default function SuspiciousRegistry() {
 									<h4 className="font-semibold mb-2 text-gray-900">
 										Location
 									</h4>
-									<div className="space-y-2 text-sm">
+									<div className="space-y-2 text-base">
 										<div>
 											<span className="font-medium text-gray-600">Country:</span>{' '}
 											{selectedEntity.location.country}

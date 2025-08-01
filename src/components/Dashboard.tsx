@@ -138,7 +138,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Scans
@@ -178,7 +178,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Clean
@@ -218,7 +218,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Flagged
@@ -258,7 +258,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										In Progress
@@ -301,7 +301,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 						<div className="card-header">
 							<div className="flex items-center justify-between">
 								<h3
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Alerts
@@ -309,6 +309,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<button
 									onClick={() => navigate('/alerts')}
 									className="btn btn-sm btn-ghost"
+									style={{ color: '#2c5eae' }}
 								>
 									View All
 								</button>
@@ -318,7 +319,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="space-y-3">
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Unread
@@ -329,7 +330,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								</div>
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Critical
@@ -343,7 +344,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								</div>
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Action Required
@@ -361,7 +362,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 						<div className="card-header">
 							<div className="flex items-center justify-between">
 								<h3
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Watchlist
@@ -369,6 +370,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<button
 									onClick={() => navigate('/watchlist')}
 									className="btn btn-sm btn-ghost"
+									style={{ color: '#2c5eae' }}
 								>
 									Manage
 								</button>
@@ -378,7 +380,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="space-y-3">
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Monitored Entities
@@ -389,7 +391,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								</div>
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Real-time
@@ -405,7 +407,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								</div>
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Weekly
@@ -428,7 +430,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 						<div className="card-header">
 							<div className="flex items-center justify-between">
 								<h3
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Suspicious Registry
@@ -436,6 +438,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								<button
 									onClick={() => navigate('/registry')}
 									className="btn btn-sm btn-ghost"
+									style={{ color: '#2c5eae' }}
 								>
 									Browse
 								</button>
@@ -445,7 +448,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="space-y-3">
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Entities
@@ -456,7 +459,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								</div>
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Critical Risk
@@ -471,7 +474,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 								</div>
 								<div className="flex items-center justify-between">
 									<span
-										className="text-sm"
+										className="text-base"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Ports
@@ -497,7 +500,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 							<div className="card-header">
 								<div className="flex items-center justify-between">
 									<h3
-										className="text-lg font-semibold"
+										className="text-xl font-semibold"
 										style={{ color: 'var(--text-primary)' }}
 									>
 										Scans
@@ -569,13 +572,13 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 													</div>
 													<div className="flex-1 min-w-0">
 														<p
-															className="text-sm font-medium"
+															className="text-base font-medium"
 															style={{ color: 'var(--text-primary)' }}
 														>
 															{scan.entityName}
 														</p>
 														<p
-															className="text-xs"
+															className="text-base"
 															style={{ color: 'var(--text-tertiary)' }}
 														>
 															{scan.type} • {scan.lastUpdated}
@@ -589,7 +592,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 												</span>
 												<button
 													onClick={() => handleViewDetails(scan.id, scan.status)}
-													className="btn btn-ghost text-xs"
+													className="btn btn-ghost text-base"
 												>
 													View
 												</button>
@@ -606,7 +609,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 						<div className="card">
 							<div className="card-header">
 								<h3
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Quick Actions
@@ -724,7 +727,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 						<div className="card">
 							<div className="card-header">
 								<h3
-									className="text-lg font-semibold"
+									className="text-xl font-semibold"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									Recent Activity
@@ -749,13 +752,13 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 											</div>
 											<div className="flex-1 min-w-0">
 												<p
-													className="text-sm"
+													className="text-base"
 													style={{ color: 'var(--text-primary)' }}
 												>
 													{scan.entityName}
 												</p>
 												<p
-													className="text-xs"
+													className="text-base"
 													style={{ color: 'var(--text-tertiary)' }}
 												>
 													Scan completed • {scan.lastUpdated}

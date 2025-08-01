@@ -201,7 +201,7 @@ export default function Watchlist() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Total Monitored
@@ -247,7 +247,7 @@ export default function Watchlist() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Active
@@ -287,7 +287,7 @@ export default function Watchlist() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p
-										className="text-sm font-medium"
+										className="text-base font-medium"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Inactive
@@ -327,7 +327,7 @@ export default function Watchlist() {
 				<div className="card">
 					<div className="card-header p-6 border-b border-gray-200">
 						<h3
-							className="text-lg font-semibold"
+							className="text-xl font-semibold"
 							style={{ color: 'var(--text-primary)' }}
 						>
 							Monitored Entities
@@ -357,13 +357,13 @@ export default function Watchlist() {
 									/>
 								</svg>
 								<p
-									className="text-lg font-medium mb-2"
+									className="text-xl font-medium mb-2"
 									style={{ color: 'var(--text-primary)' }}
 								>
 									No entities in watchlist
 								</p>
 								<p
-									className="text-sm mb-4"
+									className="text-base mb-4"
 									style={{ color: 'var(--text-secondary)' }}
 								>
 									Add entities to start monitoring for ongoing risk changes.
@@ -415,7 +415,7 @@ export default function Watchlist() {
 															{entry.entityName}
 														</div>
 														<div
-															className="text-sm mt-1"
+															className="text-base mt-1"
 															style={{ color: 'var(--text-secondary)' }}
 														>
 															Added {entry.createdDate}
@@ -423,7 +423,7 @@ export default function Watchlist() {
 													</div>
 												</td>
 												<td className="py-4 px-6">
-													<span className="badge badge-outline text-xs font-medium px-3 py-1">
+													<span className="badge badge-outline text-base font-medium px-3 py-1">
 														{entry.entityType}
 													</span>
 												</td>
@@ -431,14 +431,14 @@ export default function Watchlist() {
 													<span
 														className={`${getRiskBadge(
 															entry.alertThreshold
-														)} text-xs font-medium px-3 py-1`}
+														)} text-base font-medium px-3 py-1`}
 													>
 														{entry.alertThreshold.toUpperCase()}
 													</span>
 												</td>
 												<td className="py-4 px-6">
 													<div
-														className="text-sm"
+														className="text-base"
 														style={{ color: 'var(--text-secondary)' }}
 													>
 														{entry.lastScanned}
@@ -448,7 +448,7 @@ export default function Watchlist() {
 													<span
 														className={`${getStatusBadge(
 															entry.isActive
-														)} text-xs font-medium px-3 py-1`}
+														)} text-base font-medium px-3 py-1`}
 													>
 														{entry.isActive ? 'Active' : 'Inactive'}
 													</span>
@@ -457,7 +457,7 @@ export default function Watchlist() {
 													<div className="flex justify-center space-x-2">
 														<button
 															onClick={() => toggleWatchlistEntry(entry.id)}
-															className={`btn btn-sm text-xs px-3 ${
+															className={`btn btn-sm text-base px-3 ${
 																entry.isActive ? 'btn-warning' : 'btn-success'
 															}`}
 														>
@@ -465,7 +465,7 @@ export default function Watchlist() {
 														</button>
 														<button
 															onClick={() => removeFromWatchlist(entry.id)}
-															className="btn btn-sm btn-error text-xs px-3"
+															className="btn btn-sm btn-error text-base px-3"
 														>
 															Remove
 														</button>
@@ -567,7 +567,7 @@ export default function Watchlist() {
 												</svg>
 												<span className="font-medium">{selectedEntity}</span>
 												<span
-													className="text-sm px-2 py-1 rounded-full"
+													className="text-base px-2 py-1 rounded-full"
 													style={{
 														backgroundColor: 'var(--color-blue-100)',
 														color: 'var(--color-blue-600)',
@@ -628,7 +628,7 @@ export default function Watchlist() {
 										<option value="high">High - Critical changes only</option>
 									</select>
 									<div
-										className="text-xs mt-1"
+										className="text-base mt-1"
 										style={{ color: 'var(--text-secondary)' }}
 									>
 										Real-time monitoring is enabled by default for all entities
@@ -659,7 +659,7 @@ export default function Watchlist() {
 												}
 											/>
 											<span
-												className="text-sm"
+												className="text-base"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												FTO/TCO Activity
@@ -678,7 +678,7 @@ export default function Watchlist() {
 												}
 											/>
 											<span
-												className="text-sm"
+												className="text-base"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												New Sanctions
@@ -697,7 +697,7 @@ export default function Watchlist() {
 												}
 											/>
 											<span
-												className="text-sm"
+												className="text-base"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												Network Changes
@@ -716,7 +716,7 @@ export default function Watchlist() {
 												}
 											/>
 											<span
-												className="text-sm"
+												className="text-base"
 												style={{ color: 'var(--text-primary)' }}
 											>
 												Port Activity
