@@ -65,10 +65,11 @@ export default function Results() {
 							<div className="flex items-center space-x-3">
 								<div
 									className="w-8 h-8 rounded-lg flex items-center justify-center"
-									style={{ backgroundColor: 'var(--color-gray-900)' }}
+									style={{ backgroundColor: 'var(--text-primary)' }}
 								>
 									<svg
-										className="h-5 w-5 text-white"
+										className="h-5 w-5"
+										style={{ color: 'var(--bg-primary)' }}
 										fill="none"
 										viewBox="0 0 24 24"
 										stroke="currentColor"
@@ -83,7 +84,7 @@ export default function Results() {
 								</div>
 								<h1
 									className="text-xl font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Background Check Results
 								</h1>
@@ -427,6 +428,64 @@ export default function Results() {
 						</div>
 					</div>
 
+					{/* Watchlist Recommendation */}
+					<div className="card mt-6">
+						<div className="card-body text-center">
+							<div
+								className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+								style={{ backgroundColor: 'var(--color-blue-100)' }}
+							>
+								<svg
+									className="w-8 h-8"
+									style={{ color: 'var(--color-blue-600)' }}
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+									/>
+								</svg>
+							</div>
+							<h4
+								className="text-lg font-semibold mb-2"
+								style={{ color: 'var(--color-gray-900)' }}
+							>
+								Monitor Future Changes
+							</h4>
+							<p
+								className="mb-4 max-w-md mx-auto"
+								style={{ color: 'var(--color-gray-600)' }}
+							>
+								Stay informed about any future changes to{' '}
+								<strong>{getEntityName()}</strong>'s risk profile. Add this
+								entity to your watchlist for continuous monitoring and
+								automatic alerts.
+							</p>
+							<button
+								onClick={() =>
+									navigate('/watchlist', {
+										state: {
+											entityName: getEntityName(),
+											entityType: entityType,
+											entityData: data,
+										},
+									})
+								}
+								className="btn btn-primary"
+								style={{
+									backgroundColor: 'var(--color-blue-600)',
+									borderColor: 'var(--color-blue-600)',
+								}}
+							>
+								Add to Watchlist
+							</button>
+						</div>
+					</div>
+
 					{/* Action Buttons */}
 					<div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
 						<button
@@ -483,10 +542,11 @@ export default function Results() {
 							<div className="flex items-center space-x-3">
 								<div
 									className="w-8 h-8 rounded-lg flex items-center justify-center"
-									style={{ backgroundColor: 'var(--color-gray-900)' }}
+									style={{ backgroundColor: 'var(--text-primary)' }}
 								>
 									<svg
-										className="h-5 w-5 text-white"
+										className="h-5 w-5"
+										style={{ color: 'var(--bg-primary)' }}
 										fill="none"
 										viewBox="0 0 24 24"
 										stroke="currentColor"
@@ -501,7 +561,7 @@ export default function Results() {
 								</div>
 								<h1
 									className="text-xl font-semibold"
-									style={{ color: 'var(--color-gray-900)' }}
+									style={{ color: 'var(--text-primary)' }}
 								>
 									Background Check Results
 								</h1>
@@ -866,6 +926,65 @@ export default function Results() {
 							</div>
 						</div>
 					)}
+
+					{/* Watchlist Recommendation */}
+					<div className="card mt-6">
+						<div className="card-body text-center">
+							<div
+								className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+								style={{ backgroundColor: 'var(--color-orange-100)' }}
+							>
+								<svg
+									className="w-8 h-8"
+									style={{ color: 'var(--color-orange-600)' }}
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										d="M15 17h5l-5 5v-5zM4.828 4.828A4 4 0 015.879 4H9.5A2.5 2.5 0 0112 6.5V9M1 12l2 2 2-2m0 0l2-2-2 2zm0 0V9a2 2 0 012-2h9a2 2 0 012 2v3"
+									/>
+								</svg>
+							</div>
+							<h4
+								className="text-lg font-semibold mb-2"
+								style={{ color: 'var(--color-gray-900)' }}
+							>
+								Critical: Enable Continuous Monitoring
+							</h4>
+							<p
+								className="mb-4 max-w-md mx-auto"
+								style={{ color: 'var(--color-gray-600)' }}
+							>
+								Given the high-risk findings for{' '}
+								<strong>{getEntityName()}</strong>, it's essential to monitor
+								any changes to their status. Add this entity to your watchlist
+								for real-time alerts and updates.
+							</p>
+							<button
+								onClick={() =>
+									navigate('/watchlist', {
+										state: {
+											entityName: getEntityName(),
+											entityType: entityType,
+											entityData: data,
+											riskLevel: 'High',
+										},
+									})
+								}
+								className="btn btn-primary"
+								style={{
+									backgroundColor: 'var(--color-orange-600)',
+									borderColor: 'var(--color-orange-600)',
+								}}
+							>
+								Add to Watchlist
+							</button>
+						</div>
+					</div>
 
 					{/* Action Buttons */}
 					<div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
